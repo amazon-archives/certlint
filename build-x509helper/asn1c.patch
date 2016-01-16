@@ -1,0 +1,55 @@
+diff --git a/configure.ac b/configure.ac
+index cdfe49a..8f3acfe 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -7,17 +7,19 @@ AC_CONFIG_MACRO_DIR([m4])
+ 
+ AM_MAINTAINER_MODE
+ 
+-AM_PROG_LIBTOOL
+-
+ dnl Checks for programs.
++AM_PROG_AR
+ AC_PROG_CC
++AM_PROG_CC_C_O
+ AC_PROG_CPP
+ AC_PROG_INSTALL
+ AC_PROG_LN_S
+ AC_PROG_MAKE_SET
+ AC_PROG_YACC
+ AM_PROG_LEX
+-AC_PATH_PROG(AR, ar, ar, $PATH:/usr/ucb:/usr/ccs/bin)	dnl for Solaris
++dnl AC_PATH_PROG(AR, ar, ar, $PATH:/usr/ucb:/usr/ccs/bin)	dnl for Solaris
++
++AM_PROG_LIBTOOL
+ 
+ dnl If you need to see the details, just run make V=1.
+ m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
+diff --git a/examples/sample.makefile.regen b/examples/sample.makefile.regen
+index 50551b2..0b36657 100755
+--- a/examples/sample.makefile.regen
++++ b/examples/sample.makefile.regen
+@@ -23,7 +23,7 @@ if test -z "$ASN1PDU"	\
+ 	exit
+ fi
+ 
+-CMDOPTS="-pdu=${ASN1PDU} ${ASN1CMDOPTS} ${ASN1MODULES}"
++CMDOPTS="-pdu=all -pdu=${ASN1PDU} -fwide-types ${ASN1CMDOPTS} ${ASN1MODULES}"
+ 
+ if test -x ../../asn1c/asn1c ; then
+   echo "Compiling ${ASN1MODULES} using local compiler"
+diff --git a/examples/crfc2asn1.pl b/examples/crfc2asn1.pl
+index 0b086f6..5a57f2d 100755
+--- a/examples/crfc2asn1.pl
++++ b/examples/crfc2asn1.pl
+@@ -42,8 +42,8 @@ while(<>) {
+ 			$modName = $1;
+ 			$currentFname = $rfcid . $modName . ".asn1";
+ 			$inasn = 1;
+-		} elsif(/^[ \t]*([A-Z][A-Za-z0-9-]*).*{[ \t]*iso/
+-		|| /^[ \t]*{[ \t]*iso/) {
++		} elsif(/^[ \t]*([A-Z][A-Za-z0-9-]*).*{[ \t]*(?:joint-)?iso/
++		|| /^[ \t]*{[ \t]*(?:joint-)?iso/) {
+ 			my @a = ($_);
+ 			$modName = $1;
+ 			unless(length($modName)) {

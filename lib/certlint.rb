@@ -1,0 +1,5 @@
+require 'certlint/certlint'
+require 'certlint/cablint'
+require 'certlint/pemlint'
+require 'certlint/namelint'
+require 'certlint/generalnames'

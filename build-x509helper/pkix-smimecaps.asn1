@@ -1,0 +1,27 @@
+
+-- 
+-- ASN.1 module found by ./crfc2asn1.pl in rfc3851.txt at line 1693
+-- Excerpted by pzb@amazon.com to only contain definitions needed
+-- for SMIMECapabilities extension for rfc4262
+-- 
+
+SecureMimeMessageV3dot1
+  { iso(1) member-body(2) us(840) rsadsi(113549)
+         pkcs(1) pkcs-9(9) smime(16) modules(0) msg-v3dot1(21) }
+
+DEFINITIONS IMPLICIT TAGS ::=
+BEGIN
+
+-- S/MIME Capabilities provides a method of broadcasting the symmetric
+-- capabilities understood.  Algorithms SHOULD be ordered by
+-- preference and grouped by type
+
+smimeCapabilities OBJECT IDENTIFIER ::=
+   {iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1) pkcs-9(9) 15}
+
+SMIMECapability ::= SEQUENCE {
+   capabilityID OBJECT IDENTIFIER,
+   parameters ANY DEFINED BY capabilityID OPTIONAL }
+
+SMIMECapabilities ::= SEQUENCE OF SMIMECapability
+END
