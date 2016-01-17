@@ -26,12 +26,14 @@ module CertLint
     EMAIL_ATOM = "[A-Za-z0-9!#\$%&'*+/=?^_`{|}~-]+"
     EMAIL_LOCAL_PART = /\A(#{EMAIL_ATOM})(\.#{EMAIL_ATOM})*\z/
 
-    def self.lint(genname, allow_dnsname_wildcard = true)
+    # set expect_fqdn to true for SAN entries, false for Name Contstraints
+    def self.lint(genname, expect_fqdn = true)
       messages = []
       case genname.tag
       when 0 # OtherName
         # Sequence of oid, value
-        # oid = genname.value.first.oid
+        oid = genname.value.first.oid
+        messages << "I: No checks for OtherName type #{oid}"
         # No checks
       when 1 # RFC822Name
         orig_addr = genname.value
@@ -79,25 +81,55 @@ module CertLint
         if orig_fqdn != fqdn
           messages << 'E: DNSName is not in preferred syntax'
         end
+        # Name Constraints can start with '.'
+        if fqdn.start_with?('.')
+          if expect_fqdn
+            messages << 'E: DNSName must not start with .'
+          end
+          fqdn = fqdn[1..-1]
+        end
         unless FQDN.match(fqdn)
-          messages << 'E: DNSName is not FQDN'
+            messages << 'E: DNSName is not FQDN'
         end
         if fqdn.length > 253
           messages << 'E: FQDN in DNSName is too long'
         end
-        unless allow_dnsname_wildcard
+        unless expect_fqdn 
           if fqdn.include?('*')
             messages << 'E: Wildcard in FQDN'
           end
         end
+        if fqdn.include?('_')
+          messages << 'W: Underscore should not appear in DNS names'
+        end
       when 3 # X400Address
+        orig = genname.value
+        if orig.nil? || orig.empty?
+          messages << "E: X400Address is empty"
+          return messages # Fatal to this entry
+        end
+        messages << "I: No checks for X400Address"
       when 4 # DirectoryName
+        orig = genname.value
+        if orig.nil? || orig.empty?
+          messages << "E: DirectoryName is empty"
+          return messages # Fatal to this entry
+        end
+        messages << "I: No checks for DirectoryName"
       when 5 # EDIPartyName
+        orig = genname.value
+        if orig.nil? || orig.empty?
+          messages << "E: EDIPartyName is empty"
+          return messages # Fatal to this entry
+        end
+        messages << "I: No checks for EDIPartyName"
       when 6 # URI
         orig = genname.value
         if orig.nil? || orig.empty?
-          messages << "E: GeneralName(#{genname.tag}) is empty"
+          messages << "E: URI is empty"
+          return messages # Fatal to this entry
         end
+        messages << "I: No checks for URI"
         # No checks
       when 7 # IPAddress
         case genname.value.length
@@ -110,7 +142,9 @@ module CertLint
         orig = genname.value
         if orig.nil? || orig.empty?
           messages << 'E: RegisteredId is empty'
+          return messages # Fatal to this entry
         end
+        messages << "I: No checks for RegisteredId"
         # No checks
       else
         messages << 'E: Unknown type of name in subjectAltName'
