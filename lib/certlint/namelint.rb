@@ -179,7 +179,13 @@ module CertLint
           when 28 # UniversalString
             value = Iconv.iconv('UTF-8', 'UCS-4BE',  rdn[1])[0]
           when 20 # T.61/TeletexString
-            value = Iconv.iconv('UTF-8', 'T.61-8BIT', rdn[1])[0]
+            begin
+              value = Iconv.iconv('UTF-8', 'T.61-8BIT', rdn[1])[0]
+            rescue Iconv::InvalidEncoding
+              # OS X doesn't have T.61-8BIT, use a poor placeholder
+              # FIXME: Find a T.61-bit library that in cross platform
+              value = Iconv.iconv('UTF-8', 'ISO-8859-1', rdn[1])[0]
+            end
           else
             value = rdn[1]
           end
