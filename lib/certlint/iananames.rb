@@ -16,6 +16,9 @@ require 'rubygems'
 require 'simpleidn'
 require 'public_suffix'
 PublicSuffix::List.private_domains = false
+PublicSuffix::List.default_definition = File.new(
+  File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'data', 'public_suffix_list.dat')),
+  "r:utf-8")
 
 module CertLint
   class IANANames
@@ -30,8 +33,10 @@ module CertLint
       # ICANN's new gtlds list (some new gtlds are approved
       # but not yet in the root zone)
 
+      datadir = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'data'))
+
       # from https://newgtlds.icann.org/newgtlds.csv
-      File.open('../../data/newgtlds.csv', 'r:utf-8') do |f|
+      File.open(File.join(datadir,'newgtlds.csv'), 'r:utf-8') do |f|
         lineno = 0
         f.each_line do |l|
           lineno += 1
@@ -43,7 +48,7 @@ module CertLint
       end
 
       # from http://www.internic.net/domain/root.zone
-      File.open('../../data/root.zone') do |f|
+      File.open(File.join(datadir,'root.zone')) do |f|
         f.each_line do |l|
           owner = l.split(/\s+/).first.downcase
           tld = owner.split('.').last
@@ -53,7 +58,7 @@ module CertLint
       end
 
       # from http://www.iana.org/assignments/special-use-domain-names/special-use-domain.csv
-      File.open('../../data/special-use-domain.csv') do |f|
+      File.open(File.join(datadir, 'special-use-domain.csv')) do |f|
         lineno = 0
         f.each_line do |l|
           lineno += 1
@@ -67,7 +72,6 @@ module CertLint
           spec_domains[dom] = true
         end
       end
-      pp @iana_tlds
       @special_domains = spec_domains.keys.sort.map { |d| '.' + d }
     end
 
