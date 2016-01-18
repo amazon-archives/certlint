@@ -123,7 +123,7 @@ module CertLint
         messages << 'W: Domain is bare public suffix'
       end
       unless d.nil?
-        if d.sld.include? '*'
+        if !d.sld.nil? && d.sld.include?('*')
           messages << 'E: Wildcard to immediate left of public suffix'
         end
         if d.domain.include? '_'
