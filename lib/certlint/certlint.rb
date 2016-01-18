@@ -219,13 +219,16 @@ module CertLint
             messages << 'E: Invalid UTF-8 sequence'
             unrecoverable_error = true
           end
-          if value.include? "\0"
+          if value.bytes.include? 0
             messages << 'E: Null byte found in UTF8String'
           end
-        elsif (tag_class == :UNIVERSAL) && ([19, 22, 18, 36, 20].include? tag)
-          # Printable, IA5, Numeric, Visible, Teletex String
-          if value.include? "\0"
+        elsif (tag_class == :UNIVERSAL) && ([19, 22, 18, 26, 20, 21, 25, 27].include? tag)
+          # Printable, IA5, Numeric, Visible, Teletex, Videotex, Graphic, General String
+          if value.bytes.include? 0
             messages << 'E: Null byte found in String'
+          end
+          if value.bytes.include? 27
+            messages << 'W: Escape found in String'
           end
         end
       end
