@@ -126,7 +126,7 @@ module CertLint
         if !d.sld.nil? && d.sld.include?('*')
           messages << 'E: Wildcard to immediate left of public suffix'
         end
-        if d.domain.include? '_'
+        if !d.domain.nil? && d.domain.include?('_')
           messages << 'W: Underscore in base domain'
         end
       end
