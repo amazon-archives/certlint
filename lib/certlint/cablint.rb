@@ -334,23 +334,23 @@ module CertLint
       messages
     end
   end
-  end
+end
 
-  if __FILE__ == $PROGRAM_NAME
-    ARGV.each do |file|
-      fn = File.basename(file)
-      raw = File.read(file)
+if __FILE__ == $PROGRAM_NAME
+  ARGV.each do |file|
+    fn = File.basename(file)
+    raw = File.read(file)
 
-      if raw.include? '-BEGIN CERTIFICATE-'
-        m, der = PEMLint.lint(raw, 'CERTIFICATE')
-      else
-        m  = []
-        der = raw
-      end
-
-      m += CABLint.lint(der)
-      m.each do |msg|
-        puts "#{msg}\t#{fn}"
-      end
+    if raw.include? '-BEGIN CERTIFICATE-'
+      m, der = PEMLint.lint(raw, 'CERTIFICATE')
+    else
+      m  = []
+      der = raw
     end
+
+    m += CABLint.lint(der)
+    m.each do |msg|
+      puts "#{msg}\t#{fn}"
+    end
+  end
 end
