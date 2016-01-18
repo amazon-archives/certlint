@@ -15,7 +15,6 @@
 require 'rubygems'
 require 'open4'
 require 'openssl'
-require 'iconv'
 
 require_relative 'namelint'
 require_relative 'certextlint'
@@ -91,14 +90,48 @@ module CertLint
     end
     content.force_encoding('BINARY')
 
-    x, o, _e = x509helper("-c -p #{pdu} -oder -", content)
+    x, der, _e = x509helper("-c -p #{pdu} -oder -", content)
     if x == 0
-      o.force_encoding('BINARY')
-      unless o == content
+      der.force_encoding('BINARY')
+      unless der == content
         messages << "W: NotDER #{pdu}"
       end
     else
       messages << "F: ASN.1 Error in #{pdu}"
+      return messages # ASN.1 error is fatal
+    end
+
+    # Check strings for things that asn1c does not cover in constraints
+    # This includes:
+    # - Null bytes
+    # - Escape sequences in restricted character strings
+    begin
+      OpenSSL::ASN1.traverse(der) do |_depth, offset, header_len, length, _constructed, tag_class, tag|
+        start_c = offset + header_len
+        end_c = start_c + length
+        value = der[start_c..end_c - 1]
+        if (tag_class == :UNIVERSAL) && (tag == 12) # UTF8String
+          unless value.force_encoding('UTF-8').valid_encoding?
+            messages << 'E: Incorrectly encoded UTF-8 string'
+          end
+          if value.bytes.include? 0
+            messages << 'E: Null byte found in UTF8String'
+          end
+        elsif (tag_class == :UNIVERSAL) && ([22, 26, 20, 21, 25, 27].include? tag)
+          # IA5, Visible, Teletex, Videotex, Graphic, General String
+          if value.bytes.include? 0
+            messages << 'E: Null byte found in String'
+          end
+          if value.bytes.include? 27
+            messages << 'W: Escape found in String'
+          end
+        end
+      end
+    rescue TypeError => e
+      # OpenSSL throws an error for certain GeneralTimes
+      # that it cannot parse (they are valid ASN.1)
+      messages << "F: traverse #{e.message}"
+      return messages # ASN.1 error is fatal
     end
     messages
   end
@@ -175,72 +208,42 @@ module CertLint
     # visible once parsed into a certificate object
     messages += check_pdu(:Certificate, der)
 
-    # Ensure that we bail on primary ASN.1 errors
-    if messages.any? { |m| m.include? 'ASN.1 Error' }
+    # Ensure that we bail on fatal errors
+    if messages.any? { |m| m.start_with? 'F:' }
       return messages
     end
 
-    unrecoverable_error = false
-    begin
-      OpenSSL::ASN1.traverse(der) do |_depth, offset, header_len, length, _constructed, tag_class, tag|
-        start_c = offset + header_len
-        end_c = start_c + length
-        value = der[start_c..end_c - 1]
-        if (tag_class == :UNIVERSAL) && (tag == 23 || tag == 24) # UTCTime || GeneralizedTime
-          # RFC 5280 4.1.2.5: times must be in Z (GMT)
-          unless value =~ /Z\z/
-            messages << 'E: Time not in Zulu/GMT'
-          end
-          if tag == 23 # UTCTime
-            if (value[0..1] >= '50') && (value[0..1] < '69')
-              # Ruby uses (x < 69)?2000:1900, but
-              # RFC 5280 says (x < 50)?2000:1900
-              messages << 'W: Possibly ambigious time'
-            end
-            # RFC 5280 4.1.2.5.1: UTCTime MUST include seconds, even when 00
-            if value !~ /\A([0-9]{2})([01][0-9])([0-3][0-9])([012][0-9])([0-5][0-9]){2}Z\z/
-              messages << 'E: UTCTime without seconds'
-            end
-          else # Generalized Time (tag == 24)
-            if value[0..3] < '2050'
-              messages << 'E: Generalized Time before 2050'
-            end
-            if value !~ /\A([0-9]{4})([01][0-9])([0-3][0-9])([012][0-9])([0-5][0-9]){2}Z\z/
-              messages << 'E: Generalized Time without seconds or with fractional seconds'
-            end
-          end
-        elsif (tag_class == :UNIVERSAL) && (tag == 12) # UTF8String
-          begin
-            utfstr = Iconv.iconv('UTF-8', 'UTF-8', value)[0]
-            if utfstr.bytes != value.bytes
-              messages << 'E: Incorrectly encoded UTF-8 string'
-            end
-          rescue Iconv::IllegalSequence
-            messages << 'E: Invalid UTF-8 sequence'
-            unrecoverable_error = true
-          end
-          if value.bytes.include? 0
-            messages << 'E: Null byte found in UTF8String'
-          end
-        elsif (tag_class == :UNIVERSAL) && ([19, 22, 18, 26, 20, 21, 25, 27].include? tag)
-          # Printable, IA5, Numeric, Visible, Teletex, Videotex, Graphic, General String
-          if value.bytes.include? 0
-            messages << 'E: Null byte found in String'
-          end
-          if value.bytes.include? 27
-            messages << 'W: Escape found in String'
-          end
+    # Check time fields
+    OpenSSL::ASN1.traverse(der) do |_depth, offset, header_len, length, _constructed, tag_class, tag|
+      start_c = offset + header_len
+      end_c = start_c + length
+      value = der[start_c..end_c - 1]
+      if (tag_class == :UNIVERSAL) && (tag == 23) # UTCTimee
+        # RFC 5280 4.1.2.5: times must be in Z (GMT)
+        unless value =~ /Z\z/
+          messages << 'E: Time not in Zulu/GMT'
+        end
+        if (value[0..1] >= '50') && (value[0..1] < '69')
+          # Ruby uses (x < 69)?2000:1900, but
+          # RFC 5280 says (x < 50)?2000:1900
+          messages << 'W: Possibly ambigious time'
+        end
+        # RFC 5280 4.1.2.5.1: UTCTime MUST include seconds, even when 00
+        if value !~ /\A([0-9]{2})([01][0-9])([0-3][0-9])([012][0-9])([0-5][0-9]){2}Z\z/
+          messages << 'E: UTCTime without seconds'
+        end
+      elsif (tag_class == :UNIVERSAL) && (tag == 24) # Generalized Time
+        # RFC 5280 4.1.2.5: times must be in Z (GMT)
+        unless value =~ /Z\z/
+          messages << 'E: Time not in Zulu/GMT'
+        end
+        if value[0..3] < '2050'
+          messages << 'E: Generalized Time before 2050'
+        end
+        if value !~ /\A([0-9]{4})([01][0-9])([0-3][0-9])([012][0-9])([0-5][0-9]){2}Z\z/
+          messages << 'E: Generalized Time without seconds or with fractional seconds'
         end
       end
-    rescue TypeError => e
-      # OpenSSL throws an error for certain GeneralTimes
-      # that it cannot parse (they are valid ASN.1)
-      unrecoverable_error = true
-      messages << "E: traverse #{e.message}"
-    end
-
-    if unrecoverable_error
-      return messages
     end
 
     begin

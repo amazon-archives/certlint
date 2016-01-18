@@ -158,36 +158,36 @@ module CertLint
             if rdn[1] !~ PRINTABLE_CHARS
               messages << "E: #{rdn[0]} has invalid characters for type"
             end
-            value = Iconv.iconv('UTF-8', 'ISO-8859-1', rdn[1])[0]
+            value = rdn[1].force_encoding('ISO-8859-1').encode('UTF-8')
           when 22
             if rdn[1] !~ IA5_CHARS
               messages << "E: #{rdn[0]} has invalid characters for type"
             end
-            value = Iconv.iconv('UTF-8', 'ISO-8859-1', rdn[1])[0]
+            value = rdn[1].force_encoding('ISO-8859-1').encode('UTF-8')
           when 18
             if rdn[1] !~ /\A[0-9 ]*\z/
               messages << "E: #{rdn[0]} has invalid characters for type"
             end
-            value = Iconv.iconv('UTF-8', 'ISO-8859-1', rdn[1])[0]
+            value = rdn[1].force_encoding('ISO-8859-1').encode('UTF-8')
           when 36
 
             if rdn[1] !~ /\A[\x20-\x7e]*\z/
               messages << "E: #{rdn[0]} has invalid characters for type"
             end
-            value = Iconv.iconv('UTF-8', 'ISO-8859-1', rdn[1])[0]
+            value = rdn[1].force_encoding('ISO-8859-1').encode('UTF-8')
           when 12 # UTF-8
             value = rdn[1].force_encoding('UTF-8')
           when 30 # BMPString
-            value = Iconv.iconv('UTF-8', 'UCS-2BE',  rdn[1])[0]
+            value = rdn[1].force_encoding('UTF-16BE').encode('UTF-8')
           when 28 # UniversalString
-            value = Iconv.iconv('UTF-8', 'UCS-4BE',  rdn[1])[0]
+            value = rdn[1].force_encoding('UTF-32BE').encode('UTF-8')
           when 20 # T.61/TeletexString
             begin
               value = Iconv.iconv('UTF-8', 'T.61-8BIT', rdn[1])[0]
             rescue Iconv::InvalidEncoding
               # OS X doesn't have T.61-8BIT, use a poor placeholder
-              # FIXME: Find a T.61-bit library that in cross platform
-              value = Iconv.iconv('UTF-8', 'ISO-8859-1', rdn[1])[0]
+              # FIXME: Find a T.61-bit library that is cross platform
+              value = rdn[1].force_encoding('ISO-8859-1').encode('UTF-8')
             end
           else
             value = rdn[1]
