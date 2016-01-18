@@ -86,6 +86,9 @@ module CertLint
       '1.3.6.1.4.1.311.60.2.1.1' => [:DirectoryString, 128], # jurisdictionOfIncorporationLocalityName
       '1.3.6.1.4.1.311.60.2.1.2' => [:DirectoryString, 128], # jurisdictionOfIncorporationStateOrProvinceName
       '1.3.6.1.4.1.311.60.2.1.3' => :Country, # jurisdictionOfIncorporationCountryName
+      'jurisdictionL' => [:DirectoryString, 128], # OpenSSL 1.0.2 name
+      'jurisdictionST' => [:DirectoryString, 128], # OpenSSL 1.0.2 name
+      'jurisdictionC' => :Country, # OpenSSL 1.0.2 name
     }
 
     # List of attributes that are known deprecated

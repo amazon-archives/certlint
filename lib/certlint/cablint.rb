@@ -175,7 +175,7 @@ module CertLint
       end
       subjattrs = c.subject.to_a.map { |a| a[0] }.uniq
 
-      if subjattrs.include? '1.3.6.1.4.1.311.60.2.1.3'
+      if subjattrs.include?('1.3.6.1.4.1.311.60.2.1.3') || subjattrs.include?('jurisdictionC')
         # EV
         messages << 'I: EV certificate identified'
         cert_type_identified = true
@@ -214,7 +214,7 @@ module CertLint
           months += 1
         end
 
-        if subjattrs.include? '1.3.6.1.4.1.311.60.2.1.3'
+        if subjattrs.include?('1.3.6.1.4.1.311.60.2.1.3') || subjattrs.include?('jurisdictionC')
           # EV
           if months > 27
             messages << 'E: EV certificates must be 27 months in validity or less'
