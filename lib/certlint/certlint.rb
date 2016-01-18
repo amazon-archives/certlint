@@ -94,7 +94,7 @@ module CertLint
     if x == 0
       der.force_encoding('BINARY')
       unless der == content
-        messages << "W: NotDER #{pdu}"
+        messages << "W: NotDER in #{pdu}"
       end
     else
       messages << "F: ASN.1 Error in #{pdu}"
@@ -112,25 +112,25 @@ module CertLint
         value = der[start_c..end_c - 1]
         if (tag_class == :UNIVERSAL) && (tag == 12) # UTF8String
           unless value.force_encoding('UTF-8').valid_encoding?
-            messages << 'E: Incorrectly encoded UTF-8 string'
+            messages << "E: Incorrectly encoded UTF8String in #{pdu} at offset #{offset}"
           end
           if value.bytes.include? 0
-            messages << 'E: Null byte found in UTF8String'
+            messages << "E: Null byte found in UTF8String in #{pdu} at offset #{offset}"
           end
         elsif (tag_class == :UNIVERSAL) && ([22, 26, 20, 21, 25, 27].include? tag)
           # IA5, Visible, Teletex, Videotex, Graphic, General String
           if value.bytes.include? 0
-            messages << 'E: Null byte found in String'
+            messages << "E: Null byte found in String in #{pdu} at offset #{offset}"
           end
           if value.bytes.include? 27
-            messages << 'W: Escape found in String'
+            messages << "W: Escape found in String in #{pdu} at offset #{offset}"
           end
         end
       end
     rescue TypeError => e
       # OpenSSL throws an error for certain GeneralTimes
       # that it cannot parse (they are valid ASN.1)
-      messages << "F: traverse #{e.message}"
+      messages << "F: traverse #{e.message} in #{pdu}"
       return messages # ASN.1 error is fatal
     end
     messages
