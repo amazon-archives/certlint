@@ -27,12 +27,12 @@ class ASN1Ext
     end
     if @critical_req != :optional
       if @critical_req != critical
-        messages << "E: Extension criticality not allowed for #{self}"
+        messages << "E: Extension criticality not allowed for #{self.to_s.split(':').last}"
       end
     end
     unless @critical_should.nil?
       if @critical_should != critical
-        messages << "W: Extension should#{@critical_should ? '' : ' not'} be critical for #{self}"
+        messages << "W: Extension should#{@critical_should ? '' : ' not'} be critical for #{self.to_s.split(':').last}"
       end
     end
 
