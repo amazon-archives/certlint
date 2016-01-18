@@ -196,7 +196,7 @@ module CertLint
         end
       end
 
-      if eku.empty? || eku.include?('TLS Web Server Authentication')
+      if eku.empty? || eku.include?('TLS Web Server Authentication') || eku.include?('Any Extended Key Usage')
         messages << 'I: TLS Server certificate identified'
         cert_type_identified = true
         # OK, we have a "SSL" certificate
@@ -204,6 +204,8 @@ module CertLint
         eku.delete('TLS Web Server Authentication')
         eku.delete('TLS Web Client Authentication')
         eku.delete('E-mail Protection')
+        # Also implicitly allowed
+        eku.delete('Any Extended Key Usage')
         eku.each do |e|
           messages << "W: TLS Server auth certificates should not contain #{e} usage"
         end
