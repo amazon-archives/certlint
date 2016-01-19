@@ -243,6 +243,9 @@ module CertLint
               messages << "W: #{rdn[0]} should be type #{ASN1_TYPES[12]}"
             end
           end
+          if rdn[2] == 12 && value =~ PRINTABLE_CHARS
+            messages << "N: #{rdn[0]} could be encoded as #{ASN1_TYPES[19]}"
+          end
         when :IA5String
           if rdn[2] != 22
             messages << "E: #{rdn[0]} must be IA5String"

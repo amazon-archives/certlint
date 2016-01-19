@@ -226,7 +226,7 @@ module CertLint
         if (value[0..1] >= '50') && (value[0..1] < '69')
           # Ruby uses (x < 69)?2000:1900, but
           # RFC 5280 says (x < 50)?2000:1900
-          messages << 'W: Possibly ambigious time'
+          messages << 'N: Ruby may incorrectly interpret UTCTimes between 1950 and 1969'
         end
         # RFC 5280 4.1.2.5.1: UTCTime MUST include seconds, even when 00
         if value !~ /\A([0-9]{2})([01][0-9])([0-3][0-9])([012][0-9])([0-5][0-9]){2}Z\z/
@@ -352,7 +352,7 @@ module CertLint
 
       if first
         if oid == '2.5.29.17' # SubjectAltName
-          messages << 'W: Some python versions will not see SAN extension if it is the first extension'
+          messages << 'N: Some python versions will not see SAN extension if it is the first extension'
         end
         first = false
       end
