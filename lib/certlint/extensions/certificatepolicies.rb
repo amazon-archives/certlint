@@ -14,6 +14,15 @@
 # permissions and limitations under the License.
 require_relative 'asn1ext'
 
+# Try loading unf if we don't have native methods
+unless String.method_defined?(:unicode_normalize) || String.method_defined?(:to_nfc)
+  begin
+    require 'unf'
+  rescue LoadError
+    # Continue without unf
+  end
+end
+
 module CertLint
 class ASN1Ext
   class CertificatePolicies < ASN1Ext
@@ -52,7 +61,44 @@ class ASN1Ext
           when '1.3.6.1.5.5.7.2.1'
             messages += CertLint.check_pdu(:CPSuri, q)
           when '1.3.6.1.5.5.7.2.2'
-            messages += CertLint.check_pdu(:UserNotice, q)
+            new_messages = CertLint.check_pdu(:UserNotice, q)
+            messages += new_messages
+            if new_messages.any? { |m| m.start_with? 'F:' }
+              next
+            end
+            user_notice = pqi.value[1].value
+            if user_notice[0].is_a? OpenSSL::ASN1::Sequence
+              # noticeRef
+              messages << 'W: Certificate Policies should not contain notice references'
+              user_notice.shift
+            end
+            if user_notice[0].nil?
+              next
+            end
+            # user_notice[0] is explicitText
+            if user_notice[0].tag == 30 || user_notice[0].tag == 26 # BMPString || VisibleString
+              messages << 'E: Certificate Policy explict text must not be VisibleString or BMPString'
+            elsif user_notice[0].tag == 12 # UTF8String
+              txt = user_notice[0].value.force_encoding('UTF-8')
+              txt_nfc = nil
+              if txt.respond_to? :unicode_normalize
+                txt_nfc = txt.unicode_normalize(:nfc)
+              elsif txt.respond_to? :to_nfc
+                txt_nfc = txt.to_nfc
+              end
+              if txt_nfc.nil?
+                messages << 'W: Unable to check unicode normalization of certificate policy explicit text'
+              elsif txt != txt_nfc
+                messages << 'W: Certificate policy explicit text should be in unicode normalization form C'
+              end
+              if txt.codepoints.any? { |c| (c >= 0x00 && c <= 0x1f) || (c >= 0x7f && c <= 0x9f) }
+                messages << 'W: Certificate policy explicit text should not contain control characters'
+              end
+            elsif user_notice[0].tag == 22 # IA5String
+              if user_notice[0].value.codepoints.any? { |c| (c >= 0x00 && c <= 0x1f) || (c >= 0x7f && c <= 0x9f) }
+                messages << 'W: Certificate policy explicit text should not contain control characters'
+              end
+            end
           else
             messages << 'E: Bad policy qualifier id'
           end
