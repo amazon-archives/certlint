@@ -236,13 +236,12 @@ module CertLint
           end
           if (rdn[2] != 12) && (rdn[2] != 19)
             messages << "W: #{rdn[0]} is using deprecated #{ASN1_TYPES[rdn[2]]}"
-          end
-          ideal = 12 # UTF-8
-          if value =~ PRINTABLE_CHARS
-            ideal = 19 # PrintableString
-          end
-          if rdn[2] != ideal
-            messages << "W: #{rdn[0]} should be type #{ASN1_TYPES[ideal]}"
+            # If only printable characters offer either Printable or UTF8, otherwise just UTF8
+            if value =~ PRINTABLE_CHARS
+              messages << "W: #{rdn[0]} should be type #{ASN1_TYPES[19]} or #{ASN1_TYPES[12]}"
+            else
+              messages << "W: #{rdn[0]} should be type #{ASN1_TYPES[12]}"
+            end
           end
         when :IA5String
           if rdn[2] != 22
