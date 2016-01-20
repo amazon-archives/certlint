@@ -38,7 +38,11 @@ entry = ARGV[1].to_i
 
 ct = CertLint::CT.new(log_url)
 ct.get_entries(entry, entry).each do |e|
-  der = e['leaf_input'].raw_certificate
+  if e['leaf_input'].entry_type == 0
+    der = e['leaf_input'].raw_certificate
+  else
+    der = e['extra_data'].pre_certificate.raw_certificate 
+  end
   m = CertLint::CABLint.lint(der)
   m.each do |msg|
     puts "#{msg}\tCT:#{entry}"
