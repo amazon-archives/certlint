@@ -16,11 +16,15 @@ require_relative 'asn1ext'
 
 module CertLint
 class ASN1Ext
-  class SignedCertificateTimestampList < ASN1Ext
+  class CTPoison < ASN1Ext
     def self.lint(content, cert, critical = false)
       messages = []
-      if critical
-        messages << 'E: SignedCertificateTimestampList must not be critical'
+      messages << 'I: Certificate Transparency Precertificate identified'
+      unless critical
+        messages << 'E: CT Poison must be critical'
+      end
+      unless content.bytes == [5, 0]
+        messages << 'E: CT Poison must contain a single null'
       end
       messages
     end
@@ -28,4 +32,4 @@ class ASN1Ext
 end
 end
 
-CertLint::CertExtLint.register_handler('1.3.6.1.4.1.11129.2.4.2', CertLint::ASN1Ext::SignedCertificateTimestampList)
+CertLint::CertExtLint.register_handler('1.3.6.1.4.1.11129.2.4.3', CertLint::ASN1Ext::CTPoison)
