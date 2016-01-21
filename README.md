@@ -12,6 +12,8 @@ certlint is currently at version 0.0.1.  It does not yet build as a gem.  For no
 * simpleidn
 * iconv
 
+If using less than Ruby 2.3, you also need the `unf` gem.
+
 ## Building certlint-x509helper
 
 certlint requires that the program certlint-x509helper be in your path and executable.
