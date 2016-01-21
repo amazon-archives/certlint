@@ -128,10 +128,13 @@ module CertLint
           end
         end
       end
+    rescue OpenSSL::ASN1::ASN1Error => e
+      messages << "F: ASN1 Error during traverse #{e.message} in #{pdu}"
+      return messages # ASN.1 error is fatal
     rescue TypeError => e
       # OpenSSL throws an error for certain GeneralTimes
       # that it cannot parse (they are valid ASN.1)
-      messages << "F: traverse #{e.message} in #{pdu}"
+      messages << "F: Type Error during traverse #{e.message} in #{pdu}"
       return messages # ASN.1 error is fatal
     end
     messages
