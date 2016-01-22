@@ -92,7 +92,7 @@ class ASN1Ext
                 messages << 'W: Certificate policy explicit text should not contain control characters'
               end
             elsif user_notice[0].tag == 22 # IA5String
-              messages << 'E: Certificate Policy explict text must not be IA5String'
+              messages << 'E: Certificate Policy explicit text must not be IA5String'
             end
           else
             messages << 'E: Bad policy qualifier id'
