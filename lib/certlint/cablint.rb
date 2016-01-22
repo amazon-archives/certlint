@@ -314,16 +314,17 @@ module CertLint
               end
               messages += CertLint::IANANames.lint(p[1]).map { |m| m + ' in SAN' }
             end
-            if names.include? p[1]
+            nameval = p[1].downcase
+            if names.include? nameval
               messages << 'E: Duplicate SAN entry'
             else
-              names << p[1]
+              names << nameval
             end
           end
           san = names
         end
         c.subject.to_a.select { |rdn| rdn[0] == 'CN' }.map { |rdn| rdn[1] }.each do |val|
-          unless san.include? val
+          unless san.include? val.downcase
             messages << 'E: commonNames in BR certificates must be from SAN entries'
           end
         end

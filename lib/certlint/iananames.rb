@@ -81,6 +81,10 @@ module CertLint
       end
       messages = []
 
+      # FQDNs are case insensitive
+      # Normalize to lower case
+      fqdn.downcase!
+
       # We can't do much with domains that are not fqdns
       unless fqdn.include? '.'
         messages << 'W: Unqualified domain name'
