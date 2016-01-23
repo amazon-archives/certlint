@@ -74,7 +74,7 @@ class ASN1Ext
             # See RFC 6818 section 3 which updates RFC 5280
             # user_notice[0] is explicitText
             if user_notice[0].tag == 12 || user_notice[0].tag == 30 # UTF8String || BMPString
-              if usernotice[0].tag == 12
+              if user_notice[0].tag == 12
                 txt = user_notice[0].value.force_encoding('UTF-8')
               else
                 txt = user_notice[0].value.force_encoding('UTF-16BE').encode('UTF-8')
