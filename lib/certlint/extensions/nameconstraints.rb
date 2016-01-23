@@ -25,12 +25,23 @@ class ASN1Ext
       messages = []
       messages += super(content, cert, critical)
       # Content is a SEQUENCE of GeneralSubtrees which is tagged
+      # X.509 says "At least one of permittedSubtrees and excludedSubtrees components shall be present."
+      subtrees = 0
       OpenSSL::ASN1.decode(content).value.each do |subtree_parent|
+        subtrees += 1
+        at_least_one = false
         subtrees = subtree_parent.value
         subtrees.each do |subtree|
+          at_least_one = true
           genname = subtree.value.first
           messages += CertLint::GeneralNames.lint(genname, false)
         end
+        unless at_least_one
+          messages << 'E: NameConstriants must contain at least one subtree'
+        end
+      end
+      if subtrees == 0
+        messages << 'E: NameConstraints must include either permitted or excluded Subtrees'
       end
       messages
     end

@@ -33,8 +33,13 @@ class ASN1Ext
         end
       end
       # Content is a SEQUENCE of GeneralName (which is explicitly tagged)
+      at_least_one = false
       OpenSSL::ASN1.decode(content).value.each do |genname|
+          at_least_one = true
           messages += CertLint::GeneralNames.lint(genname)
+      end
+      unless at_least_one
+        messages << 'E: subjectAltName extension must include at least one name'
       end
       messages
     end

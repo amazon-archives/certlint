@@ -14,6 +14,7 @@
 # permissions and limitations under the License.
 require 'rubygems'
 require 'openssl'
+require 'ipaddr'
 require_relative 'certlint'
 require_relative 'iananames'
 require_relative 'pemlint'
@@ -295,26 +296,58 @@ module CertLint
           san = []
         else
           names = []
-          san.value.split(',').map(&:strip).each do |genname|
-            p = genname.split(':', 2)
-            if (p[0] != 'DNS') && (p[0] != 'IP Address')
-              messages << "E: BR certificates may not contain #{p[0]} type alternative names"
-            end
-            if p[0] == 'DNS'
-              if p[1].include? '*'
-                x = p[1].split('.', 2)
+          # See certlint.rb and asn1ext.rb to sort out the next two lines
+          # This gets the extnValue (which is DER)
+          der = OpenSSL::ASN1.decode(san.to_der).value.last.value
+          # Now decode the extnValue to get a sequence of general names
+          OpenSSL::ASN1.decode(der).each do |genname|
+            nameval = nil
+            case genname.tag
+            when 0
+              messages << 'E: BR certificates may not contain otherName type alternative name'
+              next
+            when 1
+              messages << 'E: BR certificates may not contain rfc822Name type alternative name'
+              next
+            when 2
+              val = genname.value
+              if val.include? '*'
+                x = val.split('.', 2)
                 if (x.length > 1) && (x[1].include? '*')
                   messages << 'E: Wildcard not in first label of FQDN'
                 elsif x.length == 1
                   messages << 'E: Bare wildcard'
                 end
-                unless p[1].start_with? '*.'
+                unless val.start_with? '*.'
                   messages << 'W: Wildcard other than *.<fqdn> in SAN'
                 end
               end
-              messages += CertLint::IANANames.lint(p[1]).map { |m| m + ' in SAN' }
+              messages += CertLint::IANANames.lint(val).map { |m| m + ' in SAN' }
+              nameval = val.downcase
+            when 3
+              messages << 'E: BR certificates may not contain x400Address type alternative name'
+              next
+            when 4
+              messages << 'E: BR certificates may not contain directoryName type alternative name'
+              next
+            when 5
+              messages << 'E: BR certificates may not contain ediPartyName type alternative name'
+              next
+            when 6
+              messages << 'E: BR certificates may not contain uniformResourceIdentifier type alternative name'
+              next
+            when 7
+              if genname.value.length == 4 || genname.value.length == 16
+                n = IPAddr.new_ntoh(genname.value)
+                nameval = n.to_s.downcase
+              else
+                # Certlint already added an error for wrong size, so just skip here
+                next
+              end
+            when 8
+              messages << 'E: BR certificates may not contain registeredID type alternative name'
+              next
             end
-            nameval = p[1].downcase
             if names.include? nameval
               messages << 'E: Duplicate SAN entry'
             else

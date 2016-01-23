@@ -26,8 +26,8 @@ module CertLint
     EMAIL_ATOM = "[A-Za-z0-9!#\$%&'*+/=?^_`{|}~-]+"
     EMAIL_LOCAL_PART = /\A(#{EMAIL_ATOM})(\.#{EMAIL_ATOM})*\z/
 
-    # set expect_fqdn to true for SAN entries, false for Name Contstraints
-    def self.lint(genname, expect_fqdn = true)
+    # set is_san to true for SubjectAltName entries, false for Name Contstraints
+    def self.lint(genname, is_san = true)
       messages = []
       case genname.tag
       when 0 # OtherName
@@ -83,7 +83,7 @@ module CertLint
         end
         # Name Constraints can start with '.'
         if fqdn.start_with?('.')
-          if expect_fqdn
+          if is_san
             messages << 'E: DNSName must not start with .'
           end
           fqdn = fqdn[1..-1]
@@ -94,7 +94,7 @@ module CertLint
         if fqdn.length > 253
           messages << 'E: FQDN in DNSName is too long'
         end
-        unless expect_fqdn 
+        unless is_san
           if fqdn.include?('*')
             messages << 'E: Wildcard in FQDN'
           end
@@ -132,11 +132,15 @@ module CertLint
         messages << "I: No checks for URI"
         # No checks
       when 7 # IPAddress
-        case genname.value.length
-        when 4, 16 # IPv4, IPv6
-          # n = IPAddr.new_ntoh(genname.value)
-        else
-          messages << 'E: Invalid IP addess in SAN'
+        len = genname.value.length
+        if is_san
+          unless len == 4 || len == 16
+            messages << 'E: Invalid IP address in SAN'
+          end
+        else # constraint
+          unless len == 8 || len == 32
+            messages << 'E: Invalid IP address in constraint'
+          end
         end
       when 8 # RegisteredId
         orig = genname.value
