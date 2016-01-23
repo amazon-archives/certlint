@@ -14,8 +14,6 @@
 # permissions and limitations under the License.
 require 'rubygems'
 require 'openssl'
-gem 'iconv'
-require 'iconv'
 
 module CertLint
   # Validate DirectoryNames
@@ -182,22 +180,17 @@ module CertLint
           when 28 # UniversalString
             value = rdn[1].force_encoding('UTF-32BE').encode('UTF-8')
           when 20 # T.61/TeletexString
-            begin
-              value = Iconv.iconv('UTF-8', 'T.61-8BIT', rdn[1])[0]
-            rescue Iconv::InvalidEncoding
-              # OS X doesn't have T.61-8BIT, use a poor placeholder
-              # FIXME: Find a T.61-bit library that is cross platform
-              value = rdn[1].force_encoding('ISO-8859-1').encode('UTF-8')
+            # According to X.690, 8.23.5.2, the default charset is 102
+            # An escape is required to change it
+            value = rdn[1].force_encoding('BINARY')
+            if value.codepoints.any? { |p| p == 0x1b }
+              messages << "B: #{rdn[0]} includes an escape sequence which is not handled"
+            elsif !value.bytes.all? { |b| (b >= 0x20 && b <= 0x5B) || b == 0x5D || b == 0x5F || (b >= 0x61 && b <= 0x7A) || b == 0x7C }
+              messages << "E: #{rdn[0]} contains characters not compatible with teletexString"
             end
           else
             value = rdn[1]
           end
-        rescue Iconv::IllegalSequence => e
-          messages << "E: #{rdn[0]} contains characters not compatible with type"
-          value = rdn[1]
-        rescue Iconv::InvalidCharacter => e
-          messages << "E: #{rdn[0]} contains a character not compatible with type"
-          value = rdn[1]
         end
 
         # Measured in characters not octets
