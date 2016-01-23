@@ -148,31 +148,30 @@ module CertLint
         end
 
         begin
-          # Covent strings to UTF8
+          # Convert strings to UTF8
           case rdn[2]
           # first four: Printable, IA5, Numeric, Visible String
           # These should all be 7-bit, but convert to ensure
           when 19
-            if rdn[1] !~ PRINTABLE_CHARS
-              messages << "E: #{rdn[0]} has invalid characters for type"
-            end
             value = rdn[1].force_encoding('ISO-8859-1').encode('UTF-8')
+            if value !~ PRINTABLE_CHARS
+              messages << "E: #{rdn[0]} has invalid characters for PrintableString"
+            end
           when 22
-            if rdn[1] !~ IA5_CHARS
-              messages << "E: #{rdn[0]} has invalid characters for type"
-            end
             value = rdn[1].force_encoding('ISO-8859-1').encode('UTF-8')
+            if value !~ IA5_CHARS
+              messages << "E: #{rdn[0]} has invalid characters for IA5String"
+            end
           when 18
-            if rdn[1] !~ /\A[0-9 ]*\z/
-              messages << "E: #{rdn[0]} has invalid characters for type"
-            end
             value = rdn[1].force_encoding('ISO-8859-1').encode('UTF-8')
-          when 36
-
-            if rdn[1] !~ /\A[\x20-\x7e]*\z/
-              messages << "E: #{rdn[0]} has invalid characters for type"
+            if value !~ /\A[0-9 ]*\z/
+              messages << "E: #{rdn[0]} has invalid characters for NumericString"
             end
+          when 26
             value = rdn[1].force_encoding('ISO-8859-1').encode('UTF-8')
+            if value !~ /\A[\x20-\x7e]*\z/
+              messages << "E: #{rdn[0]} has invalid characters for VisibleString"
+            end
           when 12 # UTF-8
             value = rdn[1].force_encoding('UTF-8')
           when 30 # BMPString
@@ -186,7 +185,7 @@ module CertLint
             if value.codepoints.any? { |p| p == 0x1b }
               messages << "B: #{rdn[0]} includes an escape sequence which is not handled"
             elsif !value.bytes.all? { |b| (b >= 0x20 && b <= 0x5B) || b == 0x5D || b == 0x5F || (b >= 0x61 && b <= 0x7A) || b == 0x7C }
-              messages << "E: #{rdn[0]} contains characters not compatible with teletexString"
+              messages << "E: #{rdn[0]} has invalid characters for TeletexString"
             end
           else
             value = rdn[1]
