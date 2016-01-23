@@ -36,13 +36,7 @@ class ASN1Ext
 
       # the qualifier in PolicyQualifierInfo is
       # defined as ANY, so we have to manually check
-      begin
-        a = OpenSSL::ASN1.decode(content)
-      rescue OpenSSL::ASN1::ASN1Error
-        messages << 'E: ASN.1 broken in CertificatePolicies'
-        return messages
-      end
-      a.value.each do |policy_information|
+      OpenSSL::ASN1.decode(content).value.each do |policy_information|
         # policiyQualifiers are optional
         pq = policy_information.value[1]
         if pq.nil?

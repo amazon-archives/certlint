@@ -24,6 +24,10 @@ class ASN1Ext
     def self.lint(content, cert, critical = false)
       messages = []
       messages += super(content, cert, critical)
+      # If we are busted, don't continue
+      if messages.any? { |m| m.start_with? 'F:' }
+        return messages
+      end
       # Content is a SEQUENCE of GeneralSubtrees which is tagged
       # X.509 says "At least one of permittedSubtrees and excludedSubtrees components shall be present."
       subtrees = 0

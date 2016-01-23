@@ -32,6 +32,10 @@ class ASN1Ext
           messages << 'W: subjectAltName should not be critical'
         end
       end
+      # If we are busted, don't continue
+      if messages.any? { |m| m.start_with? 'F:' }
+        return messages
+      end
       # Content is a SEQUENCE of GeneralName (which is explicitly tagged)
       at_least_one = false
       OpenSSL::ASN1.decode(content).value.each do |genname|

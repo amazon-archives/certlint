@@ -23,19 +23,16 @@ class ASN1Ext
     def self.lint(content, cert, critical = false)
       messages = []
       messages += super(content, cert, critical)
+      if messages.any? { |m| m.start_with? 'F:' }
+        return messages
+      end
       v = OpenSSL::X509::Extension.new('2.5.29.19', content, critical).value
       if v.include? 'CA:TRUE'
         unless critical
           messages << 'E: basicConstraints must be critical in CA certificates'
         end
       else
-        begin
-          a = OpenSSL::ASN1.decode(content)
-        rescue OpenSSL::ASN1::ASN1Error
-          messages << 'E: ASN.1 broken in BasicConstraints'
-          return messages
-        end
-        if a.value.last.is_a? OpenSSL::ASN1::Integer
+        if OpenSSL::ASN1.decode(content).value.last.is_a? OpenSSL::ASN1::Integer
           messages << 'E: Must not include pathLenConstraint on certificates that are not CA:TRUE'
         end
       end
