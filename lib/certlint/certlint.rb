@@ -113,7 +113,7 @@ module CertLint
         value = der[start_c..end_c - 1]
         if (tag_class == :UNIVERSAL) && (tag == 12) # UTF8String
           unless value.force_encoding('UTF-8').valid_encoding?
-            messages << "E: Incorrectly encoded UTF8String in #{pdu} at offset #{offset}"
+            messages << "F: Incorrectly encoded UTF8String in #{pdu} at offset #{offset}"
           end
           if value.bytes.include? 0
             messages << "E: Null byte found in UTF8String in #{pdu} at offset #{offset}"
