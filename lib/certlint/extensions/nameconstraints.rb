@@ -30,9 +30,9 @@ class ASN1Ext
       end
       # Content is a SEQUENCE of GeneralSubtrees which is tagged
       # X.509 says "At least one of permittedSubtrees and excludedSubtrees components shall be present."
-      subtrees = 0
+      subtree_count = 0
       OpenSSL::ASN1.decode(content).value.each do |subtree_parent|
-        subtrees += 1
+        subtree_count += 1
         at_least_one = false
         subtrees = subtree_parent.value
         subtrees.each do |subtree|
@@ -44,7 +44,7 @@ class ASN1Ext
           messages << 'E: NameConstriants must contain at least one subtree'
         end
       end
-      if subtrees == 0
+      if subtree_count == 0
         messages << 'E: NameConstraints must include either permitted or excluded Subtrees'
       end
       messages
