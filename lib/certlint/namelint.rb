@@ -151,7 +151,7 @@ module CertLint
           when 19 # Printable (7-bit)
             value = value.value
             check_padding = true
-          when 28 # Teletex (7-bit)
+          when 20 # Teletex (7-bit)
             value = value.value
             check_padding = true
             attr_messages << "W: #{type} is using deprecated TeletexString"
