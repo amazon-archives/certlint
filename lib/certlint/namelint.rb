@@ -43,69 +43,52 @@ module CertLint
       'VG', 'VI', 'VN', 'VU', 'WF', 'WS', 'YE', 'YT', 'ZA', 'ZM', 'ZW', 'XX'
     ]
 
-    PRINTABLE_CHARS = %r{\A[A-Za-z0-9 '()+,.:=?/-]*\z}
-
-    # IA5 isn't quite ASCII
-    # http://www.zytrax.com/tech/ia5.html
-    # Only recommend IA5 when characters are unambigious
-    IA5_CHARS = /\A[\x20-\x23\x25-\x7d]*\z/
-
     RDN_ATTRIBUTES = {
-      'C' => :Country,
-      'CN' => [:DirectoryString, 64],
-      'DC' => [:IA5String, 63], # DNS rules
-      'GN' => [:DirectoryString, 32768], # OpenSSLism for givenName
-      'L' => [:DirectoryString, 128],
-      'O' => [:DirectoryString, 64],
-      'OU' => [:DirectoryString, 64],
-      'SN' => [:DirectoryString, 32768],
-      'ST' => [:DirectoryString, 128],
-      'UID' => :DirectoryString,
-      'businessCategory' => [:DirectoryString, 128],
-      'description' => [:DirectoryString, 1024],
-      'dmdName' => :DirectoryString,
-      'dnQualifier' => :PrintableString,
-      'emailAddress' => [:IA5String, 255],
-      'houseIdentifier' => :DirectoryString,
-      'info' => :DirectoryString,
-      'initials' => [:DirectoryString, 32768],
-      'name' => [:DirectoryString, 32768],
-      # TBD how to handle this unique value type
-      # 'postalAddress"'=> :SequenceOfDirectoryString,
-      'postalCode' => [:DirectoryString, 16],
-      'postOfficeBox' => [:DirectoryString, 40],
-      'serialNumber' => [:PrintableString, 64],
-      'street' => [:DirectoryString, 128],
-      'telephoneNumber' => [:PrintableString, 32],
-      'title' => [:DirectoryString, 64],
-      'unstructuredAddress' => :DirectoryString,
-      'unstructuredName' => :IA5orDS,
-      'x500UniqueIdentifier' => :BitString,
-      '1.3.6.1.4.1.311.60.2.1.1' => [:DirectoryString, 128], # jurisdictionOfIncorporationLocalityName
-      '1.3.6.1.4.1.311.60.2.1.2' => [:DirectoryString, 128], # jurisdictionOfIncorporationStateOrProvinceName
-      '1.3.6.1.4.1.311.60.2.1.3' => :Country, # jurisdictionOfIncorporationCountryName
-      'jurisdictionL' => [:DirectoryString, 128], # OpenSSL 1.0.2 name
-      'jurisdictionST' => [:DirectoryString, 128], # OpenSSL 1.0.2 name
-      'jurisdictionC' => :Country, # OpenSSL 1.0.2 name
+      # COSINE / RFC 4524
+      '0.9.2342.19200300.100.1.1' => [:DirectoryString, 256], # UID
+      '0.9.2342.19200300.100.1.4' => [:DirectoryString, 2048], # info
+      '0.9.2342.19200300.100.1.25' => [:DomainComponent, :DNS], # DC
+      # PKCS#9 / RFC 2985
+      '1.2.840.113549.1.9.1' => :EmailAddress, # emailAddress
+      '1.2.840.113549.1.9.2' => [:PKCS9String, 255], # unstructuredName
+      '1.2.840.113549.1.9.8' => [:DirectoryString, 255], # unstructuredAddress
+      # CA/Browser Forum EV Gudelines
+      '1.3.6.1.4.1.311.60.2.1.1' => :X520LocalityName, # jurisdictionOfIncorporationLocalityName
+      '1.3.6.1.4.1.311.60.2.1.2' => :X520StateOrProvinceName, # jurisdictionOfIncorporationStateOrProvinceName
+      '1.3.6.1.4.1.311.60.2.1.3' => [:X520countryName, :Country], # jurisdictionOfIncorporationCountryName
+      # Attributes are taken from RFC 5280 if possible
+      # Otherwise from X.520 using Annex C for upper bounds
+      '2.5.4.3' => :X520CommonName, # CN
+      '2.5.4.4' => :X520name, # SN
+      '2.5.4.5' => :X520SerialNumber, # serialNumber
+      '2.5.4.6' => [:X520countryName, :Country], # C
+      '2.5.4.7' => :X520LocalityName, # L
+      '2.5.4.8' => :X520StateOrProvinceName, # ST
+      '2.5.4.9' => :X520StateOrProvinceName, # streetAddress
+      '2.5.4.10' => :X520OrganizationName, # O
+      '2.5.4.11' => :X520OrganizationalUnitName, # OU
+      '2.5.4.12' => :X520Title, # title
+      '2.5.4.13' => [:DirectoryString, 1024], # description
+      '2.5.4.15' => :X520LocalityName, # businessCategory
+      '2.5.4.16' => :PostalAddress, # postalAddress
+      '2.5.4.17' => [:DirectoryString, 40], # postalCode
+      '2.5.4.18' => [:DirectoryString, 40], # postOfficeBox
+      '2.5.4.20' => :OrganizationalUnitName, # telephoneNumber
+      '2.5.4.41' => :X520name, # name
+      '2.5.4.42' => :X520name, # GN
+      '2.5.4.43' => :X520name, # initials
+      '2.5.4.45' => :UniqueIdentifier,
+      '2.5.4.46' => :PrintableString, # dnQualifier
+      '2.5.4.51' => :DirectoryString, # houseIdentifier
+      '2.5.4.54' => :DirectoryString, # dmdName
     }
 
     # List of attributes that are known deprecated
     DEPRECATED_ATTRIBUTES = [
-      'emailAddress',
-      'unstructuredAddress',
-      'unstructuredName'
+      '1.2.840.113549.1.9.1' # EmailAddress, Per RFC 5280 section 4.1.2.6
     ]
 
-    ASN1_TYPES = {
-      12 => 'UTF8String',
-      19 => 'PrintableString',
-      18 => 'NumericString',
-      20 => 'TeletexString',
-      22 => 'IA5String',
-      28 => 'UniversalString',
-      30 => 'BMPString',
-      36 => 'VisibileString'
-    }
+    DLABEL = /\A((?!-)[A-Za-z0-9-]{1,63}(?<!-))\z/
 
     def self.lint(name)
       messages = []
@@ -113,160 +96,136 @@ module CertLint
         return nil
       end
 
-      # Check for multiple attributes in a single RDN
-      begin
-        s2253 = name.to_s(OpenSSL::X509::Name::RFC2253 & ~4)
-        if (s2253.include? '+') && (s2253 =~ /(?<!\\)\+/)
+      dn = OpenSSL::ASN1.decode(name.to_der)
+
+      attr_types = []
+      # DN is a SEQUENCE OF (SET OF (Attributes))
+      dn.value.each do |rdn|
+        if rdn.value.length > 1
           messages << 'W: Multiple attributes in a single RDN in the subject Name'
         end
-      rescue OpenSSL::X509::NameError => e
-        messages << 'E: Unparsable name'
+        rdn.value.each do |attr|
+          attr_messages = []
+
+          type = attr.value[0].oid
+          attr_types << type
+          value = attr.value[1]
+
+          validator = nil
+          pdu = RDN_ATTRIBUTES[type]
+          if pdu.nil?
+            attr_messages << "W: Name has unknown attribute #{type}"
+          end
+          if pdu.is_a? Array
+            validator = pdu[1]
+            pdu = pdu[0]
+          end
+
+          if DEPRECATED_ATTRIBUTES.include? type
+            attr_messages << "W: Name has deprecated attribute #{type}"
+          end
+
+          attr_messages += CertLint.check_pdu(pdu, value.to_der)
+          if attr_messages.any? { |m| m.start_with? 'F:' }
+            messages += attr_messages
+            next
+          end
+
+          # If expliclty tagged, then nothing we can really check
+          # (no known attributes use explicitly tagged values)
+          if value.tag_class != :UNIVERSAL
+            messages += attr_messages
+            next
+          end
+
+          # Warn about strings that allow escape sequences and
+          # Unicode strings that are not UTF-8
+          check_padding = false
+          case value.tag
+          when 12 # UTF8
+            value = value.value
+            check_padding = true
+          when 18 # Numeric (7-bit)
+            value = value.value
+            check_padding = true
+          when 19 # Printable (7-bit)
+            value = value.value
+            check_padding = true
+          when 28 # Teletex (7-bit)
+            value = value.value
+            check_padding = true
+            attr_messages << "W: #{type} is using deprecated TeletexString"
+          when 21 # Videotex
+            value = value.value
+            check_padding = true
+            attr_messages << "W: #{type} is using deprecated VideoexString"
+          when 22 # IA5
+            value = value.value
+            check_padding = true
+          when 25 # Graphic
+            value = value.value
+            check_padding = true
+            attr_messages << "W: #{type} is using deprecated GraphicString"
+          when 26 # Visible
+            value = value.value
+            check_padding = true
+          when 27 # General
+            value = value.value
+            check_padding = true
+            attr_messages << "W: #{type} is using deprecated GeneralString"
+          when 28 # Universal
+            check_padding = true
+            attr_messages << "W: Unicode #{type} is using deprecated UniversalString"
+            value = value.value.force_encoding('UTF-32BE').encode('UTF-8')
+          when 30 # BMP
+            check_padding = true
+            attr_messages << "W: Unicode #{type} is using deprecated BMPString"
+            value = value.value.force_encoding('UTF-16BE').encode('UTF-8')
+          end
+
+          if check_padding
+            if value =~ /\A\s+/
+              attr_messages << "W: Leading whitepsace in #{type}"
+            end
+            if value =~ /\s+\z/
+              attr_messages << "W: Trailing whitespace in #{type}"
+            end
+          end
+
+          case validator
+          when Integer
+            # Measured in characters not octets
+            if value.length > validator
+              attr_messages << "E: #{type} is too long"
+            end
+          when :Country
+            unless COUNTRIES.include? value.upcase
+              attr_messages << "E: Invalid country in #{type}"
+            end
+          when :DNS
+            unless value =~ DLABEL
+              attr_messages << "E: Invalid label in #{type}"
+            end
+          end
+          messages += attr_messages
+        end
       end
 
-      s_array = name.to_a
-      dup = s_array.map { |rdn| rdn[0] }.select { |el| s_array.count(el) > 1 }.uniq
-      # OU can reasonably appear multiple times
-      dup.delete('OU')
+      dup = attr_types.select { |el| attr_types.count(el) > 1 }.uniq
+      # OU and DC can reasonably appear multiple times
+      dup.delete('2.5.4.11')
+      dup.delete('0.9.2342.19200300.100.1.25')
       unless dup.empty?
         messages << 'W: Name has multiple attributes of the same type'
       end
-      s_array.each do |rdn|
-        max_len = nil
 
-        # 0: oid, 1: value, 2: type
-        validator = RDN_ATTRIBUTES[rdn[0]]
-        if validator.nil?
-          messages << "E: Name has unknown attribute #{rdn[0]}"
-        end
-        if validator.is_a? Array
-          max_len = validator[1]
-          validator = validator[0]
-        end
-
-        if DEPRECATED_ATTRIBUTES.include? rdn[0]
-          messages << "W: Name has deprecated attribute #{rdn[0]}"
-        end
-
-        begin
-          # Convert strings to UTF8
-          case rdn[2]
-          # first four: Printable, IA5, Numeric, Visible String
-          # These should all be 7-bit, but convert to ensure
-          when 19
-            value = rdn[1].force_encoding('ISO-8859-1').encode('UTF-8')
-            if value !~ PRINTABLE_CHARS
-              messages << "E: #{rdn[0]} has invalid characters for PrintableString"
-            end
-          when 22
-            value = rdn[1].force_encoding('ISO-8859-1').encode('UTF-8')
-            if value !~ IA5_CHARS
-              messages << "E: #{rdn[0]} has invalid characters for IA5String"
-            end
-          when 18
-            value = rdn[1].force_encoding('ISO-8859-1').encode('UTF-8')
-            if value !~ /\A[0-9 ]*\z/
-              messages << "E: #{rdn[0]} has invalid characters for NumericString"
-            end
-          when 26
-            value = rdn[1].force_encoding('ISO-8859-1').encode('UTF-8')
-            if value !~ /\A[\x20-\x7e]*\z/
-              messages << "E: #{rdn[0]} has invalid characters for VisibleString"
-            end
-          when 12 # UTF-8
-            value = rdn[1].force_encoding('UTF-8')
-          when 30 # BMPString
-            value = rdn[1].force_encoding('UTF-16BE').encode('UTF-8')
-          when 28 # UniversalString
-            value = rdn[1].force_encoding('UTF-32BE').encode('UTF-8')
-          when 20 # T.61/TeletexString
-            # According to X.690, 8.23.5.2, the default charset is 102
-            # An escape is required to change it
-            value = rdn[1].force_encoding('BINARY')
-            if value.codepoints.any? { |p| p == 0x1b }
-              messages << "B: #{rdn[0]} includes an escape sequence which is not handled"
-            elsif !value.bytes.all? { |b| (b >= 0x20 && b <= 0x5B) || b == 0x5D || b == 0x5F || (b >= 0x61 && b <= 0x7A) || b == 0x7C }
-              messages << "E: #{rdn[0]} has invalid characters for TeletexString"
-            end
-          else
-            value = rdn[1]
-          end
-        end
-
-        # Measured in characters not octets
-        if !max_len.nil? && value.length > max_len
-          messages << "W: #{rdn[0]} is too long"
-        end
-        if value =~ /\A\s+/
-          messages << "W: Leading whitepsace in #{rdn[0]}"
-        end
-        if value =~ /\s+\z/
-          messages << "W: Trailing whitespace in #{rdn[0]}"
-        end
-
-        case validator
-        when :Country
-          if rdn[2] != 19
-            messages << "E: #{rdn[0]} must be PrintableString"
-          end
-          if value != value.upcase
-            messages << "W: #{rdn[0]} should be in upper case"
-          end
-          unless COUNTRIES.include? value.upcase
-            messages << "E: Invalid country in #{rdn[0]}"
-          end
-        when :PrintableString
-          if rdn[2] != 19
-            messages << "E: #{rdn[0]} must be PrintableString"
-          end
-          if value !~ PRINTABLE_CHARS
-            messages << "E: Invalid character in #{rdn[0]}"
-          end
-        when :DirectoryString
-          # Telex, Printable, BMP, Universal, UTF8
-          unless [20, 19, 30, 28, 12].include? rdn[2]
-            messages << "E: Invalid type (#{rdn[2]}) for #{rdn[0]}"
-          end
-          if (rdn[2] != 12) && (rdn[2] != 19)
-            messages << "W: #{rdn[0]} is using deprecated #{ASN1_TYPES[rdn[2]]}"
-            # If only printable characters offer either Printable or UTF8, otherwise just UTF8
-            if value =~ PRINTABLE_CHARS
-              messages << "W: #{rdn[0]} should be type #{ASN1_TYPES[19]} or #{ASN1_TYPES[12]}"
-            else
-              messages << "W: #{rdn[0]} should be type #{ASN1_TYPES[12]}"
-            end
-          end
-          if rdn[2] == 12 && value =~ PRINTABLE_CHARS
-            messages << "N: #{rdn[0]} could be encoded as #{ASN1_TYPES[19]}"
-          end
-        when :IA5String
-          if rdn[2] != 22
-            messages << "E: #{rdn[0]} must be IA5String"
-          end
-          if value !~ IA5_CHARS
-            messages << "E: Invalid character in #{rdn[0]}"
-          end
-        when :BitString
-          if rdn[2] != 3
-            messages << "E: #{rdn[0]} must be Bit String"
-          end
-        when :IA5orDS
-          unless [20, 19, 30, 28, 12, 22].include? rdn[2]
-            messages << "E: Invalid type (#{rdn[2]}) for #{rdn[0]}}"
-          end
-          if [20, 39, 28].include? rdn[2]
-            messages << "W: #{rdn[0]} is using deprecated #{ASN1_TYPES[rdn[2]]}"
-          end
-          # RFC 2985 says use IA5 unless disallowed chars
-          # Then use UTF8
-          ideal = 12 # UTF-8
-          if value =~ IA5_CHARS
-            ideal = 22 # IA5String
-          end
-          if rdn[2] != ideal
-            messages << "W: #{rdn[0]} should be type #{ASN1_TYPES[ideal]}"
-          end
-        end
+      # Can OpenSSL handle the name?
+      begin
+        name.to_s(OpenSSL::X509::Name::RFC2253 & ~4)
+      rescue OpenSSL::X509::NameError => e
+        messages << "E: Unparsable name: #{e.message}"
       end
+
       messages
     end
   end
