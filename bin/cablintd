@@ -15,7 +15,7 @@
 require 'certlint'
 require 'socket'
 
-Socket.unix_server_loop("/tmp/cablint.socket" + ARGV[0]) {|socket|
+Socket.unix_server_loop("/tmp/cablint.socket" + (ARGV[0] ? ARGV[0] : "1")) {|socket|
   begin
     CertLint::CABLint.lint(socket.read).each do |msg|
       socket.puts "#{msg}"
