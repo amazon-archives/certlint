@@ -382,7 +382,17 @@ module CertLint
       # if critical, e[1] is true and e[2] is octet string; otherwise e[1] is octet string
       # so use .last to make it universal
       extder = e.last
-      critical = (e.length == 3)
+
+      # Critical has a default value of false, so it should not be encoded in DER
+      # Double check just to make sure
+      if e.length == 3
+        critical = e[1].value
+        unless critical
+          messages << "E: #{oid} has critical:FALSE explicitly encoded"
+        end
+      else
+        critical = false
+      end
       messages += CertExtLint.lint(oid, extder.value, cert, critical)
 
       if oid == '2.5.29.19' # basicConstraints

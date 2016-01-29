@@ -26,15 +26,20 @@ class ASN1Ext
       if messages.any? { |m| m.start_with? 'F:' }
         return messages
       end
-      v = OpenSSL::X509::Extension.new('2.5.29.19', content, critical).value
-      if v.include? 'CA:TRUE'
-        unless critical
-          messages << 'E: basicConstraints must be critical in CA certificates'
+      a = OpenSSL::ASN1.decode(content)
+      is_ca = false
+      if a.value.first.is_a? OpenSSL::ASN1::Boolean
+        if a.value.first.value # True
+          is_ca = true
+          unless critical
+            messages << 'E: basicConstraints must be critical in CA certificates'
+          end
+        else
+          messages << 'E: CA:FALSE must not be explicitly encoded in basicConstraints'
         end
-      else
-        if OpenSSL::ASN1.decode(content).value.last.is_a? OpenSSL::ASN1::Integer
-          messages << 'E: Must not include pathLenConstraint on certificates that are not CA:TRUE'
-        end
+      end
+      if !is_ca && a.value.last.is_a? OpenSSL::ASN1::Integer
+        messages << 'E: Must not include pathLenConstraint on certificates that are not CA:TRUE'
       end
       messages
     end
