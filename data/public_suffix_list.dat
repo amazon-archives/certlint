@@ -5641,32 +5641,32 @@ sch.qa
 
 // re : http://www.afnic.re/obtenir/chartes/nommage-re/annexe-descriptifs
 re
-com.re
 asso.re
+com.re
 nom.re
 
 // ro : http://www.rotld.ro/
 ro
-com.ro
-org.ro
-tm.ro
-nt.ro
-nom.ro
-info.ro
-rec.ro
 arts.ro
+com.ro
 firm.ro
+info.ro
+nom.ro
+nt.ro
+org.ro
+rec.ro
 store.ro
+tm.ro
 www.ro
 
-// rs : http://en.wikipedia.org/wiki/.rs
+// rs : https://www.rnids.rs/en/domains/national-domains
 rs
-co.rs
-org.rs
-edu.rs
 ac.rs
+co.rs
+edu.rs
 gov.rs
 in.rs
+org.rs
 
 // ru : http://www.cctld.ru/ru/docs/aktiv_8.php
 // Industry domains
@@ -6826,7 +6826,7 @@ yt
 فلسطين
 
 // xn--90a3ac ("srb", Cyrillic) : RS
-// http://www.rnids.rs/en/the-.срб-domain
+// https://www.rnids.rs/en/domains/national-domains
 срб
 пр.срб
 орг.срб
@@ -10705,6 +10705,10 @@ cloudcontrolapp.com
 // co.ca : http://registry.co.ca/
 co.ca
 
+// i-registry s.r.o. : http://www.i-registry.cz/
+// Submitted by Martin Semrad <semrad@i-registry.cz>
+co.cz
+
 // CDN77.com : http://www.cdn77.com
 // Submitted by Jan Krpes <jan.krpes@cdn77.com> 2015-07-13
 c.cdn77.org
@@ -10728,6 +10732,10 @@ cupcake.is
 // DreamHost : http://www.dreamhost.com/
 // Submitted by Andrew Farmer <andrew.farmer@dreamhost.com> 2012-10-02
 dreamhosters.com
+
+// Drobo : http://www.drobo.com/
+// Submitted by Ricardo Padilha <rpadilha@drobo.com> 2015-12-17
+mydrobo.com
 
 // DuckDNS : http://www.duckdns.org/
 // Submitted by Richard Harper <richard@duckdns.org> 2015-05-17
@@ -11261,6 +11269,10 @@ zakopane.pl
 // Submitted by Gary Dylina <gary@pantheon.io> 2015-09-14
 pantheon.io
 gotpantheon.com
+
+// prgmr.com : https://prgmr.com/
+// Changed by Sarah Newman <owner@prgmr.com>
+xen.prgmr.com
 
 // priv.at : http://www.nic.priv.at/
 // Submitted by registry <lendl@nic.at> 2008-06-09
