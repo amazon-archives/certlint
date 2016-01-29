@@ -51,7 +51,7 @@ module CertLint
       '0.9.2342.19200300.100.1.25' => [:DomainComponent, :DNS], # DC
       # PKCS#9 / RFC 2985
       '1.2.840.113549.1.9.1' => :EmailAddress, # emailAddress
-      '1.2.840.113549.1.9.2' => [:PKCS9String, 255], # unstructuredName
+      '1.2.840.113549.1.9.2' => [:PKCS9String, :PKCS9], # unstructuredName
       '1.2.840.113549.1.9.8' => [:DirectoryString, 255], # unstructuredAddress
       # CA/Browser Forum EV Gudelines
       '1.3.6.1.4.1.311.60.2.1.1' => :X520LocalityName, # jurisdictionOfIncorporationLocalityName
@@ -154,7 +154,8 @@ module CertLint
           # Warn about strings that allow escape sequences and
           # Unicode strings that are not UTF-8
           check_padding = false
-          case value.tag
+          tag = value.tag
+          case tag
           when 12 # UTF8
             value = value.value
             check_padding = true
@@ -218,6 +219,19 @@ module CertLint
           when :DNS
             unless value =~ DLABEL
               attr_messages << "E: Invalid label in #{attrname}"
+            end
+          when :PKCS9
+            if value.length > 255
+              attr_messages << "E: #{attrname} is too long"
+            end
+            if value.codepoints.all? { |c| c <= 0x7e }
+              unless tag == 22
+                attr_messages << "W: #{attrname} should be encoded as IA5String"
+              end
+            else
+              unless tag == 12
+                attr_messages << "W: #{attrname} should be encoded as UF8String"
+              end
             end
           end
           messages += attr_messages
