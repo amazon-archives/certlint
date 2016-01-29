@@ -103,7 +103,7 @@ class ASN1Ext
           messages << 'E: Unallowed key usage for DH public key'
         end
         unless v.include? 'Key Agreement'
-          messsages << 'E: Key Agreement must be included for DH public keys'
+          messages << 'E: Key Agreement must be included for DH public keys'
         end
         if (v.include? 'Encipher Only') && (v.include? 'Decipher Only')
           messages << 'E: Encipher Only and Decipher Only must not both be set'

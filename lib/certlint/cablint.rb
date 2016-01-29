@@ -64,7 +64,7 @@ module CertLint
         messages << "E: #{c.signature_algorithm} is not allowed for signing certificates"
       else
         if sa == :weak && c.not_before >= NO_SHA1
-          messsages << 'E: SHA-1 not allowed for signing certificates'
+          messages << 'E: SHA-1 not allowed for signing certificates'
         end
         if sa == :weak && c.serial.num_bytes < 8
           messages << 'W: Serial numbers for certificates using weaker hashes should have at least 64 bits of entropy'
