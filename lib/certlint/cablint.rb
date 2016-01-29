@@ -15,6 +15,7 @@
 require 'rubygems'
 require 'openssl'
 require 'ipaddr'
+require 'simpleidn'
 require_relative 'certlint'
 require_relative 'iananames'
 require_relative 'pemlint'
@@ -356,9 +357,14 @@ module CertLint
           end
           san = names
         end
+        idn_san = san.select{ |s| s.include?('xn--') }.map { |a| SimpleIDN.to_unicode(a) }
         c.subject.to_a.select { |rdn| rdn[0] == 'CN' }.map { |rdn| rdn[1] }.each do |val|
           unless san.include? val.downcase
-            messages << 'E: commonNames in BR certificates must be from SAN entries'
+            if idn_san.include? val
+              messages << 'W: commonNames in BR certificate contains U-labels'
+            else
+              messages << 'E: commonNames in BR certificates must be from SAN entries'
+            end
           end
         end
       end

@@ -94,10 +94,14 @@ module CertLint
       tld = fqdn.split('.').last
       tld_type = @iana_tlds[tld]
       if tld_type.nil?
-        messages << 'W: Unknown TLD'
+        messages << 'E: Unknown TLD'
         return messages
       elsif tld_type == :special
-        messages << 'W: Special name'
+        if tld == 'onion'
+          messages << 'I: Tor Service Descriptor in SAN'
+        else
+          messages << 'W: Special name'
+        end
         return messages
       elsif tld_type != :public
         messages << 'E: Unknown type of TLD'

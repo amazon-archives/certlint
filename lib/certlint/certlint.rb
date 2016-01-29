@@ -113,32 +113,32 @@ module CertLint
         value = der[start_c..end_c - 1]
         if (tag_class == :UNIVERSAL) && (tag == 12) # UTF8String
           unless value.force_encoding('UTF-8').valid_encoding?
-            messages << "F: Incorrectly encoded UTF8String in #{pdu} at offset #{offset}"
+            messages << "F: Incorrectly encoded UTF8String in #{pdu}"# at offset #{offset}"
           end
           if value.bytes.include? 0
-            messages << "E: Null byte found in UTF8String in #{pdu} at offset #{offset}"
+            messages << "E: Null byte found in UTF8String in #{pdu}"# at offset #{offset}"
           end
         elsif (tag_class == :UNIVERSAL) && ([22, 26].include? tag)
           # IA5, Visible
           if value.bytes.any? { |b| b < 0x20 || b > 0x7E }
-            messages << "E: Control character found in String in #{pdu} at offset #{offset}"
+            messages << "E: Control character found in String in #{pdu}"# at offset #{offset}"
           end
         elsif (tag_class == :UNIVERSAL) && ([20, 21, 25, 27].include? tag)
           # Teletex, Videotex, Graphic, General String
           if value.bytes.include? 0
-            messages << "E: Null byte found in String in #{pdu} at offset #{offset}"
+            messages << "E: Null byte found in String in #{pdu}"# at offset #{offset}"
           end
           escape = false
           if value.bytes.include? 27
             escape = true
-            messages << "B: Unhandled escape found in String in #{pdu} at offset #{offset}"
+            messages << "B: Unhandled escape found in String in #{pdu}"# at offset #{offset}"
           end
           if tag == 20
             unless escape || value.force_encoding('BINARY').bytes.all? { |b| (b >= 0x20 && b <= 0x5B) || b == 0x5D || b == 0x5F || (b >= 0x61 && b <= 0x7A) || b == 0x7C }
-              messages << "E: Incorrectly encoded TeletexString in #{pdu} at offset #{offset}"
+              messages << "E: Incorrectly encoded TeletexString in #{pdu}"# at offset #{offset}"
             end
           else
-            messages << "B: No checks for String type #{tag} in #{pdu} at offset #{offset}"
+            messages << "B: No checks for String type #{tag} in #{pdu}"# at offset #{offset}"
           end
         end
       end
