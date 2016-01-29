@@ -38,7 +38,7 @@ class ASN1Ext
           messages << 'E: CA:FALSE must not be explicitly encoded in basicConstraints'
         end
       end
-      if !is_ca && a.value.last.is_a? OpenSSL::ASN1::Integer
+      if !is_ca && a.value.last.is_a?(OpenSSL::ASN1::Integer)
         messages << 'E: Must not include pathLenConstraint on certificates that are not CA:TRUE'
       end
       messages
