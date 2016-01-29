@@ -24,6 +24,7 @@ module CertLint
   class CABLint
     BR_EFFECTIVE = Time.new(2012, 7, 1)
     MONTHS_39 = Time.new(2015, 4, 1)
+    NO_SHA1 = Time.new(2016, 1, 1)
 
     # Allowed algorithms
     SIGNATURE_ALGORITHMS = {
@@ -62,6 +63,9 @@ module CertLint
       if sa.nil?
         messages << "E: #{c.signature_algorithm} is not allowed for signing certificates"
       else
+        if sa == :weak && c.not_before >= NO_SHA1
+          messsages << 'E: SHA-1 not allowed for signing certificates'
+        end
         if sa == :weak && c.serial.num_bytes < 8
           messages << 'W: Serial numbers for certificates using weaker hashes should have at least 64 bits of entropy'
         elsif sa == :pss
