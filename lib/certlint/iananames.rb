@@ -87,7 +87,7 @@ module CertLint
 
       # We can't do much with domains that are not fqdns
       unless fqdn.include? '.'
-        messages << 'W: Unqualified domain name'
+        messages << 'E: Unqualified domain name'
         return messages
       end
 

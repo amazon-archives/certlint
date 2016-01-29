@@ -245,16 +245,16 @@ module CertLint
           end
         else
           if subjattrs.include? 'L'
-            messages << 'E: BR certificates without organizationName may not include localityName'
+            messages << 'E: BR certificates without organizationName must not include localityName'
           end
           if subjattrs.include? 'ST'
-            messages << 'E: BR certificates without organizationName may not include stateOrProvinceName'
+            messages << 'E: BR certificates without organizationName must not include stateOrProvinceName'
           end
           if subjattrs.include? 'street'
-            messages << 'E: BR certificates without organizationName may not include streetAddress'
+            messages << 'E: BR certificates without organizationName must not include streetAddress'
           end
           if subjattrs.include? 'postalCode'
-            messages << 'E: BR certificates without organizationName may not include postalCode'
+            messages << 'E: BR certificates without organizationName must not include postalCode'
           end
         end
 
@@ -305,10 +305,10 @@ module CertLint
             nameval = nil
             case genname.tag
             when 0
-              messages << 'E: BR certificates may not contain otherName type alternative name'
+              messages << 'E: BR certificates must not contain otherName type alternative name'
               next
             when 1
-              messages << 'E: BR certificates may not contain rfc822Name type alternative name'
+              messages << 'E: BR certificates must not contain rfc822Name type alternative name'
               next
             when 2
               val = genname.value
@@ -326,16 +326,16 @@ module CertLint
               messages += CertLint::IANANames.lint(val).map { |m| m + ' in SAN' }
               nameval = val.downcase
             when 3
-              messages << 'E: BR certificates may not contain x400Address type alternative name'
+              messages << 'E: BR certificates must not contain x400Address type alternative name'
               next
             when 4
-              messages << 'E: BR certificates may not contain directoryName type alternative name'
+              messages << 'E: BR certificates must not contain directoryName type alternative name'
               next
             when 5
-              messages << 'E: BR certificates may not contain ediPartyName type alternative name'
+              messages << 'E: BR certificates must not contain ediPartyName type alternative name'
               next
             when 6
-              messages << 'E: BR certificates may not contain uniformResourceIdentifier type alternative name'
+              messages << 'E: BR certificates must not contain uniformResourceIdentifier type alternative name'
               next
             when 7
               if genname.value.length == 4 || genname.value.length == 16
@@ -346,7 +346,7 @@ module CertLint
                 next
               end
             when 8
-              messages << 'E: BR certificates may not contain registeredID type alternative name'
+              messages << 'E: BR certificates must not contain registeredID type alternative name'
               next
             end
             if names.include? nameval
