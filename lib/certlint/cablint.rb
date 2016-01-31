@@ -212,6 +212,11 @@ module CertLint
         eku.delete('E-mail Protection')
         # Also implicitly allowed
         eku.delete('Any Extended Key Usage')
+        # Intel AMT/vPro: https://software.intel.com/sites/manageability/AMT_Implementation_and_Reference_Guide/default.htm?turl=WordDocuments%2Facquiringanintelvprocertificate.htm
+        if eku.include?('2.16.840.1.113741.1.2.3')
+          messages << 'I: Intel AMT/vPro certificate identified'
+          eku.delete('2.16.840.1.113741.1.2.3')
+        end
         eku.each do |e|
           messages << "W: TLS Server auth certificates should not contain #{e} usage"
         end
@@ -296,11 +301,10 @@ module CertLint
         end
 
         san = c.extensions.find { |ex| ex.oid == 'subjectAltName' }
+        names = []
         if san.nil?
           messages << 'E: BR certificates must have subject alternative names extension'
-          san = []
         else
-          names = []
           # See certlint.rb and asn1ext.rb to sort out the next two lines
           # This gets the extnValue (which is DER)
           der = OpenSSL::ASN1.decode(san.to_der).value.last.value
@@ -328,7 +332,7 @@ module CertLint
                 end
               end
               messages += CertLint::IANANames.lint(val).map { |m| m + ' in SAN' }
-              nameval = val.downcase
+              nameval = val.downcase.force_encoding('US-ASCII') # A-label
             when 3
               messages << 'E: BR certificates must not contain x400Address type alternative name'
               next
@@ -359,11 +363,23 @@ module CertLint
               names << nameval
             end
           end
-          san = names
         end
-        idn_san = san.select{ |s| s.include?('xn--') }.map { |a| SimpleIDN.to_unicode(a) }
-        c.subject.to_a.select { |rdn| rdn[0] == 'CN' }.map { |rdn| rdn[1] }.each do |val|
-          unless san.include? val.downcase
+        idn_san = names.select{ |s| s.include?('xn--') }.map { |a| SimpleIDN.to_unicode(a) }
+        c.subject.to_a.select { |rdn| rdn[0] == 'CN' }.map do |rdn|
+          val = nil
+          case rdn[2]
+          when 12
+            val = rdn[1].force_encoding('UTF-8')
+          when 28
+            val = rdn[1].force_encoding('UTF-32BE').encode('UTF-8')
+          when 30
+            val = rdn[1].force_encoding('UTF-16BE').encode('UTF-8')
+          else
+            val = rdn[1].force_encoding('ISO-8859-1').encode('UTF-8')
+          end
+          val
+        end.each do |val|
+          unless names.include? val.downcase
             if idn_san.include? val
               messages << 'W: commonNames in BR certificate contains U-labels'
             else
