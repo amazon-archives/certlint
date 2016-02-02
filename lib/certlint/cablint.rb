@@ -202,7 +202,12 @@ module CertLint
         end
       end
 
-      if eku.empty? || eku.include?('TLS Web Server Authentication') || eku.include?('Any Extended Key Usage')
+      # So many ways to indicate an in-scope certificate
+      if eku.empty? || \
+          eku.include?('TLS Web Server Authentication') || \
+          eku.include?('Any Extended Key Usage') || \
+          eku.include?('Netscape Server Gated Crypto') || \
+          eku.include?('Microsoft Server Gated Crypto')
         messages << 'I: TLS Server certificate identified'
         cert_type_identified = true
         # OK, we have a "SSL" certificate
