@@ -48,20 +48,32 @@ module CertLint
         if orig_addr != addr
           messages << 'E: Invalid padding in RFC822Name'
         end
-        unless addr.include? '@'
-          messages << 'E: RFC822Name without @'
-          return messages # Fatal to this entry
+        if addr.include? '@'
+          p = EMAIL_SPLITTER.match(addr)
+          local_part = p[1]
+          domain_part = p[2]
+        else
+          if is_san
+            messages << 'E: RFC822Name without @'
+          end
+          local_part = nil
+          domain_part = addr
         end
-        p = EMAIL_SPLITTER.match(addr)
-        local_part = p[1]
-        domain_part = p[2]
 
         if domain_part.empty?
           messages << 'E: RFC822Name without domain'
         elsif EMAIL_DOMAIN !~ domain_part
           messages << 'E: RFC822Name with invalid domain'
         end
+
+        # If the local part is nil (e.g. name constraint)
+        # don't do checks on it
+        if local_part.nil?
+          return
+        end
+
         if local_part.empty?
+          # Empty can happen if the addr is "@example.com"
           messages << 'E: RFC822Name without local part'
         elsif local_part.include? '"'
           messages << 'W: RFC822Name with quoted local part'
@@ -89,7 +101,7 @@ module CertLint
           fqdn = fqdn[1..-1]
         end
         unless FQDN.match(fqdn)
-            messages << 'E: DNSName is not FQDN'
+          messages << 'E: DNSName is not FQDN'
         end
         if fqdn.length > 253
           messages << 'E: FQDN in DNSName is too long'
