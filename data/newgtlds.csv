@@ -1,4 +1,4 @@
->>> Updated on: 2016-01-29T12:02:11Z <<<
+>>> Updated on: 2016-02-04T12:02:11Z <<<
 tld,u-label,registry-operator,date-of-contract-signature,application-id,delegation-date
 aaa,,"American Automobile Association, Inc.",2015-02-26,1-1386-27446,2015-08-28
 aarp,,"AARP",2015-05-21,1-1169-4534,2015-11-03
@@ -271,7 +271,7 @@ deals,,"Sand Sunset, LLC",2014-05-22,1-1419-43874,2014-07-10
 degree,,"",2014-03-06,1-1418-57248,2014-05-30
 delivery,,"Steel Station, LLC",2014-09-11,1-1420-57575,2014-11-01
 dell,,"Dell Inc.",2014-10-24,1-1094-11981,2015-10-14
-deloitte,,"Deloitte Touche Tohmatsu",2015-07-31,1-1944-83205,
+deloitte,,"Deloitte Touche Tohmatsu",2015-07-31,1-1944-83205,2016-01-29
 delta,,"Delta Air Lines, Inc.",2015-02-19,1-1259-75287,2015-07-11
 democrat,,"United TLD Holdco Ltd.",2013-10-24,1-1255-25868,2014-01-14
 dental,,"Tin Birch, LLC",2014-03-20,1-1421-91857,2014-04-23
@@ -422,6 +422,7 @@ gle,,"Charleston Road Registry Inc.",2014-07-24,1-1099-85478,2014-09-15
 global,,"Dot GLOBAL AS",2014-04-17,1-1747-40234,2014-06-11
 globo,,"Globo Comunicação e Participações S.A",2013-12-19,1-1151-96871,2014-05-03
 gmail,,"Charleston Road Registry Inc.",2014-05-01,1-1099-70123,2014-08-27
+gmbh,,"Extra Dynamite, LLC",2016-01-29,1-1477-91047,
 gmo,,"GMO Internet, Inc.",2014-01-09,1-1657-61205,2014-05-03
 gmx,,"1&1 Mail & Media GmbH",2014-04-24,1-1256-36701,2014-09-05
 godaddy,,"Go Daddy East, LLC",2015-07-23,1-1109-42895,
