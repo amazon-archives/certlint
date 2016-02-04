@@ -159,7 +159,7 @@ module CertLint
           messages << 'E: CA certificates must include CRL Signing'
         end
         unless ku.include? 'Digital Signature'
-          messages << 'W: CA certificates should include Digital Signature to allow signing OCSP responses'
+          messages << 'N: CA certificates without Digital Signature do not allow direct signing of OCSP responses'
         end
 
         if c.extensions.find { |ex| ex.oid == 'subjectAltName' }

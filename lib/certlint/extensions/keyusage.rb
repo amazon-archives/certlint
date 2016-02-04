@@ -76,7 +76,7 @@ class ASN1Ext
           'Decipher Only'
         ]
         if v.any? { |u| !allowed.include? u }
-          messages << 'E: Unallowed key usage for DSA public key'
+          messages << 'E: Unallowed key usage for EC public key'
         end
 
         if (v.include? 'Encipher Only') || (v.include? 'Decipher Only')
