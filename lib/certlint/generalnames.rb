@@ -60,6 +60,13 @@ module CertLint
           domain_part = addr
         end
 
+        if domain_part.start_with?('.')
+          if is_san
+            messages << 'E: RFC822Name domain must not start with .'
+          end
+          domain_part = domain_part[1..-1]
+        end
+
         if domain_part.empty?
           messages << 'E: RFC822Name without domain'
         elsif EMAIL_DOMAIN !~ domain_part
