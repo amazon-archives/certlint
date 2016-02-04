@@ -69,7 +69,7 @@ module CertLint
         # If the local part is nil (e.g. name constraint)
         # don't do checks on it
         if local_part.nil?
-          return
+          return messages
         end
 
         if local_part.empty?
