@@ -328,7 +328,7 @@ module CertLint
     if cert.serial.to_s =~ /^-/
       messages << 'E: Negative serial number'
     elsif cert.serial.zero?
-      messages << 'W: Serial number must be positive'
+      messages << 'E: Serial number must be positive'
     end
     if cert.serial.num_bytes > 20
       messages << 'E: Serial numbers must be 20 octets or less'
