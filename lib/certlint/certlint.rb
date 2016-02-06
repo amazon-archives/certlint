@@ -172,6 +172,29 @@ module CertLint
         messages << 'E: RSA keys must have a null parameter'
       end
       messages += check_pdu(:RSAPublicKey, key_der)
+      if messages.any? { |m| m.start_with? 'F:' }
+        return messages
+      end
+      # Section 3.1 of RFC 3447 requires n and e to both be positive
+      # and e must be in the range 3 .. n-1
+      rsa_asn = OpenSSL::ASN1.decode(key_der)
+      positive = 0
+      if rsa_asn.value[0].value > 0
+        positive += 1
+      else
+        messages << 'E: RSA public key modulus must be positive'
+      end
+      if rsa_asn.value[1].value > 0
+        positive += 1
+      else
+        messages << 'E: RSA public key exponent must be positive'
+      end
+      # Only run this check if both numbers were positive
+      if positive == 2
+        unless (rsa_asn.value[1].value >= 3) && (rsa_asn.value[1].value < rsa_asn.value[0].value)
+          messages << 'E: RSA public key exponent must be between 3 and n - 1'
+        end
+      end
     when '1.2.840.10040.4.1' # DSA
       # When omitted, the parameters component MUST be omitted
       # entirely. If the DSA domain parameters are present, the
