@@ -130,7 +130,7 @@ module CertLint
           messages << 'E: CA certificates must include organizationName in subject'
         end
         unless c.subject.to_a.any? { |d| d[0] == 'CN' }
-          messages << 'E: CA certificates must include commonName in subject'
+          messages << 'N: Some applications require CA certificates to include commonName in subject'
         end
         if (c.not_after.year - c.not_before.year) > 25
           messages << 'W: CA certificates should not have a validity period greater than 25 years'

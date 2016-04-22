@@ -64,7 +64,7 @@ module CertLint
         return messages
       end
 
-      messages << "E: Unknown Extension: #{oid}"
+      messages << "W: Unknown Extension: #{oid}"
 
       messages
     end
