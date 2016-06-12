@@ -294,6 +294,14 @@ module CertLint
           end
         end
 
+        crldp = c.extensions.find { |ex| ex.oid == 'crlDistributionPoints' }
+        unless crldp.nil?
+          dps = crldp.value.split(/\n/)
+          unless dps.any? { |dp| dp.start_with?('URI:http://') }
+            messages << 'E: BR certificates with CRL Distribution Point must include HTTP URL'
+          end
+        end
+
         ku = c.extensions.find { |ex| ex.oid == 'keyUsage' }
         unless ku.nil?
           ku = ku.value.split(',').map(&:strip)
