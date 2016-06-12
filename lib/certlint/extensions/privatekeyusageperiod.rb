@@ -18,7 +18,7 @@ module CertLint
 class ASN1Ext
   class PrivateKeyUsagePeriod < ASN1Ext
     @pdu = :PrivateKeyUsagePeriod
-    @critical_req = :false
+    @critical_req = false
   end
 end
 end
