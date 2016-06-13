@@ -1,4 +1,4 @@
-#!/usr/bin/ruby -Eutf-8:utf-8
+/!/usr/bin/ruby -Eutf-8:utf-8
 # encoding: UTF-8
 # Copyright 2015-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #
@@ -296,7 +296,7 @@ module CertLint
 
         crldp = c.extensions.find { |ex| ex.oid == 'crlDistributionPoints' }
         unless crldp.nil?
-          dps = crldp.value.split(/\n/)
+          dps = crldp.value.strip.split(/\n/).map(&:strip)
           unless dps.any? { |dp| dp.start_with?('URI:http://') }
             messages << 'E: BR certificates with CRL Distribution Point must include HTTP URL'
           end
