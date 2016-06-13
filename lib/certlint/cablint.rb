@@ -1,4 +1,4 @@
-/!/usr/bin/ruby -Eutf-8:utf-8
+#!/usr/bin/ruby -Eutf-8:utf-8
 # encoding: UTF-8
 # Copyright 2015-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #
