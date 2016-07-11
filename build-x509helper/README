@@ -1,10 +1,6 @@
 CertLint depends on the certlint-x509helper binary.  To build the binary, run 
 the commands below.
 
-Note: You cannot compile this on a case insensitive filesystem.  RFC3280 has a 
-Time type which will cause the compiler to create a Time.h file.  This
-will conflict with <time.h> on a case insensitive filesystem.
-
 git clone https://github.com/vlm/asn1c.git
 cd asn1c
 patch -p1 < ../asn1c.patch
@@ -25,4 +21,13 @@ curl -O https://www.ietf.org/rfc/rfc3279.txt
 mkdir pkix1
 cd pkix1
 bash ../../../regen-pkix1-Makefile
+
+# RFC3280 has a Time type which will cause the compiler to create a Time.h
+# file. This will conflict with <time.h> on a case insensitive filesystem.
+# You can work around this problem with this hack:
+#
+# mv Time.h TTime.h
+# perl -pi -e 's/"Time.h"/"TTime.h"/g' *
+# perl -pi -e 's/\tTime.h/\tTTime.h/g' Makefile
+
 make
