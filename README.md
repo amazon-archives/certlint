@@ -9,7 +9,7 @@ For now, execute by running:
 
 ## Required gems
 
-* `public_suffix`
+* `public_suffix` (try v1.5.3 if versions v2.0.x fail)
 * `open4`
 * `simpleidn`
 
