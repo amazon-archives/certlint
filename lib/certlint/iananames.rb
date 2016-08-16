@@ -15,10 +15,13 @@
 require 'rubygems'
 require 'simpleidn'
 require 'public_suffix'
-PublicSuffix::List.private_domains = false
-PublicSuffix::List.default_definition = File.new(
-  File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'data', 'public_suffix_list.dat')),
-  "r:utf-8")
+PUBLIC_SUFFIX_LIST_DAT = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'data', 'public_suffix_list.dat'))
+if PublicSuffix::List.respond_to?(:private_domains)
+  PublicSuffix::List.private_domains = false
+  PublicSuffix::List.default_definition = File.new(PUBLC_SUFFIX_LIST_DAT, "r:utf-8")
+else
+  PublicSuffix::List.default = PublicSuffix::List.parse(File.read(PUBLIC_SUFFIX_LIST_DAT, encoding: "utf-8"), private_domains: false)
+end
 
 module CertLint
   class IANANames
