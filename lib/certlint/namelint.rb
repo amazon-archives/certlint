@@ -256,7 +256,8 @@ module CertLint
       end
 
       dup = attr_types.select { |el| attr_types.count(el) > 1 }.uniq
-      # OU and DC can reasonably appear multiple times
+      # streetAddress, OU, and DC can reasonably appear multiple times
+      dup.delete('2.5.4.9')
       dup.delete('2.5.4.11')
       dup.delete('0.9.2342.19200300.100.1.25')
       dup.each do |type|
