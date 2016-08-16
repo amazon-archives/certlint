@@ -15,6 +15,12 @@
 require 'rubygems'
 require 'openssl'
 require_relative 'dn_attrs'
+require 'simpleidn'
+# Load unf if we don't have native methods
+unless String.method_defined?(:unicode_normalize) || String.method_defined?(:to_nfc)
+  require 'unf'
+end
+
 
 module CertLint
   # Validate DirectoryNames
@@ -219,6 +225,17 @@ module CertLint
           when :DNS
             unless value =~ DLABEL
               attr_messages << "E: Invalid label in #{attrname}"
+            end
+            if value.start_with? 'xn--'
+             ulabel = SimpleIDN.to_unicode(value)
+             if ulabel.respond_to? :unicode_normalize
+                ulabel_nfc = ulabel.unicode_normalize(:nfc)
+              else
+                ulabel_nfc = ulabel.to_nfc
+              end
+              if ulabel != ulabel_nfc
+                messages << 'E: Internationalized domain names must be in unicode normalization form C'
+              end
             end
           when :PKCS9
             if value.length > 255
