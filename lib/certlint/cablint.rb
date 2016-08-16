@@ -94,8 +94,8 @@ module CertLint
           messages << 'E: RSA subject key exponent must be odd'
         end
       elsif key.is_a? OpenSSL::PKey::DSA
-        l = key.p.num_bits
-        n = key.q.num_bits
+        l = key.params["p"].num_bits
+        n = key.params["q"].num_bits
         if l < 2048
           messages << 'E: DSA subject key p must be at least 2048 bits'
         elsif !(
