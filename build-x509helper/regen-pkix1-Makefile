@@ -1,6 +1,6 @@
 #!/bin/bash
         ASN1CMDOPTS="" \
-        ASN1MODULES="../rfc3280-*.asn1 ../rfc3739-PKIXqualified88.asn1 ../rfc3709-LogotypeCertExtn.asn1 ../rfc3279-PKIX1Algorithms88.asn1 ../pkix-smimecaps.asn1 ../MiscAttr.asn1" \
+        ASN1MODULES="../rfc3280-*.asn1 ../rfc3739-PKIXqualified88.asn1 ../rfc3709-LogotypeCertExtn.asn1 ../rfc3279-PKIX1Algorithms88.asn1 ../pkix-smimecaps.asn1 ../MiscAttr.asn1 ../MiscAttrImpl.asn1" \
         ASN1PDU=Certificate \
         PROGNAME=certlint-x509helper \
         ../sample.makefile.regen

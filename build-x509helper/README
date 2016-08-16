@@ -11,6 +11,7 @@ make
 cd examples
 cp ../../pkix-smimecaps.asn1 .
 cp ../../MiscAttr.asn1 .
+cp ../../MiscAttrImpl.asn1 .
 curl -O https://www.ietf.org/rfc/rfc3739.txt
 ./crfc2asn1.pl rfc3739.txt
 curl -O https://www.ietf.org/rfc/rfc3709.txt
