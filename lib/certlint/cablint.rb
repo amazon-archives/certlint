@@ -120,6 +120,13 @@ module CertLint
         is_ca = (bc.value.include? 'CA:TRUE')
       end
 
+      # BR section 7.1.4.2.2 (i)
+      c.subject.to_a.each do |d|
+        if d[1] !~ /\p{L}|\p{N}/
+          messages << "E: #{d[0]} appears to only include metadata"
+        end
+      end
+
       # First check CA certs
       if is_ca
         messages << 'I: CA certificate identified'
