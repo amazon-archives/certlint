@@ -13,7 +13,7 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 require 'rubygems'
-require 'open4'
+require 'asn1validator'
 require 'openssl'
 
 require_relative 'namelint'
@@ -62,45 +62,26 @@ module CertLint
     '1.2.840.10045.4.3.4' => :ecdsa
   }
 
-  def self.x509helper(args, passin = nil)
-    cmd = ['certlint-x509helper']
-    cmd += args.split(/\s+/)
-    out = nil
-    err = nil
-    status = Open4.open4(*cmd) do |_pid, stdin, stdout, stderr|
-      stdin.binmode
-      stdout.binmode
-      unless passin.nil?
-        begin
-          stdin.write(passin)
-        rescue Errno::EPIPE
-          # FIXME: Do something smart here
-        end
-        stdin.close
-      end
-      out = stdout.read
-      err = stderr.read
-    end
-    [status.exitstatus, out, err]
-  end
-
   def self.check_pdu(pdu, content)
     messages = []
-    pdu = pdu.to_s
-    unless pdu =~ /\A[A-Z][^ ]+\z/
-      fail 'BadPDU'
-    end
     content.force_encoding('BINARY')
 
-    x, der, _e = x509helper("-c -p #{pdu} -oder -", content)
-    if x == 0
-      der.force_encoding('BINARY')
-      unless der == content
-        messages << "W: NotDER in #{pdu}"
-      end
-    else
-      messages << "F: ASN.1 Error in #{pdu}"
-      return messages # ASN.1 error is fatal
+    begin
+      validator = CertLint::ASN1Validator.new(content, pdu)
+    rescue => ex
+      messages << "F: ASN.1 Error in #{pdu}: #{ex.message}"
+      return messages
+    end
+
+    begin
+      validator.check_constraints
+    rescue => ex
+      messages << "F: Constraint failure in #{pdu}: #{ex.message}"
+    end
+
+    der = validator.to_der
+    unless der == content
+      messages << "W: NotDER in #{pdu}"
     end
 
     # Check strings for things that asn1c does not cover in constraints
