@@ -37,6 +37,11 @@ class ASN1Ext
       # the qualifier in PolicyQualifierInfo is
       # defined as ANY, so we have to manually check
       OpenSSL::ASN1.decode(content).value.each do |policy_information|
+        if !policy_information.is_a? OpenSSL::ASN1::Sequence
+          messages << "E: PolicyInformation is not a sequence"
+          next
+        end
+
         # policiyQualifiers are optional
         pq = policy_information.value[1]
         if pq.nil?
@@ -45,6 +50,11 @@ class ASN1Ext
         # policiyQualifiers is a sequence of
         # PolicyQualifier Info
         pq.value.each do |pqi|
+          if !pqi.is_a? OpenSSL::ASN1::Sequence
+            messages << "E: PolicyQualifierInfo is not a sequence"
+            next
+          end
+
           qualid = pqi.value[0].oid
           q = pqi.value[1].to_der
           case qualid

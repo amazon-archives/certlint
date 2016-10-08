@@ -85,7 +85,7 @@ module CertLint
       '2.5.4.42' => :X520name, # GN
       '2.5.4.43' => :X520name, # initials
       '2.5.4.45' => :UniqueIdentifier,
-      '2.5.4.46' => :PrintableString, # dnQualifier
+      '2.5.4.46' => :X520dnQualifier, # dnQualifier
       '2.5.4.51' => :DirectoryString, # houseIdentifier
       '2.5.4.54' => :DirectoryString, # dmdName
     }

@@ -76,12 +76,42 @@ module CertLint
     begin
       validator.check_constraints
     rescue => ex
-      messages << "F: Constraint failure in #{pdu}: #{ex.message}"
+      messages << "E: Constraint failure in #{pdu}: #{ex.message}"
     end
 
-    der = validator.to_der
-    unless der == content
-      messages << "W: NotDER in #{pdu}"
+    begin
+      der = validator.to_der
+      unless der == content
+        messages << "W: NotDER in #{pdu}"
+      end
+    rescue NoMemoryError
+      messages << "E: BadDER in #{pdu}"
+    end
+
+    # A few things pass asn1c but fail to decode in OpenSSL/Ruby
+    begin
+      OpenSSL::ASN1.decode(content)
+    rescue ArgumentError => e
+      messages << "F: Encoding error: #{e.message} in #{pdu}"
+      return messages # ASN.1 error is fatal
+    rescue TypeError => e
+      if e.message == "bad GENERALIZEDTIME format"
+        messages << "F: Bad GeneralizedTime in #{pdu}"
+        return messages # ASN.1 error is fatal
+      elsif e.message.start_with?("bad UTCTIME format")
+        messages << "F: Bad UTCTime in #{pdu}"
+        return messages # ASN.1 error is fatal
+      end
+      raise e
+    rescue OpenSSL::ASN1::ASN1Error => e
+      if e.message.include?("mismatch")
+        messages << "F: Type mismatch during decode in #{pdu}"
+      elsif e.message == "invalid object encoding"
+        messages << "F: Bad encoding in #{pdu}"
+      else
+        messages << "F: Decode error in #{pdu}: #{e.message}"
+      end
+      return messages # ASN.1 error is fatal
     end
 
     # Check strings for things that asn1c does not cover in constraints
@@ -124,15 +154,11 @@ module CertLint
           end
         end
       end
-    rescue OpenSSL::ASN1::ASN1Error => e
-      messages << "F: ASN.1 Error during traverse: #{e.message} in #{pdu}"
-      return messages # ASN.1 error is fatal
     rescue TypeError => e
-      # OpenSSL throws an error for certain GeneralTimes
-      # that it cannot parse (they are valid ASN.1)
-      messages << "F: Type Error during traverse: #{e.message} in #{pdu}"
+      messages << "F: Type error during traverse in #{pdu}: #{e.message}"
       return messages # ASN.1 error is fatal
     end
+
     messages
   end
 
@@ -203,10 +229,10 @@ module CertLint
       # EC keys are stored slightly oddly
       # They are raw mapped to the BIT STRING
       # rather than having their DER put into the
-      # bit string; they native are an OctetString
+      # bit string; they natively are an OctetString
       # This check is fairly pointless, but here for
       # consistency
-      k = OpenSSL::ASN1::OctetString.new('key_der')
+      k = OpenSSL::ASN1::OctetString.new(key_der)
       messages += check_pdu(:ECPoint, k.to_der)
       begin
         okey = OpenSSL::PKey::EC.new(spki_der)
@@ -269,12 +295,8 @@ module CertLint
       end
     end
 
-    begin
-      asn = OpenSSL::ASN1.decode(der)
-    rescue OpenSSL::ASN1::ASN1Error
-      messages << 'E: Certificate ASN.1 is broken'
-      return messages
-    end
+    asn = OpenSSL::ASN1.decode(der)
+
     # tbsCertificate.version is optional, so we don't have a fixed
     # offset. Check if the first item is a pure ASN1Data, which
     # is a strong hint that it is an EXPLICIT wrapper for the first
@@ -322,7 +344,12 @@ module CertLint
     # Check the SubjectPublicKeyInfo
     messages += check_spki(asn.value[0].value[5 + skip].to_der)
 
-    cert = OpenSSL::X509::Certificate.new(der)
+    begin
+      cert = OpenSSL::X509::Certificate.new(der)
+    rescue OpenSSL::X509::CertificateError
+      messages << 'F: Unable to parse Certificate'
+      return messages
+    end
 
     if cert.version > 2
       messages << 'E: Invalid certificate version'

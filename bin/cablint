@@ -27,6 +27,11 @@ ARGV.each do |file|
 
   m += CertLint::CABLint.lint(der)
   m.each do |msg|
-    puts "#{msg}\t#{fn}"
+    begin
+      puts "#{msg}\t#{fn}"
+    rescue Encoding::UndefinedConversionError
+      print msg
+      puts "\t#{fn}"
+    end
   end
 end

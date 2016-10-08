@@ -41,6 +41,8 @@ module CertLint
       'ecdsa-with-SHA512' => :good
     }
 
+    LETTERS_NUMBERS = /\p{L}|\p{N}/
+
     def self.lint(der)
       messages = []
       messages += CertLint.lint(der)
@@ -122,7 +124,11 @@ module CertLint
 
       # BR section 7.1.4.2.2 (i)
       c.subject.to_a.each do |d|
-        if d[1] !~ /\p{L}|\p{N}/
+        if Encoding.compatible?(d[1], LETTERS_NUMBERS)
+          if d[1] !~ /\p{L}|\p{N}/
+            messages << "E: #{d[0]} appears to only include metadata"
+          end
+        else d[1] !~ /[A-Za-z0-9]/
           messages << "E: #{d[0]} appears to only include metadata"
         end
       end

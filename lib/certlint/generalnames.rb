@@ -146,6 +146,10 @@ module CertLint
         messages << 'E: DNSName is empty'
         return messages # Fatal to this entry
       end
+      if !orig_fqdn.is_a? String
+        messages << 'F: DNSName is not a string'
+        return messages # Fatal to this entry
+      end
       if orig_fqdn.include? "\0"
         messages << 'E: DNSName includes null'
       end
@@ -197,8 +201,16 @@ module CertLint
       when 0 # OtherName
         messages += othername(genname.value, !is_san)
       when 1 # RFC822Name
+        if !genname.value.is_a? String
+          messages << 'F: RFC822Name is not a String'
+          return messages # Fatal
+        end
         messages += rfc822name(genname.value, !is_san)
       when 2 # DNSName
+        if !genname.value.is_a? String
+          messages << 'F: DNS Name is not a String'
+          return messages # Fatal
+        end
         messages += dnsname(genname.value, !is_san)
       when 3 # X400Address
         orig = genname.value
