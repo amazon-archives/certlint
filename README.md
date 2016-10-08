@@ -31,3 +31,9 @@ capital letter, a colon, and a space. The letters indicate the type of message:
 * W: Warning.  These are issues where a standard recommends differently but the standard uses terms such as "SHOULD" or "MAY".
 * E: Error.  These are issues where the certificate is not compliant with the standard.
 * F: Fatal Error.  These errors are fatal to the checks and prevent most further checks from being executed.  These are extremely bad errors.
+
+## Thanks
+
+Certlint was written by Peter Bowen (pzbowen@gmail.com).
+
+Contributors include Matt Palmer, Rob Stradling, David Keeler, and Karsten Weiss.
