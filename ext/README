@@ -1,0 +1,22 @@
+CertLint depends on the asn1validator extension.  To build the extension, run 
+the commands below in the `ext` directory.
+
+git clone https://github.com/vlm/asn1c.git
+cd asn1c
+autoreconf -iv
+./configure
+make
+cd ..
+
+asn1c/asn1c/asn1c -S asn1c/skeletons -pdu=all -pdu=Certificate -fwide-types *.asn1
+rm converter-sample.c
+
+# RFC3280 has a Time type which will cause the compiler to create a Time.h
+# file. This will conflict with <time.h> on a case insensitive filesystem.
+# You can work around this problem with this hack:
+#
+# mv Time.h TTime.h
+# perl -pi -e 's/"Time.h"/"TTime.h"/g' *
+
+ruby extconf.rb
+make
