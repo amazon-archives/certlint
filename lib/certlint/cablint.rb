@@ -222,6 +222,9 @@ module CertLint
           eku.include?('Netscape Server Gated Crypto') || \
           eku.include?('Microsoft Server Gated Crypto')
         messages << 'I: TLS Server certificate identified'
+        if !eku.include?('TLS Web Server Authentication')
+          messages << "W: TLS Server certificates must include id-kp-serverAuth in extended key usage"
+        end
         cert_type_identified = true
         # OK, we have a "SSL" certificate
         # Allowed to contain these three EKUs
