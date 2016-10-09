@@ -133,6 +133,16 @@ module CertLint
         end
       end
 
+      # Find key usage and save for future use
+      # Per 5280, not present == any, no bits set == none
+      ku = c.extensions.find { |ex| ex.oid == 'keyUsage' }
+      ku_critical = nil
+      if !ku.nil?
+        ku_criticial = ku.critical?
+        ku = ku.value.split(',').map(&:strip)
+      end
+
+
       # First check CA certs
       if is_ca
         messages << 'I: CA certificate identified'
@@ -157,23 +167,19 @@ module CertLint
           end
         end
 
-        ku = c.extensions.find { |ex| ex.oid == 'keyUsage' }
         if ku.nil?
           messages << 'E: CA certificates must include keyUsage extension'
-          ku = []
         else
-          unless ku.critical?
+          unless ku_critical
             messages << 'E: CA certificates must set keyUsage extension as critical'
           end
-          ku = ku.value.split(',').map(&:strip)
-        end
-
-        unless ku.include? 'CRL Sign'
-          messages << 'E: CA certificates must include CRL Signing'
-        end
-        unless ku.include? 'Digital Signature'
-          messages << 'N: CA certificates without Digital Signature do not allow direct signing of OCSP responses'
-        end
+          unless ku.include? 'CRL Sign'
+            messages << 'E: CA certificates must include CRL Signing'
+          end
+          unless ku.include? 'Digital Signature'
+            messages << 'N: CA certificates without Digital Signature do not allow direct signing of OCSP responses'
+          end
+       end
 
         if c.extensions.find { |ex| ex.oid == 'subjectAltName' }
           messages << 'W: CA certificates should not include subject alternative names'
@@ -215,17 +221,41 @@ module CertLint
         end
       end
 
+      # Poke at keyUsage if eku is empty to see if this usable with TLS
+      # If so, add a temporary value to check below
+      # RFC 5280 #4.2.1.12 says serverAuth is "consistent" with
+      #   digitalSignature, keyEncipherment or keyAgreement
+      # RFC 5245 #7.4.2 sets further reqs for RSA
+      # EC keys could be for ECDSA or ECDH so check for both
+      if eku.empty? && !ku.nil?
+        if key.is_a? OpenSSL::PKey::RSA
+          if ku.include?('Digital Signature') || ku.include?('Key Encipherment')
+            eku << 'tmp-serverauth-usable'
+          end
+        elsif key.is_a? OpenSSL::PKey::DSA
+          if ku.include?('Digital Signature')
+            eku << 'tmp-serverauth-usable'
+          end
+        elsif key.is_a? OpenSSL::PKey::EC
+          if ku.include?('Digital Signature') || ku.include?('Key Agreement')
+            eku << 'tmp-serverauth-usable'
+          end
+        end
+      end
+
       # So many ways to indicate an in-scope certificate
-      if eku.empty? || \
+      if eku.include?('tmp-serverauth-usable') || \
           eku.include?('TLS Web Server Authentication') || \
           eku.include?('Any Extended Key Usage') || \
           eku.include?('Netscape Server Gated Crypto') || \
           eku.include?('Microsoft Server Gated Crypto')
         messages << 'I: TLS Server certificate identified'
         if !eku.include?('TLS Web Server Authentication')
-          messages << "W: TLS Server certificates must include id-kp-serverAuth in extended key usage"
+          messages << "W: TLS Server certificates must include serverAuth key purpose in extended key usage"
         end
         cert_type_identified = true
+        # Delete our temp key purpose
+        eku.delete('tmp-serverauth-usable')
         # OK, we have a "SSL" certificate
         # Allowed to contain these three EKUs
         eku.delete('TLS Web Server Authentication')
@@ -318,9 +348,7 @@ module CertLint
           end
         end
 
-        ku = c.extensions.find { |ex| ex.oid == 'keyUsage' }
         unless ku.nil?
-          ku = ku.value.split(',').map(&:strip)
           if ku.include? 'CRL Sign'
             messages << 'E: BR certificates must not include CRL Signing'
           end
