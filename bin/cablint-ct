@@ -43,7 +43,7 @@ ct.get_entries(entry, entry).each do |e|
   else
     der = e['extra_data'].pre_certificate.raw_certificate 
   end
-  m = CertLint::CABLint.lint(der)
+  m = CertLint::CABLint.lint(der.to_s)
   m.each do |msg|
     puts "#{msg}\tCT:#{entry}"
   end

@@ -122,13 +122,53 @@ module CertLint
         is_ca = (bc.value.include? 'CA:TRUE')
       end
 
+      subjectarr = c.subject.to_a.map do |a|
+        case a[2]
+        when 19, 22, 18, 36
+          # Printable, IA5, Numeric, Visible String
+          # These should all be 7-bit, but convert to ensure
+          a[1] = a[1].encode('UTF-8', 'ISO-8859-1')
+        when 12
+          # UTF8
+          a[1].force_encoding('UTF-8')
+        when 30 # BMP String
+          a[1] = a[1].encode('UTF-8', 'UCS-2BE')
+        when 28
+          # Universal String
+          a[1] = a[1].encode('UTF-8', 'UCS-4BE')
+        when 20
+          # T.61/Teletex string
+          # Ruby doesn't have T.61, but US-ASCII is super set
+          try_iso_8859_1 = false
+          begin
+            a[1] = a[1].encode('UTF-8', 'US-ASCII')
+            # Some certs have high bit data in T.61 strings
+            # We assume ISO-8859-1 for backwards compat
+          rescue Encoding::InvalidByteSequenceError
+            try_iso_8859_1 = true
+          end
+          if try_iso_8859_1
+            a[1] = a[1].encode('UTF-8', 'ISO-8859-1')
+          end
+        when 3
+          # Bit String (binary data)
+          # The Ruby OpenSSL module does not allow reading the entry flags
+          # which contain info on how many bits in the first byte are to be ignored
+          # so we have no way to know how long the bit string really is
+          # For now, just use the binary data as-is
+          a[1].force_encoding('BINARY')
+        end
+        a
+      end
+
       # BR section 7.1.4.2.2 (i)
-      c.subject.to_a.each do |d|
+      subjectarr.each do |d|
         if Encoding.compatible?(d[1], LETTERS_NUMBERS)
           if d[1] !~ /\p{L}|\p{N}/
             messages << "E: #{d[0]} appears to only include metadata"
           end
         else d[1] !~ /[A-Za-z0-9]/
+          $stderr.puts "WARNING: Invalid encoding"
           messages << "E: #{d[0]} appears to only include metadata"
         end
       end
@@ -146,13 +186,13 @@ module CertLint
       # First check CA certs
       if is_ca
         messages << 'I: CA certificate identified'
-        unless c.subject.to_a.any? { |d| d[0] == 'C' }
+        unless subjectarr.any? { |d| d[0] == 'C' }
           messages << 'E: CA certificates must include countryName in subject'
         end
-        unless c.subject.to_a.any? { |d| d[0] == 'O' }
+        unless subjectarr.any? { |d| d[0] == 'O' }
           messages << 'E: CA certificates must include organizationName in subject'
         end
-        unless c.subject.to_a.any? { |d| d[0] == 'CN' }
+        unless subjectarr.any? { |d| d[0] == 'CN' }
           messages << 'N: Some applications require CA certificates to include commonName in subject'
         end
         if (c.not_after.year - c.not_before.year) > 25
@@ -198,7 +238,7 @@ module CertLint
       else
         eku = eku.value.split(',').map(&:strip).sort
       end
-      subjattrs = c.subject.to_a.map { |a| a[0] }.uniq
+      subjattrs = subjectarr.map { |a| a[0] }.uniq
 
       if subjattrs.include?('1.3.6.1.4.1.311.60.2.1.3') || subjattrs.include?('jurisdictionC')
         # EV
@@ -422,20 +462,8 @@ module CertLint
           end
         end
         idn_san = names.select{ |s| s.include?('xn--') }.map { |a| SimpleIDN.to_unicode(a) }
-        c.subject.to_a.select { |rdn| rdn[0] == 'CN' }.map do |rdn|
-          val = nil
-          case rdn[2]
-          when 12
-            val = rdn[1].force_encoding('UTF-8')
-          when 28
-            val = rdn[1].force_encoding('UTF-32BE').encode('UTF-8')
-          when 30
-            val = rdn[1].force_encoding('UTF-16BE').encode('UTF-8')
-          else
-            val = rdn[1].force_encoding('ISO-8859-1').encode('UTF-8')
-          end
-          val
-        end.each do |val|
+        subjectarr.select { |rdn| rdn[0] == 'CN' }.each do |rdn|
+          val = rdn[1]
           unless names.include? val.downcase
             if idn_san.include? val
               messages << 'W: commonNames in BR certificate contains U-labels'
