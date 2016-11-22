@@ -114,7 +114,7 @@ module CertLint
         begin
           ulabel = SimpleIDN.to_unicode(label)
         rescue SimpleIDN::ConversionError
-          messages << 'E: Bad IDN A-label in Email Address'
+          messages << 'W: Bad IDN A-label in Email Address'
           next
         end
         if ulabel.respond_to? :unicode_normalize
@@ -189,7 +189,7 @@ module CertLint
         begin
           ulabel = SimpleIDN.to_unicode(label)
         rescue SimpleIDN::ConversionError
-          messages << 'E: Bad IDN A-label in DNS Name'
+          messages << 'W: Bad IDN A-label in DNS Name'
           next
         end
         if ulabel.respond_to? :unicode_normalize
