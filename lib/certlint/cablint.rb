@@ -178,7 +178,7 @@ module CertLint
       ku = c.extensions.find { |ex| ex.oid == 'keyUsage' }
       ku_critical = nil
       if !ku.nil?
-        ku_criticial = ku.critical?
+        ku_critical = ku.critical?
         ku = ku.value.split(',').map(&:strip)
       end
 
@@ -336,14 +336,7 @@ module CertLint
             messages << 'E: BR certificates must be 39 months in validity or less'
           end
         end
-        if subjattrs.include? 'O'
-          if !(subjattrs.include? 'L') && !(subjattrs.include? 'ST')
-            messages << 'E: BR certificates with organizationName must include either localityName or stateOrProvinceName'
-          end
-          unless subjattrs.include? 'C'
-            messages << 'E: BR certificates with organizationName must include countryName'
-          end
-        else
+        if (subjattrs & ['O', 'GN', 'SN']).empty?
           if subjattrs.include? 'L'
             messages << 'E: BR certificates without organizationName must not include localityName'
           end
@@ -355,6 +348,13 @@ module CertLint
           end
           if subjattrs.include? 'postalCode'
             messages << 'E: BR certificates without organizationName must not include postalCode'
+          end
+        else
+          if !(subjattrs.include? 'L') && !(subjattrs.include? 'ST')
+            messages << 'E: BR certificates with organizationName must include either localityName or stateOrProvinceName'
+          end
+          unless subjattrs.include? 'C'
+            messages << 'E: BR certificates with organizationName must include countryName'
           end
         end
 
@@ -461,7 +461,14 @@ module CertLint
             end
           end
         end
-        idn_san = names.select{ |s| s.include?('xn--') }.map { |a| SimpleIDN.to_unicode(a) }
+
+        idn_san = names.select{ |s| s.include?('xn--') }.map do |a|
+          begin
+            SimpleIDN.to_unicode(a)
+          rescue SimpleIDN::ConversionError
+            nil
+          end
+        end.compact
         subjectarr.select { |rdn| rdn[0] == 'CN' }.each do |rdn|
           val = rdn[1]
           unless names.include? val.downcase

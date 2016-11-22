@@ -111,7 +111,12 @@ module CertLint
       # Check for IDNs; https://tools.ietf.org/html/rfc5891#section-5.4
       domain_part.split('.').each do |label|
         next unless label.start_with? 'xn--'
-        ulabel = SimpleIDN.to_unicode(label)
+        begin
+          ulabel = SimpleIDN.to_unicode(label)
+        rescue SimpleIDN::ConversionError
+          messages << 'E: Bad IDN A-label in Email Address'
+          next
+        end
         if ulabel.respond_to? :unicode_normalize
           ulabel_nfc = ulabel.unicode_normalize(:nfc)
         else
@@ -181,7 +186,12 @@ module CertLint
       # Check for IDNs; https://tools.ietf.org/html/rfc5891#section-5.4
       fqdn.split('.').each do |label|
         next unless label.start_with? 'xn--'
-        ulabel = SimpleIDN.to_unicode(label)
+        begin
+          ulabel = SimpleIDN.to_unicode(label)
+        rescue SimpleIDN::ConversionError
+          messages << 'E: Bad IDN A-label in DNS Name'
+          next
+        end
         if ulabel.respond_to? :unicode_normalize
           ulabel_nfc = ulabel.unicode_normalize(:nfc)
         else
