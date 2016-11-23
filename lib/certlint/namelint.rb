@@ -227,8 +227,13 @@ module CertLint
               attr_messages << "E: Invalid label in #{attrname}"
             end
             if value.start_with? 'xn--'
-             ulabel = SimpleIDN.to_unicode(value)
-             if ulabel.respond_to? :unicode_normalize
+              begin
+                ulabel = SimpleIDN.to_unicode(value)
+              rescue SimpleIDN::ConversionError
+                messages << 'W: Bad IDN A-label in DNS Name'
+                ulabel = value
+              end
+              if ulabel.respond_to? :unicode_normalize
                 ulabel_nfc = ulabel.unicode_normalize(:nfc)
               else
                 ulabel_nfc = ulabel.to_nfc
