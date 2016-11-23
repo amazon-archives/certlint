@@ -115,7 +115,12 @@ module CertLint
       end
 
       if fqdn.include? 'xn--'
-        u = SimpleIDN.to_unicode(fqdn)
+        begin
+          u = SimpleIDN.to_unicode(fqdn)
+        rescue SimpleIDN::ConversionError
+          messages << 'W: Bad IDN A-label in DNS Name'
+          u = fqdn
+        end
       else
         u = fqdn
       end
