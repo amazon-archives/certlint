@@ -71,7 +71,7 @@ module CertLint
         if sa == :weak && c.serial.num_bytes < 8
           messages << 'W: Serial numbers for certificates using weaker hashes should have at least 64 bits of entropy'
         elsif sa == :pss
-          messages << 'W: PSS is not suppported by most browsers'
+          messages << 'W: PSS is not supported by most browsers'
         end
       end
 
@@ -296,7 +296,7 @@ module CertLint
         cert_type_identified = true
         # Delete our temp key purpose
         eku.delete('tmp-serverauth-usable')
-        # OK, we have a "SSL" certificate
+        # OK, we have an "SSL" certificate
         # Allowed to contain these three EKUs
         eku.delete('TLS Web Server Authentication')
         eku.delete('TLS Web Client Authentication')
@@ -364,10 +364,10 @@ module CertLint
         else
           aia_info = aia.value.split(/\n/)
           unless aia_info.any? { |i| i.start_with? 'OCSP - URI:http://' }
-            messages << 'E: BR certificates must include a HTTP URL of the OCSP responder'
+            messages << 'E: BR certificates must include an HTTP URL of the OCSP responder'
           end
           unless aia_info.any? { |i| i.start_with? 'CA Issuers - URI:http://' }
-            messages << 'W: BR certificates should include a HTTP URL of the issuing CA\'s certificate'
+            messages << 'W: BR certificates should include an HTTP URL of the issuing CA\'s certificate'
           end
         end
 

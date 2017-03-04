@@ -150,7 +150,7 @@ module CertLint
             next
           end
 
-          # If expliclty tagged, then nothing we can really check
+          # If explicitly tagged, then nothing we can really check
           # (no known attributes use explicitly tagged values)
           if value.tag_class != :UNIVERSAL
             messages += attr_messages
