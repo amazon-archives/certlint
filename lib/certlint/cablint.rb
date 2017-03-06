@@ -312,27 +312,27 @@ module CertLint
           messages << "W: TLS Server auth certificates should not contain #{e} usage"
         end
 
-        months = (c.not_after.year - c.not_before.year) * 12
-        months += (c.not_after.month - c.not_before.month)
-        if c.not_after.day > c.not_before.day
-          months += 1
-        end
+	# 24 hours per day, 60 minutes per hour 60 seconds per minute
+	# Round to 1/1000, which will be fine for durations <= 42.5 years
+	days = ((c.not_after.utc - c.not_before.utc)/(24*60*60)).round(3)
+
+	# For all of these, use the longest possible options (e.g. leap years, July/Aug/Sept 3 month seq)
 
         if subjattrs.include?('1.3.6.1.4.1.311.60.2.1.3') || subjattrs.include?('jurisdictionC')
-          # EV
-          if months > 27
+          # EV: 27 months
+          if days > (366 + 365 + 31 + 31 + 30 + 1)
             messages << 'E: EV certificates must be 27 months in validity or less'
           end
         elsif c.not_before < BR_EFFECTIVE
-          if months > 120
+          if days > (366 + 365 + 365 + 365 + 366 + 365 + 365 + 365 + 366 + 365 + 1)
             messages << 'W: Pre-BR certificates should not be more than 120 months in validity'
           end
         elsif (c.not_before < MONTHS_39) && (c.not_before >= BR_EFFECTIVE)
-          if months > 60
+          if days > (366 + 365 + 365 + 365 + 366 + 1)
             messages << 'E: BR certificates must be 60 months in validity or less'
           end
         elsif c.not_before >= MONTHS_39
-          if months > 39
+          if days > (366 + 365 + 365 + 31 + 31 + 30 + 1)
             messages << 'E: BR certificates must be 39 months in validity or less'
           end
         end
