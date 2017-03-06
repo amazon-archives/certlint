@@ -95,6 +95,11 @@ module CertLint
         domain_part = addr
       end
 
+      # From RFC 5280 section 4.2.1.10
+      # To specify any address within a domain, the constraint is specified
+      # with a leading period (as with URIs).  For example, ".example.com"
+      # indicates all the Internet mail addresses in the domain "example.com",
+      # but not Internet mail addresses on the host "example.com"
       if domain_part.start_with?('.')
         if !is_constraint
           messages << 'E: RFC822Name domain must not start with .'
@@ -162,11 +167,9 @@ module CertLint
       if orig_fqdn != fqdn
         messages << 'E: DNSName is not in preferred syntax'
       end
-      # Name Constraints can start with '.'
+      # Name Constraints, like other dNSNames must not start with '.'
       if fqdn.start_with?('.')
-        if !is_constraint
-          messages << 'E: DNSName must not start with .'
-        end
+        messages << 'E: DNSName must not start with .'
         fqdn = fqdn[1..-1]
       end
       unless FQDN.match(fqdn)
