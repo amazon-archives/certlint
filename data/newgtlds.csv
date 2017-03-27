@@ -1,4 +1,4 @@
->>> Updated on: 2016-10-08T18:02:10Z <<<
+>>> Updated on: 2017-03-27T12:02:02Z <<<
 tld,u-label,registry-operator,date-of-contract-signature,application-id,delegation-date
 aaa,,"American Automobile Association, Inc.",2015-02-26,1-1386-27446,2015-08-28
 aarp,,"AARP",2015-05-21,1-1169-4534,2015-11-03
@@ -24,7 +24,7 @@ aeg,,"Aktiebolaget Electrolux",2015-03-19,1-1955-15449,2015-06-20
 aetna,,"Aetna Life Insurance Company",2015-05-21,1-1850-74225,2016-05-20
 afamilycompany,,"Johnson Shareholdings, Inc.",2015-07-23,1-1248-76254,2016-07-31
 afl,,"Australian Football League",2014-10-02,1-1816-41150,2015-03-28
-africa,,"ZA Central Registry NPC trading as Registry.Africa",2014-03-24,1-1243-89583,
+africa,,"ZA Central Registry NPC trading as Registry.Africa",2014-03-24,1-1243-89583,2017-02-15
 agakhan,,"Fondation Aga Khan (Aga Khan Foundation)",2015-04-23,1-1013-32567,2016-04-16
 agency,,"Steel Falls, LLC",2013-11-14,1-1339-13106,2014-01-14
 aig,,"American International Group, Inc.",2014-12-18,1-1700-54316,2015-05-02
@@ -51,7 +51,7 @@ analytics,,"Campus IP LLC",2014-12-18,1-1323-15308,2015-12-21
 android,,"Charleston Road Registry Inc.",2014-08-07,1-1681-35565,2014-11-12
 anquan,,"QIHOO 360 TECHNOLOGY CO. LTD.",2015-01-08,1-974-71991,2016-03-30
 anz,,"Australia and New Zealand Banking Group Limited",2015-07-31,1-1814-82061,2016-06-21
-aol,,"AOL Inc.",2015-09-17,1-1304-6257,
+aol,,"AOL Inc.",2015-09-17,1-1304-6257,2016-11-04
 apartments,,"June Maple, LLC",2014-12-11,1-1341-21066,2015-02-10
 app,,"Charleston Road Registry Inc.",2015-05-14,1-1138-33325,2015-07-02
 apple,,"Apple Inc.",2015-05-14,1-1772-3875,2015-11-03
@@ -90,8 +90,8 @@ barclaycard,,"Barclays Bank PLC",2014-11-20,1-1291-89293,2015-01-24
 barclays,,"Barclays Bank PLC",2014-11-20,1-1291-38102,2015-01-24
 barefoot,,"Gallo Vineyards, Inc.",2015-06-11,1-1856-86918,2016-03-24
 bargains,,"Half Hallow, LLC",2013-11-14,1-1354-34421,2014-01-23
-baseball,,"MLB Advanced Media DH, LLC",2015-10-29,1-1246-9615,
-basketball,,"Fédération Internationale de Basketball (FIBA)",2015-08-20,1-994-9184,
+baseball,,"MLB Advanced Media DH, LLC",2015-10-29,1-1246-9615,2016-10-30
+basketball,,"Fédération Internationale de Basketball (FIBA)",2015-08-20,1-994-9184,2016-10-19
 bauhaus,,"Werkhaus GmbH",2014-04-17,1-1947-29466,2015-04-05
 bayern,,"Bayern Connect GmbH",2014-01-23,1-994-73142,2014-05-03
 bbc,,"British Broadcasting Corporation",2014-12-18,1-981-86291,2015-03-21
@@ -136,10 +136,10 @@ booking,,"Booking.com B.V.",2015-07-16,1-1016-80657,2016-07-23
 boots,,"THE BOOTS COMPANY PLC",2015-01-08,1-1288-319,2015-08-05
 bosch,,"Robert Bosch GMBH",2015-06-18,1-1945-29108,2015-12-24
 bostik,,"Bostik SA",2015-05-28,1-1264-54834,2015-11-25
-boston,,"",2015-12-10,1-1958-93212,
+boston,,"",2015-12-10,1-1958-93212,2016-11-29
 bot,,"Amazon EU S.à r.l.",2014-12-18,1-1315-81832,2015-12-05
 boutique,,"Over Galley, LLC",2013-11-14,1-1363-29181,2014-01-23
-box,,"NS1 Limited",2015-11-12,1-1309-75738,
+box,,"NS1 Limited",2015-11-12,1-1309-75738,2016-11-11
 bradesco,,"Banco Bradesco S.A.",2014-12-18,1-898-653,2015-06-26
 bridgestone,,"Bridgestone Corporation",2014-12-18,1-954-27550,2015-05-01
 broadway,,"Celebrate Broadway, Inc.",2014-12-22,1-994-4128,2015-11-18
@@ -176,12 +176,12 @@ careers,,"Wild Corner, LLC",2013-10-02,1-1378-74207,2013-12-17
 cars,,"",2014-11-13,1-845-37810,2015-05-02
 cartier,,"Richemont DNS Inc.",2014-06-23,1-1253-32739,2014-12-11
 casa,,"Top Level Domain Holdings Limited",2013-11-21,1-1038-47257,2014-09-23
-case,,"CNH Industrial N.V.",2015-09-03,1-2050-40761,
-caseih,,"CNH Industrial N.V.",2015-09-03,1-2051-20058,
+case,,"CNH Industrial N.V.",2015-09-03,1-2050-40761,2016-10-30
+caseih,,"CNH Industrial N.V.",2015-09-03,1-2051-20058,2016-10-30
 cash,,"Delta Lake, LLC",2014-03-06,1-1381-76948,2014-04-23
 casino,,"Binky Sky, LLC",2014-12-18,1-1382-33633,2015-02-19
 catering,,"New Falls. LLC",2013-12-05,1-1380-59591,2014-02-04
-catholic,,"Pontificium Consilium de Comunicationibus Socialibus (PCCS) (Pontifical Council for Social Communication)",2015-10-21,1-1311-76497,
+catholic,,"Pontificium Consilium de Comunicationibus Socialibus (PCCS) (Pontifical Council for Social Communication)",2015-10-21,1-1311-76497,2016-12-01
 cba,,"COMMONWEALTH BANK OF AUSTRALIA",2014-06-26,1-1672-4934,2015-06-22
 cbn,,"The Christian Broadcasting Network, Inc.",2014-08-22,1-1980-27252,2015-02-13
 cbre,,"CBRE, Inc.",2015-07-02,1-2116-80094,2016-07-02
@@ -251,7 +251,7 @@ creditunion,,"CUNA Performance Resources, LLC",2015-01-22,1-1130-18309,2015-11-1
 cricket,,"dot Cricket Limited",2014-10-09,1-1205-96748,2014-11-17
 crown,,"Crown Equipment Corporation",2014-10-24,1-1277-15200,2015-06-19
 crs,,"Federated Co-operatives Limited",2014-04-03,1-2046-93306,2014-10-15
-cruise,,"Viking River Cruises (Bermuda) Ltd.",2015-12-10,1-1691-43949,
+cruise,,"Viking River Cruises (Bermuda) Ltd.",2015-12-10,1-1691-43949,2016-11-12
 cruises,,"Spring Way, LLC",2013-12-05,1-1415-46513,2014-02-04
 csc,,"Alliance-One Services, Inc.",2014-09-25,1-1674-60067,2015-09-01
 cuisinella,,"SALM S.A.S.",2014-04-03,1-1114-58195,2014-07-03
@@ -260,7 +260,7 @@ cyou,,"Beijing Gamease Age Digital Technology Co., Ltd.",2015-01-22,1-1659-50039
 dabur,,"Dabur India Limited",2014-02-06,1-1804-73491,2015-01-24
 dad,,"Charleston Road Registry Inc.",2014-01-23,1-1682-14122,2014-08-30
 dance,,"United TLD Holdco Ltd.",2013-10-24,1-1255-69937,2014-01-14
-data,,"Dish DBS Corporation",2016-06-02,1-2009-38008,
+data,,"Dish DBS Corporation",2016-06-02,1-2009-38008,2016-12-20
 date,,"dot Date Limited",2014-11-20,1-1247-30301,2015-03-25
 dating,,"Pine Fest, LLC",2013-12-05,1-1416-56404,2014-01-27
 datsun,,"NISSAN MOTOR CO., LTD.",2014-03-27,1-1023-6629,2015-03-04
@@ -310,7 +310,6 @@ dupont,,"E. I. du Pont de Nemours and Company",2015-06-25,1-1300-88322,2016-06-1
 durban,,"ZA Central Registry NPC trading as ZA Central Registry",2014-03-24,1-1864-63608,2014-06-19
 dvag,,"Deutsche Vermögensberatung Aktiengesellschaft DVAG",2014-06-23,1-904-62612,2014-09-27
 dvr,,"Hughes Satellite Systems Corporation",2016-05-26,1-2000-89466,2016-09-30
-dwg,,"Autodesk, Inc.",2015-07-23,1-1889-53120,
 earth,,"Interlink Co., Ltd.",2014-12-04,1-901-26957,2015-05-14
 eat,,"Charleston Road Registry Inc.",2014-01-23,1-1139-37354,2014-08-30
 eco,,"Big Room Inc.",2016-07-08,1-912-59314,2016-08-28
@@ -318,7 +317,6 @@ edeka,,"EDEKA Verband kaufmännischer Genossenschaften e.V.",2014-12-18,1-1297-3
 education,,"Brice Way, LLC",2013-11-07,1-1435-73490,2013-12-28
 email,,"Spring Madison, LLC",2013-10-31,1-1438-98374,2014-01-02
 emerck,,"Merck KGaA",2014-04-03,1-980-60636,2014-10-22
-emerson,,"Emerson Electric Co.",2015-07-23,1-1299-23169,
 energy,,"Binky Birch, LLC",2014-09-11,1-1437-42738,2014-11-01
 engineer,,"United TLD Holdco Ltd.",2014-03-06,1-1255-37010,2014-06-04
 engineering,,"Romeo Canyon",2014-03-06,1-1436-74788,2014-04-11
@@ -377,7 +375,7 @@ florist,,"Half Cypress, LLC",2013-11-07,1-1456-34878,2013-12-28
 flowers,,"Uniregistry, Corp.",2014-10-09,1-845-21975,2014-12-25
 fly,,"Charleston Road Registry Inc.",2014-05-08,1-1141-48206,2014-09-15
 foo,,"Charleston Road Registry Inc.",2014-01-23,1-1681-22593,2014-04-21
-food,,"Lifestyle Domain Holdings, Inc.",2016-04-21,1-1326-50608,
+food,,"Lifestyle Domain Holdings, Inc.",2016-04-21,1-1326-50608,2016-11-10
 foodnetwork,,"Lifestyle Domain Holdings, Inc.",2015-07-02,1-1326-10877,2016-06-23
 football,,"Foggy Farms, LLC",2014-12-18,1-1463-19656,2015-02-19
 ford,,"Ford Motor Company",2014-11-13,1-1310-12426,2015-12-18
@@ -386,7 +384,7 @@ forsale,,"",2014-05-22,1-1461-35653,2014-10-01
 forum,,"Fegistry, LLC",2015-04-02,1-1913-92671,2015-07-01
 foundation,,"John Dale, LLC",2013-12-05,1-1468-64201,2014-02-11
 fox,,"FOX Registry, LLC",2015-09-11,1-1167-1880,2015-12-24
-free,,"Amazon EU S.à r.l.",2015-12-10,1-1316-21923,
+free,,"Amazon EU S.à r.l.",2015-12-10,1-1316-21923,2016-11-08
 fresenius,,"Fresenius Immobilien-Verwaltungs-GmbH",2015-07-30,1-916-50890,2016-01-09
 frl,,"FRLregistry B.V.",2014-05-15,1-1312-75662,2014-08-30
 frogans,,"OP3FT",2013-12-19,1-1270-9301,2014-04-21
@@ -395,7 +393,7 @@ frontier,,"Frontier Communications Corporation",2015-02-05,1-2106-18801,2016-02-
 ftr,,"Frontier Communications Corporation",2015-07-16,1-2105-39700,2016-04-17
 fujitsu,,"Fujitsu Limited",2015-07-30,1-1722-42216,2016-07-07
 fujixerox,,"Xerox DNHC LLC",2015-07-23,1-1046-39945,2016-07-15
-fun,,"Oriental Trading Company, Inc.",2016-01-14,1-1274-35353,
+fun,,"",2016-01-14,1-1274-35353,2016-12-21
 fund,,"John Castle, LLC",2014-03-20,1-1467-34522,2014-04-23
 furniture,,"Lone Fields, LLC",2014-03-20,1-1466-60532,2014-04-23
 futbol,,"",2013-09-20,1-1469-89174,2014-02-11
@@ -452,7 +450,7 @@ guge,,"Charleston Road Registry Inc.",2014-08-28,1-1099-76403,2015-03-24
 guide,,"Snow Moon, LLC",2013-09-13,1-1484-33046,2014-05-15
 guitars,,"Uniregistry, Corp.",2013-11-14,1-855-34620,2014-01-21
 guru,,"Pioneer Cypress, LLC",2013-08-27,1-1487-73268,2013-11-06
-hair,,"L'Oréal",2015-12-03,1-1302-98299,
+hair,,"L'Oréal",2015-12-03,1-1302-98299,2016-12-02
 hamburg,,"Hamburg Top-Level-Domain GmbH",2014-02-20,1-1134-57974,2014-06-04
 hangout,,"Charleston Road Registry Inc.",2014-11-13,1-1678-13168,2015-01-24
 haus,,"",2013-12-05,1-1488-15641,2014-03-31
@@ -481,6 +479,7 @@ homesense,,"The TJX Companies, Inc.",2015-07-16,1-1764-22954,2016-07-15
 honda,,"Honda Motor Co., Ltd.",2014-12-18,1-1923-79996,2015-04-30
 honeywell,,"Honeywell GTLD LLC",2015-07-23,1-1517-81574,2016-07-26
 horse,,"Top Level Domain Holdings Limited",2013-11-21,1-927-86049,2014-03-31
+hospital,,"Ruby Pike, LLC",2016-10-20,1-1505-15195,2016-12-09
 host,,"DotHost Inc.",2014-04-17,1-1061-73671,2014-05-31
 hosting,,"Uniregistry, Corp.",2014-05-29,1-855-76484,2014-08-16
 hot,,"Amazon EU S.à r.l.",2015-08-27,1-1316-38620,2016-08-10
@@ -500,7 +499,6 @@ ice,,"IntercontinentalExchange, Inc.",2014-10-30,1-1965-44528,2015-07-22
 icu,,"One.com A/S",2015-01-08,1-979-15291,2015-05-02
 ieee,,"IEEE Global LLC",2015-07-23,1-966-50066,2016-07-21
 ifm,,"ifm electronic gmbh",2014-01-30,1-1740-10420,2015-01-24
-iinet,,"Connect West Pty. Ltd.",2014-07-03,1-1164-13371,2015-07-09
 ikano,,"Ikano S.A.",2015-07-09,1-1002-9044,2016-07-01
 imamat,,"Fondation Aga Khan (Aga Khan Foundation)",2015-08-06,1-1013-17019,2016-04-16
 imdb,,"Amazon EU S.à r.l.",2015-06-25,1-1315-27811,2016-06-07
@@ -525,7 +523,7 @@ ist,,"Istanbul Metropolitan Municipality",2014-08-28,1-896-64208,2015-07-11
 istanbul,,"Istanbul Metropolitan Municipality",2014-08-28,1-896-81048,2015-07-11
 itau,,"Itau Unibanco Holding S.A.",2014-10-02,1-876-18413,2015-07-22
 itv,,"ITV Services Limited",2015-07-09,1-978-21016,2016-06-21
-iveco,,"CNH Industrial N.V.",2015-09-03,1-2053-96234,
+iveco,,"CNH Industrial N.V.",2015-09-03,1-2053-96234,2016-10-30
 iwc,,"Richemont DNS Inc.",2014-06-23,1-1253-3840,2014-12-13
 jaguar,,"Jaguar Land Rover Ltd",2014-11-13,1-2033-3936,2015-10-27
 java,,"Oracle Corporation",2014-06-19,1-1785-88138,2015-03-03
@@ -534,7 +532,7 @@ jcp,,"JCP Media, Inc.",2015-04-23,1-1897-48644,2016-03-30
 jeep,,"FCA US LLC.",2015-07-30,1-2056-76990,2016-07-28
 jetzt,,"",2014-01-09,1-1758-31045,2014-03-15
 jewelry,,"Wild Bloom, LLC",2015-03-05,1-1520-93221,2015-04-16
-jio,,"Affinity Names, Inc.",2015-04-02,1-1013-15809,
+jio,,"Affinity Names, Inc.",2015-04-02,1-1013-15809,2016-11-15
 jlc,,"Richemont DNS Inc.",2014-12-04,1-1253-23191,2015-06-10
 jll,,"Jones Lang LaSalle Incorporated",2015-04-02,1-1250-4137,2015-05-22
 jmp,,"Matrix IP LLC",2015-03-26,1-1323-79639,2015-12-18
@@ -666,7 +664,7 @@ mitsubishi,,"Mitsubishi Corporation",2015-07-23,1-1195-88153,2016-07-07
 mlb,,"MLB Advanced Media DH, LLC",2015-05-21,1-1246-40551,2016-05-25
 mls,,"The Canadian Real Estate Association",2015-04-23,1-1828-26452,2016-04-20
 mma,,"MMA IARD",2014-11-07,1-1727-80321,2015-03-31
-mobile,,"Dish DBS Corporation",2016-06-02,1-2012-89566,
+mobile,,"Dish DBS Corporation",2016-06-02,1-2012-89566,2016-12-20
 mobily,,"GreenTech Consultancy Company W.L.L.",2014-12-18,1-2114-81237,2015-12-23
 moda,,"United TLD Holdco Ltd.",2013-11-07,1-1255-64246,2014-01-14
 moe,,"Interlink Co., Ltd.",2013-11-13,1-901-45839,2014-03-31
@@ -680,7 +678,7 @@ mopar,,"FCA US LLC.",2015-07-30,1-2060-34064,2016-08-02
 mormon,,"IRI Domain Management, LLC (\"Applicant\")",2013-12-05,1-1098-52000,2014-11-19
 mortgage,,"",2014-03-20,1-1564-75367,2014-05-31
 moscow,,"Foundation for Assistance for Internet Technologies and Infrastructure Development (FAITID)",2013-12-19,1-975-59500,2014-04-24
-moto,,"",2015-06-04,1-1138-87257,
+moto,,"",2015-06-04,1-1138-87257,2016-11-12
 motorcycles,,"DERMotorcycles, LLC",2014-01-09,1-909-56431,2014-05-22
 mov,,"Charleston Road Registry Inc.",2014-01-30,1-1142-23068,2014-08-30
 movie,,"New Frostbite, LLC",2015-02-05,1-1570-42842,2015-03-25
@@ -690,7 +688,6 @@ mtn,,"MTN Dubai Limited",2014-12-04,1-2140-13825,2015-03-25
 mtpc,,"Mitsubishi Tanabe Pharma Corporation",2014-11-20,1-988-84412,2015-03-04
 mtr,,"MTR Corporation Limited",2015-03-12,1-2028-44295,2015-10-07
 mutual,,"Northwestern Mutual MU TLD Registry, LLC",2015-04-02,1-1187-18162,2016-04-05
-mutuelle,,"Fédération Nationale de la Mutualité Française",2015-06-18,1-1752-85513,2015-10-23
 nab,,"National Australia Bank Limited",2015-08-20,1-1724-35592,2016-08-18
 nadex,,"IG Group Holdings PLC",2014-12-11,1-2044-88394,2015-05-02
 nagoya,,"GMO Registry, Inc.",2013-10-24,1-1725-26914,2014-01-29
@@ -704,7 +701,7 @@ netflix,,"Netflix, Inc.",2015-06-18,1-1333-56033,2016-05-28
 network,,"Trixy Manor, LLC",2013-11-14,1-1572-10553,2014-08-22
 neustar,,"NeuStar, Inc.",2013-12-05,1-863-45071,2014-02-19
 new,,"Charleston Road Registry Inc.",2014-01-30,1-1682-52941,2014-08-30
-newholland,,"CNH Industrial N.V.",2015-09-03,1-2052-3417,
+newholland,,"CNH Industrial N.V.",2015-09-03,1-2052-3417,2016-10-30
 news,,"",2014-12-18,1-1573-27315,2015-03-21
 next,,"Next plc",2015-06-18,1-1154-86661,2016-05-03
 nextdirect,,"Next plc",2015-06-18,1-1154-75728,2016-05-03
@@ -771,7 +768,7 @@ pfizer,,"Pfizer Inc.",2015-09-11,1-1827-93225,2016-07-15
 pharmacy,,"National Association of Boards of Pharmacy",2014-06-19,1-1040-55064,2014-09-05
 phd,,"Charleston Road Registry Inc.",2016-07-28,1-1142-85390,
 philips,,"Koninklijke Philips N.V.",2014-11-07,1-1748-81516,2015-05-09
-phone,,"Dish DBS Corporation",2016-06-02,1-2011-80942,
+phone,,"Dish DBS Corporation",2016-06-02,1-2011-80942,2016-12-20
 photo,,"Uniregistry, Corp.",2013-11-14,1-845-871,2014-01-21
 photography,,"Sugar Glen, LLC",2013-09-20,1-1581-70192,2013-11-19
 photos,,"Sea Corner, LLC",2013-10-17,1-1580-67148,2013-12-17
@@ -817,7 +814,7 @@ quebec,,"PointQuébec Inc",2013-12-19,1-1663-45909,2014-04-16
 quest,,"Quest ION Limited",2015-03-26,1-1817-89377,2016-02-06
 qvc,,"QVC, Inc.",2015-07-30,1-877-83686,2016-08-04
 racing,,"Premier Registry Limited",2014-12-04,1-1200-70811,2015-04-03
-radio,,"European Broadcasting Union (EBU)",2016-07-21,1-1083-39123,
+radio,,"European Broadcasting Union (EBU)",2016-07-21,1-1083-39123,2016-10-12
 raid,,"Johnson Shareholdings, Inc.",2015-07-23,1-1248-89181,2016-07-21
 read,,"Amazon EU S.à r.l.",2014-12-18,1-1317-97509,2015-12-05
 realestate,,"dotRealEstate LLC",2015-09-11,1-907-1363,2016-05-23
@@ -831,7 +828,7 @@ rehab,,"United TLD Holdco Ltd.",2014-03-06,1-1255-34333,2014-06-04
 reise,,"",2014-03-13,1-892-71956,2014-05-22
 reisen,,"New Cypress, LLC",2014-03-06,1-1606-68851,2014-04-11
 reit,,"National Association of Real Estate Investment Trusts, Inc.",2014-09-04,1-1760-71167,2014-11-12
-reliance,,"Reliance Industries Limited",2015-04-02,1-1308-77805,
+reliance,,"Reliance Industries Limited",2015-04-02,1-1308-77805,2016-11-15
 ren,,"Beijing Qianxiang Wangjing Technology Development Co., Ltd.",2013-12-12,1-924-11693,2014-03-27
 rent,,"DERRent, LLC",2014-12-04,1-909-9048,2015-04-30
 rentals,,"Big Hollow,LLC",2013-12-05,1-1600-90191,2014-02-04
@@ -847,16 +844,17 @@ rich,,"I-Registry Ltd.",2013-11-21,1-1003-1483,2014-01-21
 richardli,,"Pacific Century Asset Management (HK) Limited",2015-05-14,1-1309-98748,2016-05-11
 ricoh,,"Ricoh Company, Ltd.",2014-11-20,1-1101-5912,2015-06-22
 rightathome,,"Johnson Shareholdings, Inc.",2015-07-23,1-1248-60975,2016-07-21
-ril,,"Reliance Industries Limited",2015-04-02,1-1308-43524,
+ril,,"Reliance Industries Limited",2015-04-02,1-1308-43524,2016-11-15
 rio,,"Empresa Municipal de Informática SA - IPLANRIO",2014-02-27,1-1151-10158,2014-05-22
 rip,,"United TLD Holdco Ltd.",2014-07-10,1-1255-57953,2014-10-15
-rmit,,"Royal Melbourne Institute of Technology",2015-11-19,1-2135-63522,
+rmit,,"Royal Melbourne Institute of Technology",2015-11-19,1-2135-63522,2016-11-24
 rocher,,"Ferrero Trading Lux S.A.",2014-12-18,1-1126-33363,2015-11-07
 rocks,,"",2013-11-14,1-1131-85666,2014-04-10
 rodeo,,"Top Level Domain Holdings Limited",2013-12-19,1-1110-28830,2014-03-31
 rogers,,"Rogers Communications Partnership",2015-08-06,1-1036-55073,2016-09-20
 room,,"Amazon EU S.à r.l.",2014-12-18,1-1317-22695,2015-12-05
 rsvp,,"Charleston Road Registry Inc.",2014-05-08,1-1683-44078,2014-08-30
+rugby,,"World Rugby Strategic Developments Limited",2016-12-15,1-994-63638,
 ruhr,,"regiodot GmbH & Co. KG",2013-10-02,1-1753-50246,2013-12-10
 run,,"Snow Park, LLC",2015-03-19,1-1616-69474,2015-05-07
 rwe,,"RWE AG",2015-04-02,1-1756-92979,2015-10-27
@@ -999,7 +997,6 @@ teva,,"Teva Pharmaceutical Industries Limited",2015-07-02,1-1081-27807,2016-04-1
 thd,,"Homer TLC, Inc.",2015-04-02,1-1095-68549,2015-05-22
 theater,,"Blue Tigers, LLC",2015-03-19,1-1641-67063,2015-05-06
 theatre,,"",2015-05-07,1-1326-3558,2015-09-13
-theguardian,,"Guardian News and Media Limited",2015-04-30,1-1730-23038,
 tiaa,,"Teachers Insurance and Annuity Association of America",2015-07-23,1-1501-39101,2016-07-20
 tickets,,"Accent Media Limited",2015-02-05,1-2155-24150,2015-03-25
 tienda,,"Victor Manor, LLC",2013-11-14,1-1646-17411,2014-01-23
@@ -1049,7 +1046,7 @@ vanguard,,"The Vanguard Group, Inc.",2015-09-03,1-1698-41502,2016-08-28
 vegas,,"Dot Vegas, Inc.",2014-01-16,1-846-66759,2014-03-31
 ventures,,"Binky Lake, LLC",2013-08-27,1-1649-44756,2013-11-06
 verisign,,"VeriSign, Inc.",2015-08-13,1-1145-77950,2015-11-25
-versicherung,,"dotversicherung-registry GmbH",2014-03-20,1-891-92750,2014-05-22
+versicherung,,"",2014-03-20,1-891-92750,2014-05-22
 vet,,"",2014-03-06,1-1642-14231,2014-05-31
 viajes,,"Black Madison, LLC",2013-10-17,1-1629-12298,2013-12-17
 video,,"",2014-10-16,1-1480-90854,2014-12-25
@@ -1068,7 +1065,7 @@ vivo,,"Telefonica Brasil S.A.",2015-07-31,1-1849-63904,2016-07-15
 vlaanderen,,"DNS.be vzw",2014-02-06,1-1369-30849,2014-06-18
 vodka,,"Top Level Domain Holdings Limited",2013-12-19,1-1037-7152,2014-03-31
 volkswagen,,"Volkswagen Group of America Inc.",2015-05-14,1-1262-79766,2016-01-09
-volvo,,"Volvo Holding Sverige Aktiebolag",2015-11-12,1-1797-56873,
+volvo,,"Volvo Holding Sverige Aktiebolag",2015-11-12,1-1797-56873,2016-10-24
 vote,,"Monolith Registry LLC",2013-11-21,1-1013-44231,2014-03-03
 voting,,"Valuetainment Corp.",2013-11-13,1-1280-72896,2014-01-29
 voto,,"Monolith Registry LLC",2013-11-21,1-1013-52757,2014-03-03
@@ -1124,7 +1121,6 @@ xn--3pxu8k,点看,"VeriSign Sarl",2015-01-15,1-1254-85868,2015-07-28
 xn--42c2d9a,คอม,"VeriSign Sarl",2015-01-15,1-1254-3015,2015-07-28
 xn--45q11c,八卦,"Zodiac Scorpio Limited",2013-11-21,1-859-69634,2014-11-17
 xn--4gbrim,موقع,"Suhub Electronic Establishment",2013-10-04,1-1013-15278,2014-05-28
-xn--4gq48lf9j,一号店,"Wal-Mart Stores, Inc.",2015-07-31,1-1244-37294,
 xn--55qw42g,公益,"China Organizational Name Administration Center",2013-11-08,1-922-7037,2013-12-17
 xn--55qx5d,公司,"Computer Network Information Center of Chinese Academy of Sciences （China Internet Network Information Center）",2013-11-14,1-932-93337,2014-01-21
 xn--5su34j936bgsg,香格里拉,"Shangri‐La International Hotel Management Limited",2015-09-03,1-940-19689,2016-07-02
@@ -1132,7 +1128,7 @@ xn--5tzm5g,网站,"Global Website TLD Asia Limited",2014-12-22,1-2101-67873,2016
 xn--6frz82g,移动,"Afilias Limited",2013-09-23,1-868-82489,2014-02-05
 xn--6qq986b3xl,我爱你,"Tycoon Treasure Limited",2013-09-13,1-960-63893,2014-01-03
 xn--80adxhks,москва,"Foundation for Assistance for Internet Technologies and Infrastructure Development (FAITID)",2013-12-19,1-975-90576,2014-04-24
-xn--80aqecdr1a,католик,"Pontificium Consilium de Comunicationibus Socialibus (PCCS) (Pontifical Council for Social Communication)",2015-10-21,1-1311-52357,
+xn--80aqecdr1a,католик,"Pontificium Consilium de Comunicationibus Socialibus (PCCS) (Pontifical Council for Social Communication)",2015-10-21,1-1311-52357,2016-12-01
 xn--80asehdb,онлайн,"CORE Association",2013-07-14,1-862-29948,2013-10-23
 xn--80aswg,сайт,"CORE Association",2013-07-14,1-862-90073,2013-10-23
 xn--8y0a063a,联通,"China United Network Communications Corporation Limited",2015-03-26,1-996-21855,2016-02-06
@@ -1145,7 +1141,7 @@ xn--c1avg,орг,"Public Interest Registry",2013-11-14,1-910-36696,2014-03-05
 xn--c2br7g,नेट,"VeriSign Sarl",2015-01-15,1-1254-86085,2015-07-28
 xn--cck2b3b,ストア,"Amazon EU S.à r.l.",2015-02-26,1-1318-83013,2016-02-19
 xn--cg4bki,삼성,"SAMSUNG SDS CO., LTD",2013-09-27,1-955-42062,2014-02-21
-xn--czr694b,商标,"HU YI GLOBAL INFORMATION RESOURCES (HOLDING) COMPANY. HONGKONG LIMITED",2014-01-16,1-1157-41509,2014-05-22
+xn--czr694b,商标,"Dot Trademark TLD Holding Company Limited",2014-01-16,1-1157-41509,2014-05-22
 xn--czrs0t,商店,"Wild Island, LLC",2013-12-19,1-1490-59840,2014-12-06
 xn--czru2d,商城,"Zodiac Capricorn Limited",2013-11-21,1-867-66064,2014-03-31
 xn--d1acj3b,дети,"The Foundation for Network Initiatives “The Smart Internet”",2013-11-20,1-1193-2906,2014-02-26
@@ -1164,7 +1160,7 @@ xn--gckr3f0f,クラウド,"Amazon EU S.à r.l.",2015-02-26,1-1318-69604,2016-02-
 xn--gk3at1e,通販,"Amazon EU S.à r.l.",2015-10-08,1-1318-15593,2016-09-30
 xn--hxt814e,网店,"Zodiac Libra Limited",2014-05-15,1-858-36255,2014-12-02
 xn--i1b6b1a6a2e,संगठन,"Public Interest Registry",2013-11-14,1-910-41904,2014-03-09
-xn--imr513n,餐厅,"HU YI GLOBAL INFORMATION RESOURCES (HOLDING) COMPANY. HONGKONG LIMITED",2014-12-11,1-1103-5695,2015-05-30
+xn--imr513n,餐厅,"Dot Trademark TLD Holding Company Limited",2014-12-11,1-1103-5695,2015-05-30
 xn--io0a7i,网络,"Computer Network Information Center of Chinese Academy of Sciences （China Internet Network Information Center）",2013-11-14,1-932-13797,2014-01-21
 xn--j1aef,ком,"VeriSign Sarl",2015-01-15,1-1254-23113,2015-07-28
 xn--jlq61u9w7b,诺基亚,"Nokia Corporation",2015-01-08,1-957-40223,2015-12-18
@@ -1178,7 +1174,7 @@ xn--mgbaakc7dvf,اتصالات,"Emirates Telecommunications Corporation (trading
 xn--mgbab2bd,بازار,"CORE Association",2013-10-31,1-862-50853,2014-02-18
 xn--mgbb9fbpob,موبايلي,"GreenTech Consultancy Company W.L.L.",2014-12-18,1-2115-92778,2015-12-23
 xn--mgbca7dzdo,ابوظبي,"Abu Dhabi Systems and Information Centre",2015-07-30,1-1925-2822,2016-04-06
-xn--mgbi4ecexp,كاثوليك,"Pontificium Consilium de Comunicationibus Socialibus (PCCS) (Pontifical Council for Social Communication)",2015-10-21,1-1311-1455,
+xn--mgbi4ecexp,كاثوليك,"Pontificium Consilium de Comunicationibus Socialibus (PCCS) (Pontifical Council for Social Communication)",2015-10-21,1-1311-1455,2016-12-01
 xn--mgbt3dhd,همراه,"Asia Green IT System Bilgisayar San. ve Tic. Ltd. Sti.",2014-09-04,1-2134-95773,2015-12-07
 xn--mk1bu44c,닷컴,"VeriSign Sarl",2015-01-15,1-1254-16209,2015-07-28
 xn--mxtq1m,政府,"Net-Chinese Co., Ltd.",2014-03-06,1-1658-94344,2015-03-03
@@ -1198,7 +1194,7 @@ xn--rovu88b,書籍,"Amazon EU S.à r.l.",2015-02-26,1-1318-52278,2016-02-19
 xn--ses554g,网址,"",2014-01-16,1-1159-3507,2014-04-10
 xn--t60b56a,닷넷,"VeriSign Sarl",2015-01-15,1-1254-76331,2015-07-28
 xn--tckwe,コム,"VeriSign Sarl",2015-01-15,1-1254-37311,2015-07-29
-xn--tiq49xqyj,天主教,"Pontificium Consilium de Comunicationibus Socialibus (PCCS) (Pontifical Council for Social Communication)",2015-10-21,1-1311-58570,
+xn--tiq49xqyj,天主教,"Pontificium Consilium de Comunicationibus Socialibus (PCCS) (Pontifical Council for Social Communication)",2015-10-21,1-1311-58570,2016-12-01
 xn--unup4y,游戏,"Spring Fields, LLC",2013-07-14,1-1485-72605,2013-10-23
 xn--vermgensberater-ctb,vermögensberater,"Deutsche Vermögensberatung Aktiengesellschaft DVAG",2014-06-23,1-904-60726,2014-09-27
 xn--vermgensberatung-pwb,vermögensberatung,"Deutsche Vermögensberatung Aktiengesellschaft DVAG",2014-06-23,1-904-3145,2014-09-27
