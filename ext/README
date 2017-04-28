@@ -7,7 +7,6 @@ autoreconf -iv
 ./configure
 make
 cd ..
-
 asn1c/asn1c/asn1c -S asn1c/skeletons -pdu=all -pdu=Certificate -fwide-types *.asn1
 rm converter-sample.c
 
@@ -16,7 +15,7 @@ rm converter-sample.c
 # You can work around this problem with this hack:
 #
 # mv Time.h TTime.h
-# perl -pi -e 's/"Time.h"/"TTime.h"/g' *
+# perl -pi -e 's/"Time.h"/"TTime.h"/g' *.*
 
 ruby extconf.rb
 make
