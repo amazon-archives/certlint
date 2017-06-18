@@ -274,7 +274,11 @@ module CertLint
       begin
         name.to_s(OpenSSL::X509::Name::RFC2253 & ~4)
       rescue OpenSSL::X509::NameError => e
-        messages << "E: Unparsable name: #{e.message}"
+        if(name.to_s.empty?)
+          messages << "N: Empty Subject Name, some applications require a CN"
+        else
+          messages << "E: Unparsable name: #{e.message}"
+        end
       end
 
       messages

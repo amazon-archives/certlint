@@ -360,7 +360,7 @@ module CertLint
 
         aia = c.extensions.find { |ex| ex.oid == 'authorityInfoAccess' }
         if aia.nil?
-          messages << 'E: BR certificates must include authorityInformationAccess'
+          messages << 'W: Certificate does not include authorityInformationAccess. BRs require OCSP stapling for this certificate.'
         else
           aia_info = aia.value.split(/\n/)
           unless aia_info.any? { |i| i.start_with? 'OCSP - URI:http://' }
