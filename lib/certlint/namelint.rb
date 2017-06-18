@@ -270,11 +270,14 @@ module CertLint
         messages << "W: Name has multiple #{attrname} attributes"
       end
 
-      # Can OpenSSL handle the name?
-      begin
-        name.to_s(OpenSSL::X509::Name::RFC2253 & ~4)
-      rescue OpenSSL::X509::NameError => e
-        messages << "E: Unparsable name: #{e.message}"
+      # Empty names are valid but cause an exception when converting to a string
+      if name.to_a.length > 0
+        # Can OpenSSL handle the name?
+        begin
+          name.to_s(OpenSSL::X509::Name::RFC2253 & ~4)
+        rescue OpenSSL::X509::NameError => e
+          messages << "E: Unparsable name: #{e.message}"
+        end
       end
 
       messages
