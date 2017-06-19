@@ -406,7 +406,7 @@ module CertLint
           # This gets the extnValue (which is DER)
           der = OpenSSL::ASN1.decode(san.to_der).value.last.value
           # Now decode the extnValue to get a sequence of general names
-          OpenSSL::ASN1.decode(der).each do |genname|
+          OpenSSL::ASN1.decode(der).value.each do |genname|
             nameval = nil
             case genname.tag
             when 0
