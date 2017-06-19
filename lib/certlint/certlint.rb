@@ -362,7 +362,8 @@ module CertLint
     elsif cert.serial.zero?
       messages << 'E: Serial number must be positive'
     end
-    if cert.serial.num_bytes > 20
+    # DER of a 20 byte octet is 22 bytes (one byte type, one byte length, 20 bytes of data)
+    if OpenSSL::ASN1::Integer.new(cert.serial).to_der.bytesize > 22
       messages << 'E: Serial numbers must be 20 octets or less'
     end
 
