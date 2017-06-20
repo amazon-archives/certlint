@@ -47,7 +47,7 @@ class ASN1Ext
           'CRL Sign'
         ]
         if v.any? { |u| !allowed.include? u }
-          messages << 'E: Unallowed key usage for RSA public key'
+          messages << "E: Unallowed key usage for RSA public key (#{(allowed-v).join(', ')})"
         end
         if (v.include? 'Certificate Sign') || (v.include? 'CRL Sign')
           if (v.include? 'Key Encipherment') || (v.include? 'Data Encipherment')
@@ -62,7 +62,7 @@ class ASN1Ext
           'CRL Sign'
         ]
         if v.any? { |u| !allowed.include? u }
-          messages << 'E: Unallowed key usage for DSA public key'
+          messages << "E: Unallowed key usage for DSA public key (#{(allowed-v).join(', ')})"
         end
       elsif pk.is_a? OpenSSL::PKey::EC
         # A little complex as this can be either for ECDSA or ECDH
@@ -76,7 +76,7 @@ class ASN1Ext
           'Decipher Only'
         ]
         if v.any? { |u| !allowed.include? u }
-          messages << 'E: Unallowed key usage for EC public key'
+          messages << "E: Unallowed key usage for EC public key (#{(allowed-v).join(', ')})"
         end
 
         if (v.include? 'Encipher Only') || (v.include? 'Decipher Only')
@@ -100,7 +100,7 @@ class ASN1Ext
           'Decipher Only'
         ]
         if v.any? { |u| !allowed.include? u }
-          messages << 'E: Unallowed key usage for DH public key'
+          messages << "E: Unallowed key usage for DH public key (#{(allowed-v).join(', ')})"
         end
         unless v.include? 'Key Agreement'
           messages << 'E: Key Agreement must be included for DH public keys'
