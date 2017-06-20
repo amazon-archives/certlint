@@ -1,3 +1,4 @@
+require 'certlint/version'
 require 'certlint/certlint'
 require 'certlint/cablint'
 require 'certlint/pemlint'
