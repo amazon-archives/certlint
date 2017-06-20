@@ -28,8 +28,8 @@ Gem::Specification.new do |spec|
   spec.executables   = ['cablint', 'cablint-ct', 'certlint']
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "public_suffix"
-  spec.add_runtime_dependency "simpleidn"
+  spec.add_runtime_dependency "public_suffix", "~> 2.0"
+  spec.add_runtime_dependency "simpleidn", "~> 0.0"
 
   spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "rake", "~> 10.0"
