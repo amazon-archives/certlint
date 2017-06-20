@@ -1,6 +1,4 @@
-*.c
 *.o
-*.h
 Makefile*
 *.so
 asn1c/
