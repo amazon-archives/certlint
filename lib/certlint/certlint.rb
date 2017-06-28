@@ -13,7 +13,7 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 require 'rubygems'
-require 'asn1validator'
+require 'certlint_ext'
 require 'openssl'
 
 require_relative 'namelint'
@@ -261,6 +261,9 @@ module CertLint
     if messages.any? { |m| m.start_with? 'F:' }
       return messages
     end
+
+    # Check for SHAnanigans
+    messages += SHA1Lint.lint(der)
 
     # Check time fields
     OpenSSL::ASN1.traverse(der) do |_depth, offset, header_len, length, _constructed, tag_class, tag|

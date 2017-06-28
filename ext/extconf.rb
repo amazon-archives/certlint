@@ -1,7 +1,7 @@
 require "mkmf"
 
-dir_config("asn1validator")
+dir_config("certlint_ext")
 
 $srcs = Dir["*.c"]
 
-create_makefile("asn1validator")
+create_makefile("certlint_ext")

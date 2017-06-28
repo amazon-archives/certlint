@@ -16,6 +16,9 @@ cd ..
 asn1c/asn1c/asn1c -S asn1c/skeletons -pdu=all -pdu=Certificate -fwide-types asn1/*.asn1
 rm converter-sample.c
 
+git clone https://github.com/cr-marcstevens/sha1collisiondetection.git
+cp sha1collisiondetection/lib/* .
+
 # RFC3280 has a Time type which will cause the compiler to create a Time.h
 # file. This will conflict with <time.h> on a case insensitive filesystem.
 # We work around this problem with this hack:

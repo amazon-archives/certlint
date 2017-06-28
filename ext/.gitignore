@@ -2,3 +2,4 @@
 Makefile*
 *.so
 asn1c/
+sha1collisiondetection/
