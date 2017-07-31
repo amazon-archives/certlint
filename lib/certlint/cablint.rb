@@ -281,6 +281,10 @@ module CertLint
             eku << 'tmp-serverauth-usable'
           end
         end
+      # If the certificate has neither keyUsage nor extendedKeyUsage, it is unrestricted
+      # so it can be used for anything, including server authentication
+      elsif eku.empty? && ku.nil?
+          eku << 'tmp-serverauth-usable'
       end
 
       # So many ways to indicate an in-scope certificate
@@ -312,11 +316,11 @@ module CertLint
           messages << "W: TLS Server auth certificates should not contain #{e} usage"
         end
 
-	# 24 hours per day, 60 minutes per hour 60 seconds per minute
-	# Round to 1/1000, which will be fine for durations <= 42.5 years
-	days = ((c.not_after.utc - c.not_before.utc)/(24*60*60)).round(3)
+        # 24 hours per day, 60 minutes per hour 60 seconds per minute
+        # Round to 1/1000, which will be fine for durations <= 42.5 years
+        days = ((c.not_after.utc - c.not_before.utc)/(24*60*60)).round(3)
 
-	# For all of these, use the longest possible options (e.g. leap years, July/Aug/Sept 3 month seq)
+        # For all of these, use the longest possible options (e.g. leap years, July/Aug/Sept 3 month seq)
 
         if subjattrs.include?('1.3.6.1.4.1.311.60.2.1.3') || subjattrs.include?('jurisdictionC')
           # EV: 27 months
