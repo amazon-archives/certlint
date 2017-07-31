@@ -468,7 +468,7 @@ module CertLint
 
         idn_san = names.select{ |s| s.include?('xn--') }.map do |a|
           begin
-            SimpleIDN.to_unicode(a)
+            SimpleIDN.to_unicode(a.encode("UTF-8"))
           rescue SimpleIDN::ConversionError
             nil
           end

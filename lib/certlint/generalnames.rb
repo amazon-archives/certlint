@@ -117,7 +117,7 @@ module CertLint
       domain_part.split('.').each do |label|
         next unless label.start_with? 'xn--'
         begin
-          ulabel = SimpleIDN.to_unicode(label)
+          ulabel = SimpleIDN.to_unicode(label.encode("UTF-8"))
         rescue SimpleIDN::ConversionError
           messages << 'W: Bad IDN A-label in Email Address'
           next
@@ -190,7 +190,7 @@ module CertLint
       fqdn.split('.').each do |label|
         next unless label.start_with? 'xn--'
         begin
-          ulabel = SimpleIDN.to_unicode(label)
+          ulabel = SimpleIDN.to_unicode(label.encode("UTF-8"))
         rescue SimpleIDN::ConversionError
           messages << 'W: Bad IDN A-label in DNS Name'
           next
