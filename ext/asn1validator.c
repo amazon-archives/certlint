@@ -110,6 +110,7 @@ static VALUE asn1pdu_to_der(VALUE self) {
 	VALUE t = rb_iv_get(self, "@pdu_type");
 	void *pdu_structure = asn1pdu_decode_pdu(d, t);
 	asn_enc_rval_t rv;
+	VALUE ret;
 	
 	rv.encoded = -1;
 
@@ -128,7 +129,9 @@ static VALUE asn1pdu_to_der(VALUE self) {
 
 	ASN_STRUCT_FREE(*asn1pdu_type_descriptor(t), pdu_structure);
 	
-	return rb_str_new(derbuf, rv.encoded);
+	ret = rb_str_new(derbuf, rv.encoded);
+	free(derbuf);
+	return ret;
 }
 
 void Init_asn1validator() {
