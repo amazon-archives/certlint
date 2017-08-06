@@ -22,6 +22,8 @@ end
 module CertLint
 class ASN1Ext
   class CertificatePolicies < ASN1Ext
+    RFC6818_DATE = Time.utc(2013,1,1,0,0,0)
+
     @pdu = :CertificatePolicies
     @critical_req = :optional
 
@@ -75,28 +77,33 @@ class ASN1Ext
             if user_notice[0].nil?
               next
             end
-            # See RFC 6818 section 3 which updates RFC 5280
+            # See RFC 6818 section 3 which updates RFC 5280, as of Jan 2013
             # user_notice[0] is explicitText
-            if user_notice[0].tag == 12 || user_notice[0].tag == 30 # UTF8String || BMPString
-              if user_notice[0].tag == 12
-                txt = user_notice[0].value.force_encoding('UTF-8')
-              else
-                txt = user_notice[0].value.force_encoding('UTF-16BE').encode('UTF-8')
-              end
-              txt_nfc = nil
-              if txt.respond_to? :unicode_normalize
-                txt_nfc = txt.unicode_normalize(:nfc)
-              else
-                txt_nfc = txt.to_nfc
-              end
-              if txt != txt_nfc
-                messages << 'W: Certificate policy explicit text should be in unicode normalization form C'
-              end
-              if txt.codepoints.any? { |c| (c >= 0x00 && c <= 0x1f) || (c >= 0x7f && c <= 0x9f) }
-                messages << 'W: Certificate policy explicit text should not contain control characters'
-              end
+            txt = ''
+            if user_notice[0].tag == 12 # UTF8String
+              txt = user_notice[0].value.force_encoding('UTF-8')
+            elsif user_notice[0].tag == 12 # BMPString
+              txt = user_notice[0].value.encode('UTF-8', 'UTF-16BE')
             elsif user_notice[0].tag == 22 # IA5String
-              messages << 'E: Certificate Policy explicit text must not be IA5String'
+              if c.not_before > RFC6818_DATE
+                messages << 'E: Certificate Policy explicit text must not be IA5String'
+              end
+              txt = user_notice[0].value.encode('UTF-8', 'ISO-8859-1')
+            elsif user_notice[0].tag == 26 # IA5String
+              messages << 'E: Certificate Policy explicit text must not be VisibleString'
+              txt = user_notice[0].value.encode('UTF-8', 'ISO-8859-1')
+            end
+            txt_nfc = nil
+            if txt.respond_to? :unicode_normalize
+              txt_nfc = txt.unicode_normalize(:nfc)
+            else
+              txt_nfc = txt.to_nfc
+            end
+            if txt != txt_nfc
+              messages << 'W: Certificate policy explicit text should be in unicode normalization form C'
+            end
+            if txt.codepoints.any? { |c| (c >= 0x00 && c <= 0x1f) || (c >= 0x7f && c <= 0x9f) }
+              messages << 'W: Certificate policy explicit text should not contain control characters'
             end
           else
             messages << 'E: Bad policy qualifier id'
