@@ -85,12 +85,11 @@ class ASN1Ext
             elsif user_notice[0].tag == 12 # BMPString
               txt = user_notice[0].value.encode('UTF-8', 'UTF-16BE')
             elsif user_notice[0].tag == 22 # IA5String
-              if c.not_before > RFC6818_DATE
+              if cert.not_before > RFC6818_DATE
                 messages << 'E: Certificate Policy explicit text must not be IA5String'
               end
               txt = user_notice[0].value.encode('UTF-8', 'ISO-8859-1')
-            elsif user_notice[0].tag == 26 # IA5String
-              messages << 'E: Certificate Policy explicit text must not be VisibleString'
+            elsif user_notice[0].tag == 26 # VisibleString
               txt = user_notice[0].value.encode('UTF-8', 'ISO-8859-1')
             end
             txt_nfc = nil
