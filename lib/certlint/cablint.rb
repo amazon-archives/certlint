@@ -459,7 +459,7 @@ module CertLint
               next
             end
             if names.include? nameval
-              messages << 'E: Duplicate SAN entry'
+              messages << 'W: Duplicate SAN entry'
             else
               names << nameval
             end
