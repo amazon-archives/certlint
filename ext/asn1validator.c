@@ -24,8 +24,8 @@
 
 extern asn_TYPE_descriptor_t *asn_pdu_collection[];
 
-VALUE mod_certlint;
-VALUE class_certlint_asn1pdu;
+static VALUE mCertLint;
+static VALUE cASN1Validator;
 
 static asn_TYPE_descriptor_t *asn1pdu_type_descriptor(VALUE pdu_type) {
 	asn_TYPE_descriptor_t **pdu = asn_pdu_collection;
@@ -135,10 +135,10 @@ static VALUE asn1pdu_to_der(VALUE self) {
 }
 
 void Init_asn1validator() {
-	mod_certlint = rb_define_module("CertLint");
-	class_certlint_asn1pdu = rb_define_class_under(mod_certlint, "ASN1Validator", rb_cObject);
+	mCertLint = rb_define_module("CertLint");
+	cASN1Validator = rb_define_class_under(mCertLint, "ASN1Validator", rb_cObject);
 
-	rb_define_method(class_certlint_asn1pdu, "initialize", asn1pdu_initialize, 2);
-	rb_define_method(class_certlint_asn1pdu, "check_constraints", asn1pdu_check_constraints, 0);
-	rb_define_method(class_certlint_asn1pdu, "to_der", asn1pdu_to_der, 0);
+	rb_define_method(cASN1Validator, "initialize", asn1pdu_initialize, 2);
+	rb_define_method(cASN1Validator, "check_constraints", asn1pdu_check_constraints, 0);
+	rb_define_method(cASN1Validator, "to_der", asn1pdu_to_der, 0);
 }
