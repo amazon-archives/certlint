@@ -119,10 +119,10 @@ module CertLint
     # - Null bytes
     # - Escape sequences in restricted character strings
     begin
-      OpenSSL::ASN1.traverse(der) do |_depth, offset, header_len, length, _constructed, tag_class, tag|
+      OpenSSL::ASN1.traverse(content) do |_depth, offset, header_len, length, _constructed, tag_class, tag|
         start_c = offset + header_len
         end_c = start_c + length
-        value = der[start_c..end_c - 1]
+        value = content[start_c..end_c - 1]
         if (tag_class == :UNIVERSAL) && (tag == 12) # UTF8String
           unless value.force_encoding('UTF-8').valid_encoding?
             messages << "F: Incorrectly encoded UTF8String in #{pdu}"# at offset #{offset}"
