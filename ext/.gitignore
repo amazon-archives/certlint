@@ -1,4 +1,5 @@
 *.o
 Makefile*
 *.so
+*.bundle
 asn1c/

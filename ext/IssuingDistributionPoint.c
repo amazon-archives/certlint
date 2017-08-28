@@ -7,6 +7,78 @@
 
 #include "IssuingDistributionPoint.h"
 
+static int asn_DFL_3_set_0(int set_value, void **sptr) {
+	BOOLEAN_t *st = *sptr;
+	
+	if(!st) {
+		if(!set_value) return -1;	/* Not a default value */
+		st = (*sptr = CALLOC(1, sizeof(*st)));
+		if(!st) return -1;
+	}
+	
+	if(set_value) {
+		/* Install default value 0 */
+		*st = 0;
+		return 0;
+	} else {
+		/* Test default value 0 */
+		return (*st == 0);
+	}
+}
+static int asn_DFL_4_set_0(int set_value, void **sptr) {
+	BOOLEAN_t *st = *sptr;
+	
+	if(!st) {
+		if(!set_value) return -1;	/* Not a default value */
+		st = (*sptr = CALLOC(1, sizeof(*st)));
+		if(!st) return -1;
+	}
+	
+	if(set_value) {
+		/* Install default value 0 */
+		*st = 0;
+		return 0;
+	} else {
+		/* Test default value 0 */
+		return (*st == 0);
+	}
+}
+static int asn_DFL_6_set_0(int set_value, void **sptr) {
+	BOOLEAN_t *st = *sptr;
+	
+	if(!st) {
+		if(!set_value) return -1;	/* Not a default value */
+		st = (*sptr = CALLOC(1, sizeof(*st)));
+		if(!st) return -1;
+	}
+	
+	if(set_value) {
+		/* Install default value 0 */
+		*st = 0;
+		return 0;
+	} else {
+		/* Test default value 0 */
+		return (*st == 0);
+	}
+}
+static int asn_DFL_7_set_0(int set_value, void **sptr) {
+	BOOLEAN_t *st = *sptr;
+	
+	if(!st) {
+		if(!set_value) return -1;	/* Not a default value */
+		st = (*sptr = CALLOC(1, sizeof(*st)));
+		if(!st) return -1;
+	}
+	
+	if(set_value) {
+		/* Install default value 0 */
+		*st = 0;
+		return 0;
+	} else {
+		/* Test default value 0 */
+		return (*st == 0);
+	}
+}
 static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 	{ ATF_POINTER, 6, offsetof(struct IssuingDistributionPoint, distributionPoint),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
@@ -19,7 +91,7 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		0,
 		"distributionPoint"
 		},
-	{ ATF_POINTER, 5, offsetof(struct IssuingDistributionPoint, onlyContainsUserCerts),
+	{ ATF_NOFLAGS, 5, offsetof(struct IssuingDistributionPoint, onlyContainsUserCerts),
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BOOLEAN,
@@ -27,10 +99,10 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		0,	/* Defer constraints checking to the member type */
 		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
-		0,
+		asn_DFL_3_set_0,	/* DEFAULT 0 */
 		"onlyContainsUserCerts"
 		},
-	{ ATF_POINTER, 4, offsetof(struct IssuingDistributionPoint, onlyContainsCACerts),
+	{ ATF_NOFLAGS, 4, offsetof(struct IssuingDistributionPoint, onlyContainsCACerts),
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BOOLEAN,
@@ -38,7 +110,7 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		0,	/* Defer constraints checking to the member type */
 		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
-		0,
+		asn_DFL_4_set_0,	/* DEFAULT 0 */
 		"onlyContainsCACerts"
 		},
 	{ ATF_POINTER, 3, offsetof(struct IssuingDistributionPoint, onlySomeReasons),
@@ -52,7 +124,7 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		0,
 		"onlySomeReasons"
 		},
-	{ ATF_POINTER, 2, offsetof(struct IssuingDistributionPoint, indirectCRL),
+	{ ATF_NOFLAGS, 2, offsetof(struct IssuingDistributionPoint, indirectCRL),
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BOOLEAN,
@@ -60,10 +132,10 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		0,	/* Defer constraints checking to the member type */
 		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
-		0,
+		asn_DFL_6_set_0,	/* DEFAULT 0 */
 		"indirectCRL"
 		},
-	{ ATF_POINTER, 1, offsetof(struct IssuingDistributionPoint, onlyContainsAttributeCerts),
+	{ ATF_NOFLAGS, 1, offsetof(struct IssuingDistributionPoint, onlyContainsAttributeCerts),
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BOOLEAN,
@@ -71,7 +143,7 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		0,	/* Defer constraints checking to the member type */
 		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
-		0,
+		asn_DFL_7_set_0,	/* DEFAULT 0 */
 		"onlyContainsAttributeCerts"
 		},
 };

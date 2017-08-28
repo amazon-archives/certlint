@@ -22,7 +22,7 @@ extern "C" {
 
 /* BasicConstraints */
 typedef struct BasicConstraints {
-	BOOLEAN_t	*cA	/* DEFAULT FALSE */;
+	BOOLEAN_t	 cA	/* DEFAULT FALSE */;
 	INTEGER_t	*pathLenConstraint	/* OPTIONAL */;
 	
 	/* Context for parsing across buffer boundaries */

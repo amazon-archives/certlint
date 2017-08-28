@@ -24,7 +24,7 @@ extern "C" {
 /* Extension */
 typedef struct Extension {
 	OBJECT_IDENTIFIER_t	 extnID;
-	BOOLEAN_t	*critical	/* DEFAULT FALSE */;
+	BOOLEAN_t	 critical	/* DEFAULT FALSE */;
 	OCTET_STRING_t	 extnValue;
 	
 	/* Context for parsing across buffer boundaries */

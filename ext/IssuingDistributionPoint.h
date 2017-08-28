@@ -26,11 +26,11 @@ struct DistributionPointName;
 /* IssuingDistributionPoint */
 typedef struct IssuingDistributionPoint {
 	struct DistributionPointName	*distributionPoint	/* OPTIONAL */;
-	BOOLEAN_t	*onlyContainsUserCerts	/* DEFAULT FALSE */;
-	BOOLEAN_t	*onlyContainsCACerts	/* DEFAULT FALSE */;
+	BOOLEAN_t	 onlyContainsUserCerts	/* DEFAULT FALSE */;
+	BOOLEAN_t	 onlyContainsCACerts	/* DEFAULT FALSE */;
 	ReasonFlags_t	*onlySomeReasons	/* OPTIONAL */;
-	BOOLEAN_t	*indirectCRL	/* DEFAULT FALSE */;
-	BOOLEAN_t	*onlyContainsAttributeCerts	/* DEFAULT FALSE */;
+	BOOLEAN_t	 indirectCRL	/* DEFAULT FALSE */;
+	BOOLEAN_t	 onlyContainsAttributeCerts	/* DEFAULT FALSE */;
 	
 	/* Context for parsing across buffer boundaries */
 	asn_struct_ctx_t _asn_ctx;

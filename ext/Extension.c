@@ -7,6 +7,24 @@
 
 #include "Extension.h"
 
+static int asn_DFL_3_set_0(int set_value, void **sptr) {
+	BOOLEAN_t *st = *sptr;
+	
+	if(!st) {
+		if(!set_value) return -1;	/* Not a default value */
+		st = (*sptr = CALLOC(1, sizeof(*st)));
+		if(!st) return -1;
+	}
+	
+	if(set_value) {
+		/* Install default value 0 */
+		*st = 0;
+		return 0;
+	} else {
+		/* Test default value 0 */
+		return (*st == 0);
+	}
+}
 asn_TYPE_member_t asn_MBR_Extension_1[] = {
 	{ ATF_NOFLAGS, 0, offsetof(struct Extension, extnID),
 		(ASN_TAG_CLASS_UNIVERSAL | (6 << 2)),
@@ -19,7 +37,7 @@ asn_TYPE_member_t asn_MBR_Extension_1[] = {
 		0,
 		"extnID"
 		},
-	{ ATF_POINTER, 1, offsetof(struct Extension, critical),
+	{ ATF_NOFLAGS, 1, offsetof(struct Extension, critical),
 		(ASN_TAG_CLASS_UNIVERSAL | (1 << 2)),
 		0,
 		&asn_DEF_BOOLEAN,
@@ -27,7 +45,7 @@ asn_TYPE_member_t asn_MBR_Extension_1[] = {
 		0,	/* Defer constraints checking to the member type */
 		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
-		0,
+		asn_DFL_3_set_0,	/* DEFAULT 0 */
 		"critical"
 		},
 	{ ATF_NOFLAGS, 0, offsetof(struct Extension, extnValue),
