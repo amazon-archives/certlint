@@ -41,6 +41,8 @@ typedef struct AdministrationDomainName {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_AdministrationDomainName;
+extern asn_CHOICE_specifics_t asn_SPC_AdministrationDomainName_specs_1;
+extern asn_TYPE_member_t asn_MBR_AdministrationDomainName_1[2];
 
 #ifdef __cplusplus
 }

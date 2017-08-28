@@ -41,6 +41,8 @@ typedef struct TypeOfBiometricData {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_TypeOfBiometricData;
+extern asn_CHOICE_specifics_t asn_SPC_TypeOfBiometricData_specs_1;
+extern asn_TYPE_member_t asn_MBR_TypeOfBiometricData_1[2];
 
 #ifdef __cplusplus
 }

@@ -107,12 +107,14 @@ memb_printable_constraint_1(asn_TYPE_descriptor_t *td, const void *sptr,
 	}
 }
 
-static asn_TYPE_member_t asn_MBR_PrivateDomainName_1[] = {
+asn_TYPE_member_t asn_MBR_PrivateDomainName_1[] = {
 	{ ATF_NOFLAGS, 0, offsetof(struct PrivateDomainName, choice.numeric),
 		(ASN_TAG_CLASS_UNIVERSAL | (18 << 2)),
 		0,
 		&asn_DEF_NumericString,
+		0,
 		memb_numeric_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"numeric"
@@ -121,7 +123,9 @@ static asn_TYPE_member_t asn_MBR_PrivateDomainName_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),
 		0,
 		&asn_DEF_PrintableString,
+		0,
 		memb_printable_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"printable"
@@ -131,7 +135,7 @@ static const asn_TYPE_tag2member_t asn_MAP_PrivateDomainName_tag2el_1[] = {
     { (ASN_TAG_CLASS_UNIVERSAL | (18 << 2)), 0, 0, 0 }, /* numeric */
     { (ASN_TAG_CLASS_UNIVERSAL | (19 << 2)), 1, 0, 0 } /* printable */
 };
-static asn_CHOICE_specifics_t asn_SPC_PrivateDomainName_specs_1 = {
+asn_CHOICE_specifics_t asn_SPC_PrivateDomainName_specs_1 = {
 	sizeof(struct PrivateDomainName),
 	offsetof(struct PrivateDomainName, _asn_ctx),
 	offsetof(struct PrivateDomainName, present),
@@ -144,19 +148,13 @@ static asn_CHOICE_specifics_t asn_SPC_PrivateDomainName_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_PrivateDomainName = {
 	"PrivateDomainName",
 	"PrivateDomainName",
-	CHOICE_free,
-	CHOICE_print,
+	&asn_OP_CHOICE,
 	CHOICE_constraint,
-	CHOICE_decode_ber,
-	CHOICE_encode_der,
-	CHOICE_decode_xer,
-	CHOICE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	CHOICE_outmost_tag,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_PrivateDomainName_1,
 	2,	/* Elements count */

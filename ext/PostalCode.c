@@ -112,7 +112,9 @@ static asn_TYPE_member_t asn_MBR_PostalCode_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (18 << 2)),
 		0,
 		&asn_DEF_NumericString,
+		0,
 		memb_numeric_code_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"numeric-code"
@@ -121,7 +123,9 @@ static asn_TYPE_member_t asn_MBR_PostalCode_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),
 		0,
 		&asn_DEF_PrintableString,
+		0,
 		memb_printable_code_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"printable-code"
@@ -144,19 +148,13 @@ static asn_CHOICE_specifics_t asn_SPC_PostalCode_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_PostalCode = {
 	"PostalCode",
 	"PostalCode",
-	CHOICE_free,
-	CHOICE_print,
+	&asn_OP_CHOICE,
 	CHOICE_constraint,
-	CHOICE_decode_ber,
-	CHOICE_encode_der,
-	CHOICE_decode_xer,
-	CHOICE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	CHOICE_outmost_tag,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_PostalCode_1,
 	2,	/* Elements count */

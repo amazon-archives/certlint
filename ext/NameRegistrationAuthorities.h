@@ -32,6 +32,8 @@ typedef struct NameRegistrationAuthorities {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_NameRegistrationAuthorities;
+extern asn_SET_OF_specifics_t asn_SPC_NameRegistrationAuthorities_specs_1;
+extern asn_TYPE_member_t asn_MBR_NameRegistrationAuthorities_1[1];
 
 #ifdef __cplusplus
 }

@@ -12,7 +12,9 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_DistributionPointName,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"distributionPoint"
@@ -21,7 +23,9 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BOOLEAN,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"onlyContainsUserCerts"
@@ -30,7 +34,9 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BOOLEAN,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"onlyContainsCACerts"
@@ -39,7 +45,9 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ReasonFlags,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"onlySomeReasons"
@@ -48,7 +56,9 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BOOLEAN,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"indirectCRL"
@@ -57,7 +67,9 @@ static asn_TYPE_member_t asn_MBR_IssuingDistributionPoint_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BOOLEAN,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"onlyContainsAttributeCerts"
@@ -86,21 +98,15 @@ static asn_SEQUENCE_specifics_t asn_SPC_IssuingDistributionPoint_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_IssuingDistributionPoint = {
 	"IssuingDistributionPoint",
 	"IssuingDistributionPoint",
-	SEQUENCE_free,
-	SEQUENCE_print,
+	&asn_OP_SEQUENCE,
 	SEQUENCE_constraint,
-	SEQUENCE_decode_ber,
-	SEQUENCE_encode_der,
-	SEQUENCE_decode_xer,
-	SEQUENCE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_IssuingDistributionPoint_tags_1,
 	sizeof(asn_DEF_IssuingDistributionPoint_tags_1)
 		/sizeof(asn_DEF_IssuingDistributionPoint_tags_1[0]), /* 1 */
 	asn_DEF_IssuingDistributionPoint_tags_1,	/* Same as above */
 	sizeof(asn_DEF_IssuingDistributionPoint_tags_1)
 		/sizeof(asn_DEF_IssuingDistributionPoint_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_IssuingDistributionPoint_1,
 	6,	/* Elements count */

@@ -108,7 +108,9 @@ static asn_TYPE_member_t asn_MBR_e163_4_address_2[] = {
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NumericString,
+		0,
 		memb_number_constraint_2,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"number"
@@ -117,7 +119,9 @@ static asn_TYPE_member_t asn_MBR_e163_4_address_2[] = {
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NumericString,
+		0,
 		memb_sub_address_constraint_2,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"sub-address"
@@ -143,21 +147,15 @@ static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_e163_4_address_2 = {
 	"e163-4-address",
 	"e163-4-address",
-	SEQUENCE_free,
-	SEQUENCE_print,
+	&asn_OP_SEQUENCE,
 	SEQUENCE_constraint,
-	SEQUENCE_decode_ber,
-	SEQUENCE_encode_der,
-	SEQUENCE_decode_xer,
-	SEQUENCE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_e163_4_address_tags_2,
 	sizeof(asn_DEF_e163_4_address_tags_2)
 		/sizeof(asn_DEF_e163_4_address_tags_2[0]), /* 1 */
 	asn_DEF_e163_4_address_tags_2,	/* Same as above */
 	sizeof(asn_DEF_e163_4_address_tags_2)
 		/sizeof(asn_DEF_e163_4_address_tags_2[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_e163_4_address_2,
 	2,	/* Elements count */
@@ -169,7 +167,9 @@ static asn_TYPE_member_t asn_MBR_ExtendedNetworkAddress_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_e163_4_address_2,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"e163-4-address"
@@ -178,7 +178,9 @@ static asn_TYPE_member_t asn_MBR_ExtendedNetworkAddress_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PresentationAddress,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"psap-address"
@@ -201,19 +203,13 @@ static asn_CHOICE_specifics_t asn_SPC_ExtendedNetworkAddress_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_ExtendedNetworkAddress = {
 	"ExtendedNetworkAddress",
 	"ExtendedNetworkAddress",
-	CHOICE_free,
-	CHOICE_print,
+	&asn_OP_CHOICE,
 	CHOICE_constraint,
-	CHOICE_decode_ber,
-	CHOICE_encode_der,
-	CHOICE_decode_xer,
-	CHOICE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	CHOICE_outmost_tag,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_ExtendedNetworkAddress_1,
 	2,	/* Elements count */

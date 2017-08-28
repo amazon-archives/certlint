@@ -12,7 +12,9 @@ static asn_TYPE_member_t asn_MBR_NameConstraints_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_GeneralSubtrees,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"permittedSubtrees"
@@ -21,7 +23,9 @@ static asn_TYPE_member_t asn_MBR_NameConstraints_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_GeneralSubtrees,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"excludedSubtrees"
@@ -46,21 +50,15 @@ static asn_SEQUENCE_specifics_t asn_SPC_NameConstraints_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_NameConstraints = {
 	"NameConstraints",
 	"NameConstraints",
-	SEQUENCE_free,
-	SEQUENCE_print,
+	&asn_OP_SEQUENCE,
 	SEQUENCE_constraint,
-	SEQUENCE_decode_ber,
-	SEQUENCE_encode_der,
-	SEQUENCE_decode_xer,
-	SEQUENCE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_NameConstraints_tags_1,
 	sizeof(asn_DEF_NameConstraints_tags_1)
 		/sizeof(asn_DEF_NameConstraints_tags_1[0]), /* 1 */
 	asn_DEF_NameConstraints_tags_1,	/* Same as above */
 	sizeof(asn_DEF_NameConstraints_tags_1)
 		/sizeof(asn_DEF_NameConstraints_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_NameConstraints_1,
 	2,	/* Elements count */

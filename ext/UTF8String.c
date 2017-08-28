@@ -13,25 +13,43 @@ static const ber_tlv_tag_t asn_DEF_UTF8String_tags[] = {
 	(ASN_TAG_CLASS_UNIVERSAL | (12 << 2)),	/* [UNIVERSAL 12] IMPLICIT ...*/
 	(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),	/* ... OCTET STRING */
 };
-asn_TYPE_descriptor_t asn_DEF_UTF8String = {
-	"UTF8String",
-	"UTF8String",
+asn_TYPE_operation_t asn_OP_UTF8String = {
 	OCTET_STRING_free,
 	UTF8String_print,
+	OCTET_STRING_compare,
 	UTF8String_constraint,      /* Check for invalid codes, etc. */
 	OCTET_STRING_decode_ber,    /* Implemented in terms of OCTET STRING */
 	OCTET_STRING_encode_der,
 	OCTET_STRING_decode_xer_utf8,
 	OCTET_STRING_encode_xer_utf8,
+#ifdef	ASN_DISABLE_OER_SUPPORT
+	0,
+	0,
+#else
+	OCTET_STRING_decode_oer,
+	OCTET_STRING_encode_oer,
+#endif  /* ASN_DISABLE_OER_SUPPORT */
+#ifdef	ASN_DISABLE_PER_SUPPORT
+	0,
+	0,
+#else
 	OCTET_STRING_decode_uper,
 	OCTET_STRING_encode_uper,
-	0, /* Use generic outmost tag fetcher */
+#endif	/* ASN_DISABLE_PER_SUPPORT */
+	0	/* Use generic outmost tag fetcher */
+};
+asn_TYPE_descriptor_t asn_DEF_UTF8String = {
+	"UTF8String",
+	"UTF8String",
+	&asn_OP_UTF8String,
+	UTF8String_constraint,      /* Check for invalid codes, etc. */
 	asn_DEF_UTF8String_tags,
 	sizeof(asn_DEF_UTF8String_tags)
 	  / sizeof(asn_DEF_UTF8String_tags[0]) - 1,
 	asn_DEF_UTF8String_tags,
 	sizeof(asn_DEF_UTF8String_tags)
 	  / sizeof(asn_DEF_UTF8String_tags[0]),
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	0, 0,	/* No members */
 	0	/* No specifics */

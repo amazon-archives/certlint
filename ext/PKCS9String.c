@@ -52,7 +52,9 @@ static asn_TYPE_member_t asn_MBR_PKCS9String_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (22 << 2)),
 		0,
 		&asn_DEF_IA5String,
+		0,
 		memb_ia5String_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"ia5String"
@@ -61,7 +63,9 @@ static asn_TYPE_member_t asn_MBR_PKCS9String_1[] = {
 		-1 /* Ambiguous tag (CHOICE?) */,
 		0,
 		&asn_DEF_DirectoryString,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"directoryString"
@@ -88,19 +92,13 @@ static asn_CHOICE_specifics_t asn_SPC_PKCS9String_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_PKCS9String = {
 	"PKCS9String",
 	"PKCS9String",
-	CHOICE_free,
-	CHOICE_print,
+	&asn_OP_CHOICE,
 	CHOICE_constraint,
-	CHOICE_decode_ber,
-	CHOICE_encode_der,
-	CHOICE_decode_xer,
-	CHOICE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	CHOICE_outmost_tag,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_PKCS9String_1,
 	2,	/* Elements count */

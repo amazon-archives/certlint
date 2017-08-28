@@ -112,7 +112,7 @@ SET_decode_ber(asn_codec_ctx_t *opt_codec_ctx, asn_TYPE_descriptor_t *td,
 	asn_dec_rval_t rval;	/* Return code from subparsers */
 
 	ssize_t consumed_myself = 0;	/* Consumed bytes from ptr */
-	int edx;			/* SET element's index */
+	size_t edx;			/* SET element's index */
 
 	ASN_DEBUG("Decoding %s as SET", td->name);
 
@@ -296,7 +296,7 @@ SET_decode_ber(asn_codec_ctx_t *opt_codec_ctx, asn_TYPE_descriptor_t *td,
 		/*
 		 * Invoke the member fetch routine according to member's type
 		 */
-		rval = elements[edx].type->ber_decoder(opt_codec_ctx,
+		rval = elements[edx].type->op->ber_decoder(opt_codec_ctx,
 				elements[edx].type,
 				memb_ptr2, ptr, LEFT,
 				elements[edx].tag_mode);
@@ -394,7 +394,7 @@ SET_decode_ber(asn_codec_ctx_t *opt_codec_ctx, asn_TYPE_descriptor_t *td,
 static int
 _SET_is_populated(asn_TYPE_descriptor_t *td, void *st) {
 	asn_SET_specifics_t *specs = (asn_SET_specifics_t *)td->specifics;
-	int edx;
+	size_t edx;
 
 	/*
 	 * Check that all mandatory elements are present.
@@ -441,9 +441,9 @@ SET_encode_der(asn_TYPE_descriptor_t *td,
 	int t2m_build_own = (specs->tag2el_count != td->elements_count);
 	const asn_TYPE_tag2member_t *t2m;
 	asn_TYPE_tag2member_t *t2m_build;
-	int t2m_count;
+	size_t t2m_count;
 	ssize_t ret;
-	int edx;
+	size_t edx;
 
 	/*
 	 * Use existing, or build our own tags map.
@@ -488,7 +488,7 @@ SET_encode_der(asn_TYPE_descriptor_t *td,
 		} else {
 			memb_ptr = (void *)((char *)sptr + elm->memb_offset);
 		}
-		tmper = elm->type->der_encoder(elm->type, memb_ptr,
+		tmper = elm->type->op->der_encoder(elm->type, memb_ptr,
 			elm->tag_mode, elm->tag,
 			0, 0);
 		if(tmper.encoded == -1)
@@ -555,7 +555,7 @@ SET_encode_der(asn_TYPE_descriptor_t *td,
 		} else {
 			memb_ptr = (void *)((char *)sptr + elm->memb_offset);
 		}
-		tmper = elm->type->der_encoder(elm->type, memb_ptr,
+		tmper = elm->type->op->der_encoder(elm->type, memb_ptr,
 			elm->tag_mode, elm->tag,
 			cb, app_key);
 		if(tmper.encoded == -1)
@@ -603,7 +603,7 @@ SET_decode_xer(asn_codec_ctx_t *opt_codec_ctx, asn_TYPE_descriptor_t *td,
 
 	asn_dec_rval_t rval;		/* Return value from a decoder */
 	ssize_t consumed_myself = 0;	/* Consumed bytes from ptr */
-	int edx;			/* Element index */
+	size_t edx;			/* Element index */
 
 	/*
 	 * Create the target structure if it is not present already.
@@ -658,7 +658,7 @@ SET_decode_xer(asn_codec_ctx_t *opt_codec_ctx, asn_TYPE_descriptor_t *td,
 			}
 
 			/* Invoke the inner type decoder, m.b. multiple times */
-			tmprval = elm->type->xer_decoder(opt_codec_ctx,
+			tmprval = elm->type->op->xer_decoder(opt_codec_ctx,
 					elm->type, memb_ptr2, elm->name,
 					buf_ptr, size);
 			XER_ADVANCE(tmprval.consumed);
@@ -808,8 +808,8 @@ SET_encode_xer(asn_TYPE_descriptor_t *td, void *sptr,
 	asn_enc_rval_t er;
 	int xcan = (flags & XER_F_CANONICAL);
 	const asn_TYPE_tag2member_t *t2m = specs->tag2el_cxer;
-	int t2m_count = specs->tag2el_cxer_count;
-	int edx;
+	size_t t2m_count = specs->tag2el_cxer_count;
+	size_t edx;
 
 	if(!sptr)
 		ASN__ENCODE_FAILED;
@@ -846,7 +846,7 @@ SET_encode_xer(asn_TYPE_descriptor_t *td, void *sptr,
 		ASN__CALLBACK3("<", 1, mname, mlen, ">", 1);
 
 		/* Print the member itself */
-		tmper = elm->type->xer_encoder(elm->type, memb_ptr,
+		tmper = elm->type->op->xer_encoder(elm->type, memb_ptr,
 				ilevel + 1, flags, cb, app_key);
 		if(tmper.encoded == -1) return tmper;
 
@@ -865,7 +865,7 @@ cb_failed:
 int
 SET_print(asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
 		asn_app_consume_bytes_f *cb, void *app_key) {
-	int edx;
+	size_t edx;
 	int ret;
 
 	if(!sptr) return (cb("<absent>", 8, app_key) < 0) ? -1 : 0;
@@ -898,7 +898,7 @@ SET_print(asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
 			return -1;
 
 		/* Print the member itself */
-		ret = elm->type->print_struct(elm->type, memb_ptr, ilevel + 1,
+		ret = elm->type->op->print_struct(elm->type, memb_ptr, ilevel + 1,
 			cb, app_key);
 		if(ret) return ret;
 	}
@@ -910,8 +910,9 @@ SET_print(asn_TYPE_descriptor_t *td, const void *sptr, int ilevel,
 }
 
 void
-SET_free(asn_TYPE_descriptor_t *td, void *ptr, int contents_only) {
-	int edx;
+SET_free(const asn_TYPE_descriptor_t *td, void *ptr,
+         enum asn_struct_free_method method) {
+    size_t edx;
 
 	if(!td || !ptr)
 		return;
@@ -931,15 +932,22 @@ SET_free(asn_TYPE_descriptor_t *td, void *ptr, int contents_only) {
 		}
 	}
 
-	if(!contents_only) {
-		FREEMEM(ptr);
-	}
+    switch(method) {
+    case ASFM_FREE_EVERYTHING:
+        FREEMEM(ptr);
+        break;
+    case ASFM_FREE_UNDERLYING:
+        break;
+    case ASFM_FREE_UNDERLYING_AND_RESET:
+        memset(ptr, 0, ((asn_SET_specifics_t *)(td->specifics))->struct_size);
+        break;
+    }
 }
 
 int
 SET_constraint(asn_TYPE_descriptor_t *td, const void *sptr,
 		asn_app_constraint_failed_f *ctfailcb, void *app_key) {
-	int edx;
+	size_t edx;
 
 	if(!sptr) {
 		ASN__CTFAIL(app_key, td, sptr,
@@ -987,3 +995,55 @@ SET_constraint(asn_TYPE_descriptor_t *td, const void *sptr,
 
 	return 0;
 }
+
+int
+SET_compare(const asn_TYPE_descriptor_t *td, const void *aptr,
+            const void *bptr) {
+    size_t edx;
+
+	for(edx = 0; edx < td->elements_count; edx++) {
+		asn_TYPE_member_t *elm = &td->elements[edx];
+		const void *amemb;
+		const void *bmemb;
+		int ret;
+
+		if(elm->flags & ATF_POINTER) {
+            amemb =
+                *(const void *const *)((const char *)aptr + elm->memb_offset);
+            bmemb =
+                *(const void *const *)((const char *)bptr + elm->memb_offset);
+            if(!amemb) {
+                if(!bmemb) continue;
+                return -1;
+            } else if(!bmemb) {
+                return 1;
+            }
+		} else {
+            amemb = (const void *)((const char *)aptr + elm->memb_offset);
+            bmemb = (const void *)((const char *)bptr + elm->memb_offset);
+		}
+
+        ret = elm->type->op->compare_struct(elm->type, amemb, bmemb);
+        if(ret != 0) return ret;
+    }
+
+    return 0;
+}
+
+
+asn_TYPE_operation_t asn_OP_SET = {
+	SET_free,
+	SET_print,
+	SET_compare,
+	SET_constraint,
+	SET_decode_ber,
+	SET_encode_der,
+	SET_decode_xer,
+	SET_encode_xer,
+	0,	/* SET_decode_oer */
+	0,	/* SET_encode_oer */
+	0,	/* SET_decode_uper */
+	0,	/* SET_encode_uper */
+	0	/* Use generic outmost tag fetcher */
+};
+

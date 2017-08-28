@@ -7,12 +7,14 @@
 
 #include "TypeOfBiometricData.h"
 
-static asn_TYPE_member_t asn_MBR_TypeOfBiometricData_1[] = {
+asn_TYPE_member_t asn_MBR_TypeOfBiometricData_1[] = {
 	{ ATF_NOFLAGS, 0, offsetof(struct TypeOfBiometricData, choice.predefinedBiometricType),
 		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
 		0,
 		&asn_DEF_PredefinedBiometricType,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"predefinedBiometricType"
@@ -21,7 +23,9 @@ static asn_TYPE_member_t asn_MBR_TypeOfBiometricData_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (6 << 2)),
 		0,
 		&asn_DEF_OBJECT_IDENTIFIER,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"biometricDataOid"
@@ -31,7 +35,7 @@ static const asn_TYPE_tag2member_t asn_MAP_TypeOfBiometricData_tag2el_1[] = {
     { (ASN_TAG_CLASS_UNIVERSAL | (2 << 2)), 0, 0, 0 }, /* predefinedBiometricType */
     { (ASN_TAG_CLASS_UNIVERSAL | (6 << 2)), 1, 0, 0 } /* biometricDataOid */
 };
-static asn_CHOICE_specifics_t asn_SPC_TypeOfBiometricData_specs_1 = {
+asn_CHOICE_specifics_t asn_SPC_TypeOfBiometricData_specs_1 = {
 	sizeof(struct TypeOfBiometricData),
 	offsetof(struct TypeOfBiometricData, _asn_ctx),
 	offsetof(struct TypeOfBiometricData, present),
@@ -44,19 +48,13 @@ static asn_CHOICE_specifics_t asn_SPC_TypeOfBiometricData_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_TypeOfBiometricData = {
 	"TypeOfBiometricData",
 	"TypeOfBiometricData",
-	CHOICE_free,
-	CHOICE_print,
+	&asn_OP_CHOICE,
 	CHOICE_constraint,
-	CHOICE_decode_ber,
-	CHOICE_encode_der,
-	CHOICE_decode_xer,
-	CHOICE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	CHOICE_outmost_tag,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_TypeOfBiometricData_1,
 	2,	/* Elements count */

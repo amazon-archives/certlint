@@ -31,6 +31,8 @@ typedef struct ExtensionAttribute {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_ExtensionAttribute;
+extern asn_SEQUENCE_specifics_t asn_SPC_ExtensionAttribute_specs_1;
+extern asn_TYPE_member_t asn_MBR_ExtensionAttribute_1[2];
 
 #ifdef __cplusplus
 }

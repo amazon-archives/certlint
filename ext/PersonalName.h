@@ -48,6 +48,8 @@ typedef struct PersonalName {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_PersonalName;
+extern asn_SET_specifics_t asn_SPC_PersonalName_specs_1;
+extern asn_TYPE_member_t asn_MBR_PersonalName_1[4];
 
 #ifdef __cplusplus
 }

@@ -41,6 +41,8 @@ typedef struct CountryName {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_CountryName;
+extern asn_CHOICE_specifics_t asn_SPC_CountryName_specs_1;
+extern asn_TYPE_member_t asn_MBR_CountryName_1[2];
 
 #ifdef __cplusplus
 }

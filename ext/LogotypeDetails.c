@@ -64,7 +64,9 @@ static asn_TYPE_member_t asn_MBR_logotypeHash_3[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_HashAlgAndValue,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		""
@@ -82,21 +84,15 @@ static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_logotypeHash_3 = {
 	"logotypeHash",
 	"logotypeHash",
-	SEQUENCE_OF_free,
-	SEQUENCE_OF_print,
+	&asn_OP_SEQUENCE_OF,
 	SEQUENCE_OF_constraint,
-	SEQUENCE_OF_decode_ber,
-	SEQUENCE_OF_encode_der,
-	SEQUENCE_OF_decode_xer,
-	SEQUENCE_OF_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_logotypeHash_tags_3,
 	sizeof(asn_DEF_logotypeHash_tags_3)
 		/sizeof(asn_DEF_logotypeHash_tags_3[0]), /* 1 */
 	asn_DEF_logotypeHash_tags_3,	/* Same as above */
 	sizeof(asn_DEF_logotypeHash_tags_3)
 		/sizeof(asn_DEF_logotypeHash_tags_3[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_logotypeHash_3,
 	1,	/* Single element */
@@ -108,7 +104,9 @@ static asn_TYPE_member_t asn_MBR_logotypeURI_5[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (22 << 2)),
 		0,
 		&asn_DEF_IA5String,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		""
@@ -126,33 +124,29 @@ static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_logotypeURI_5 = {
 	"logotypeURI",
 	"logotypeURI",
-	SEQUENCE_OF_free,
-	SEQUENCE_OF_print,
+	&asn_OP_SEQUENCE_OF,
 	SEQUENCE_OF_constraint,
-	SEQUENCE_OF_decode_ber,
-	SEQUENCE_OF_encode_der,
-	SEQUENCE_OF_decode_xer,
-	SEQUENCE_OF_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_logotypeURI_tags_5,
 	sizeof(asn_DEF_logotypeURI_tags_5)
 		/sizeof(asn_DEF_logotypeURI_tags_5[0]), /* 1 */
 	asn_DEF_logotypeURI_tags_5,	/* Same as above */
 	sizeof(asn_DEF_logotypeURI_tags_5)
 		/sizeof(asn_DEF_logotypeURI_tags_5[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_logotypeURI_5,
 	1,	/* Single element */
 	&asn_SPC_logotypeURI_specs_5	/* Additional specs */
 };
 
-static asn_TYPE_member_t asn_MBR_LogotypeDetails_1[] = {
+asn_TYPE_member_t asn_MBR_LogotypeDetails_1[] = {
 	{ ATF_NOFLAGS, 0, offsetof(struct LogotypeDetails, mediaType),
 		(ASN_TAG_CLASS_UNIVERSAL | (22 << 2)),
 		0,
 		&asn_DEF_IA5String,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"mediaType"
@@ -161,7 +155,9 @@ static asn_TYPE_member_t asn_MBR_LogotypeDetails_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_logotypeHash_3,
+		0,
 		memb_logotypeHash_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"logotypeHash"
@@ -170,7 +166,9 @@ static asn_TYPE_member_t asn_MBR_LogotypeDetails_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_logotypeURI_5,
+		0,
 		memb_logotypeURI_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"logotypeURI"
@@ -184,7 +182,7 @@ static const asn_TYPE_tag2member_t asn_MAP_LogotypeDetails_tag2el_1[] = {
     { (ASN_TAG_CLASS_UNIVERSAL | (16 << 2)), 2, -1, 0 }, /* logotypeURI */
     { (ASN_TAG_CLASS_UNIVERSAL | (22 << 2)), 0, 0, 0 } /* mediaType */
 };
-static asn_SEQUENCE_specifics_t asn_SPC_LogotypeDetails_specs_1 = {
+asn_SEQUENCE_specifics_t asn_SPC_LogotypeDetails_specs_1 = {
 	sizeof(struct LogotypeDetails),
 	offsetof(struct LogotypeDetails, _asn_ctx),
 	asn_MAP_LogotypeDetails_tag2el_1,
@@ -196,21 +194,15 @@ static asn_SEQUENCE_specifics_t asn_SPC_LogotypeDetails_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_LogotypeDetails = {
 	"LogotypeDetails",
 	"LogotypeDetails",
-	SEQUENCE_free,
-	SEQUENCE_print,
+	&asn_OP_SEQUENCE,
 	SEQUENCE_constraint,
-	SEQUENCE_decode_ber,
-	SEQUENCE_encode_der,
-	SEQUENCE_decode_xer,
-	SEQUENCE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_LogotypeDetails_tags_1,
 	sizeof(asn_DEF_LogotypeDetails_tags_1)
 		/sizeof(asn_DEF_LogotypeDetails_tags_1[0]), /* 1 */
 	asn_DEF_LogotypeDetails_tags_1,	/* Same as above */
 	sizeof(asn_DEF_LogotypeDetails_tags_1)
 		/sizeof(asn_DEF_LogotypeDetails_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_LogotypeDetails_1,
 	3,	/* Elements count */

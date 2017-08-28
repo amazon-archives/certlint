@@ -12,7 +12,9 @@ static asn_TYPE_member_t asn_MBR_communityLogos_2[] = {
 		-1 /* Ambiguous tag (CHOICE?) */,
 		0,
 		&asn_DEF_LogotypeInfo,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		""
@@ -31,21 +33,15 @@ static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_communityLogos_2 = {
 	"communityLogos",
 	"communityLogos",
-	SEQUENCE_OF_free,
-	SEQUENCE_OF_print,
+	&asn_OP_SEQUENCE_OF,
 	SEQUENCE_OF_constraint,
-	SEQUENCE_OF_decode_ber,
-	SEQUENCE_OF_encode_der,
-	SEQUENCE_OF_decode_xer,
-	SEQUENCE_OF_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_communityLogos_tags_2,
 	sizeof(asn_DEF_communityLogos_tags_2)
 		/sizeof(asn_DEF_communityLogos_tags_2[0]), /* 2 */
 	asn_DEF_communityLogos_tags_2,	/* Same as above */
 	sizeof(asn_DEF_communityLogos_tags_2)
 		/sizeof(asn_DEF_communityLogos_tags_2[0]), /* 2 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_communityLogos_2,
 	1,	/* Single element */
@@ -57,7 +53,9 @@ static asn_TYPE_member_t asn_MBR_otherLogos_6[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_OtherLogotypeInfo,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		""
@@ -76,21 +74,15 @@ static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_otherLogos_6 = {
 	"otherLogos",
 	"otherLogos",
-	SEQUENCE_OF_free,
-	SEQUENCE_OF_print,
+	&asn_OP_SEQUENCE_OF,
 	SEQUENCE_OF_constraint,
-	SEQUENCE_OF_decode_ber,
-	SEQUENCE_OF_encode_der,
-	SEQUENCE_OF_decode_xer,
-	SEQUENCE_OF_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_otherLogos_tags_6,
 	sizeof(asn_DEF_otherLogos_tags_6)
 		/sizeof(asn_DEF_otherLogos_tags_6[0]), /* 2 */
 	asn_DEF_otherLogos_tags_6,	/* Same as above */
 	sizeof(asn_DEF_otherLogos_tags_6)
 		/sizeof(asn_DEF_otherLogos_tags_6[0]), /* 2 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_otherLogos_6,
 	1,	/* Single element */
@@ -102,7 +94,9 @@ static asn_TYPE_member_t asn_MBR_LogotypeExtn_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
 		0,
 		&asn_DEF_communityLogos_2,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"communityLogos"
@@ -111,7 +105,9 @@ static asn_TYPE_member_t asn_MBR_LogotypeExtn_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_LogotypeInfo,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"issuerLogo"
@@ -120,7 +116,9 @@ static asn_TYPE_member_t asn_MBR_LogotypeExtn_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_LogotypeInfo,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"subjectLogo"
@@ -129,7 +127,9 @@ static asn_TYPE_member_t asn_MBR_LogotypeExtn_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
 		0,
 		&asn_DEF_otherLogos_6,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"otherLogos"
@@ -156,21 +156,15 @@ static asn_SEQUENCE_specifics_t asn_SPC_LogotypeExtn_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_LogotypeExtn = {
 	"LogotypeExtn",
 	"LogotypeExtn",
-	SEQUENCE_free,
-	SEQUENCE_print,
+	&asn_OP_SEQUENCE,
 	SEQUENCE_constraint,
-	SEQUENCE_decode_ber,
-	SEQUENCE_encode_der,
-	SEQUENCE_decode_xer,
-	SEQUENCE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_LogotypeExtn_tags_1,
 	sizeof(asn_DEF_LogotypeExtn_tags_1)
 		/sizeof(asn_DEF_LogotypeExtn_tags_1[0]), /* 1 */
 	asn_DEF_LogotypeExtn_tags_1,	/* Same as above */
 	sizeof(asn_DEF_LogotypeExtn_tags_1)
 		/sizeof(asn_DEF_LogotypeExtn_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_LogotypeExtn_1,
 	4,	/* Elements count */

@@ -47,6 +47,8 @@ typedef struct BuiltInStandardAttributes {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_BuiltInStandardAttributes;
+extern asn_SEQUENCE_specifics_t asn_SPC_BuiltInStandardAttributes_specs_1;
+extern asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[9];
 
 #ifdef __cplusplus
 }

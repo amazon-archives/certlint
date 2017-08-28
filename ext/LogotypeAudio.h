@@ -33,6 +33,8 @@ typedef struct LogotypeAudio {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_LogotypeAudio;
+extern asn_SEQUENCE_specifics_t asn_SPC_LogotypeAudio_specs_1;
+extern asn_TYPE_member_t asn_MBR_LogotypeAudio_1[2];
 
 #ifdef __cplusplus
 }

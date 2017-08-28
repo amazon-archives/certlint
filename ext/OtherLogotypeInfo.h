@@ -31,6 +31,8 @@ typedef struct OtherLogotypeInfo {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_OtherLogotypeInfo;
+extern asn_SEQUENCE_specifics_t asn_SPC_OtherLogotypeInfo_specs_1;
+extern asn_TYPE_member_t asn_MBR_OtherLogotypeInfo_1[2];
 
 #ifdef __cplusplus
 }

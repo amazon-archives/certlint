@@ -107,12 +107,14 @@ memb_iso_3166_alpha2_code_constraint_1(asn_TYPE_descriptor_t *td, const void *sp
 	}
 }
 
-static asn_TYPE_member_t asn_MBR_CountryName_1[] = {
+asn_TYPE_member_t asn_MBR_CountryName_1[] = {
 	{ ATF_NOFLAGS, 0, offsetof(struct CountryName, choice.x121_dcc_code),
 		(ASN_TAG_CLASS_UNIVERSAL | (18 << 2)),
 		0,
 		&asn_DEF_NumericString,
+		0,
 		memb_x121_dcc_code_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"x121-dcc-code"
@@ -121,7 +123,9 @@ static asn_TYPE_member_t asn_MBR_CountryName_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),
 		0,
 		&asn_DEF_PrintableString,
+		0,
 		memb_iso_3166_alpha2_code_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"iso-3166-alpha2-code"
@@ -134,7 +138,7 @@ static const asn_TYPE_tag2member_t asn_MAP_CountryName_tag2el_1[] = {
     { (ASN_TAG_CLASS_UNIVERSAL | (18 << 2)), 0, 0, 0 }, /* x121-dcc-code */
     { (ASN_TAG_CLASS_UNIVERSAL | (19 << 2)), 1, 0, 0 } /* iso-3166-alpha2-code */
 };
-static asn_CHOICE_specifics_t asn_SPC_CountryName_specs_1 = {
+asn_CHOICE_specifics_t asn_SPC_CountryName_specs_1 = {
 	sizeof(struct CountryName),
 	offsetof(struct CountryName, _asn_ctx),
 	offsetof(struct CountryName, present),
@@ -147,21 +151,15 @@ static asn_CHOICE_specifics_t asn_SPC_CountryName_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_CountryName = {
 	"CountryName",
 	"CountryName",
-	CHOICE_free,
-	CHOICE_print,
+	&asn_OP_CHOICE,
 	CHOICE_constraint,
-	CHOICE_decode_ber,
-	CHOICE_encode_der,
-	CHOICE_decode_xer,
-	CHOICE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	CHOICE_outmost_tag,
 	asn_DEF_CountryName_tags_1,
 	sizeof(asn_DEF_CountryName_tags_1)
 		/sizeof(asn_DEF_CountryName_tags_1[0]), /* 1 */
 	asn_DEF_CountryName_tags_1,	/* Same as above */
 	sizeof(asn_DEF_CountryName_tags_1)
 		/sizeof(asn_DEF_CountryName_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_CountryName_1,
 	2,	/* Elements count */

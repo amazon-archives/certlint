@@ -41,6 +41,8 @@ typedef struct PrivateDomainName {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_PrivateDomainName;
+extern asn_CHOICE_specifics_t asn_SPC_PrivateDomainName_specs_1;
+extern asn_TYPE_member_t asn_MBR_PrivateDomainName_1[2];
 
 #ifdef __cplusplus
 }

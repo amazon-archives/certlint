@@ -30,6 +30,8 @@ typedef struct OrganizationalUnitNames {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_OrganizationalUnitNames;
+extern asn_SET_OF_specifics_t asn_SPC_OrganizationalUnitNames_specs_1;
+extern asn_TYPE_member_t asn_MBR_OrganizationalUnitNames_1[1];
 
 #ifdef __cplusplus
 }

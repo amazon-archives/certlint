@@ -35,6 +35,8 @@ typedef struct ORAddress {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_ORAddress;
+extern asn_SEQUENCE_specifics_t asn_SPC_ORAddress_specs_1;
+extern asn_TYPE_member_t asn_MBR_ORAddress_1[3];
 
 #ifdef __cplusplus
 }

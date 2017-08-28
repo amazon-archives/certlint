@@ -31,6 +31,8 @@ typedef struct AccessDescription {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_AccessDescription;
+extern asn_SEQUENCE_specifics_t asn_SPC_AccessDescription_specs_1;
+extern asn_TYPE_member_t asn_MBR_AccessDescription_1[2];
 
 #ifdef __cplusplus
 }

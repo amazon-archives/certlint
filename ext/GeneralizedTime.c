@@ -171,25 +171,43 @@ static asn_per_constraints_t asn_DEF_GeneralizedTime_constraints = {
 	{ APC_SEMI_CONSTRAINED, -1, -1, 0, 0 }, /* Size */
 	0, 0
 };
-asn_TYPE_descriptor_t asn_DEF_GeneralizedTime = {
-	"GeneralizedTime",
-	"GeneralizedTime",
+asn_TYPE_operation_t asn_OP_GeneralizedTime = {
 	OCTET_STRING_free,
 	GeneralizedTime_print,
+	OCTET_STRING_compare,   /* Does not normalize time zones! */
 	GeneralizedTime_constraint, /* Check validity of time */
 	OCTET_STRING_decode_ber,    /* Implemented in terms of OCTET STRING */
 	GeneralizedTime_encode_der,
 	OCTET_STRING_decode_xer_utf8,
 	GeneralizedTime_encode_xer,
+#ifdef	ASN_DISABLE_OER_SUPPORT
+	0,
+	0,
+#else
+	0,
+	0,
+#endif  /* ASN_DISABLE_OER_SUPPORT */
+#ifdef	ASN_DISABLE_PER_SUPPORT
+	0,
+	0,
+#else
 	OCTET_STRING_decode_uper,
 	OCTET_STRING_encode_uper,
-	0, /* Use generic outmost tag fetcher */
+#endif	/* ASN_DISABLE_PER_SUPPORT */
+	0	/* Use generic outmost tag fetcher */
+};
+asn_TYPE_descriptor_t asn_DEF_GeneralizedTime = {
+	"GeneralizedTime",
+	"GeneralizedTime",
+	&asn_OP_GeneralizedTime,
+	GeneralizedTime_constraint, /* Check validity of time */
 	asn_DEF_GeneralizedTime_tags,
 	sizeof(asn_DEF_GeneralizedTime_tags)
 	  / sizeof(asn_DEF_GeneralizedTime_tags[0]) - 2,
 	asn_DEF_GeneralizedTime_tags,
 	sizeof(asn_DEF_GeneralizedTime_tags)
 	  / sizeof(asn_DEF_GeneralizedTime_tags[0]),
+	0,	/* No OER visible constraints */
 	&asn_DEF_GeneralizedTime_constraints,
 	0, 0,	/* No members */
 	0	/* No specifics */

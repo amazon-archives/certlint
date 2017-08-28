@@ -45,6 +45,8 @@ typedef struct PDSParameter {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_PDSParameter;
+extern asn_SET_specifics_t asn_SPC_PDSParameter_specs_1;
+extern asn_TYPE_member_t asn_MBR_PDSParameter_1[2];
 
 #ifdef __cplusplus
 }

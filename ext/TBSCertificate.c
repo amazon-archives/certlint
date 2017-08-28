@@ -27,12 +27,14 @@ static int asn_DFL_2_set_0(int set_value, void **sptr) {
 		return (value == 0);
 	}
 }
-static asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
+asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 	{ ATF_POINTER, 1, offsetof(struct TBSCertificate, version),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_Version,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		asn_DFL_2_set_0,	/* DEFAULT 0 */
 		"version"
@@ -41,7 +43,9 @@ static asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
 		0,
 		&asn_DEF_CertificateSerialNumber,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"serialNumber"
@@ -50,7 +54,9 @@ static asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_AlgorithmIdentifier,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"signature"
@@ -59,7 +65,9 @@ static asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		-1 /* Ambiguous tag (CHOICE?) */,
 		0,
 		&asn_DEF_Name,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"issuer"
@@ -68,7 +76,9 @@ static asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_Validity,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"validity"
@@ -77,7 +87,9 @@ static asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		-1 /* Ambiguous tag (CHOICE?) */,
 		0,
 		&asn_DEF_Name,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"subject"
@@ -86,7 +98,9 @@ static asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_SubjectPublicKeyInfo,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"subjectPublicKeyInfo"
@@ -95,7 +109,9 @@ static asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UniqueIdentifier,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"issuerUniqueID"
@@ -104,7 +120,9 @@ static asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_UniqueIdentifier,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"subjectUniqueID"
@@ -113,7 +131,9 @@ static asn_TYPE_member_t asn_MBR_TBSCertificate_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_Extensions,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"extensions"
@@ -134,7 +154,7 @@ static const asn_TYPE_tag2member_t asn_MAP_TBSCertificate_tag2el_1[] = {
     { (ASN_TAG_CLASS_CONTEXT | (2 << 2)), 8, 0, 0 }, /* subjectUniqueID */
     { (ASN_TAG_CLASS_CONTEXT | (3 << 2)), 9, 0, 0 } /* extensions */
 };
-static asn_SEQUENCE_specifics_t asn_SPC_TBSCertificate_specs_1 = {
+asn_SEQUENCE_specifics_t asn_SPC_TBSCertificate_specs_1 = {
 	sizeof(struct TBSCertificate),
 	offsetof(struct TBSCertificate, _asn_ctx),
 	asn_MAP_TBSCertificate_tag2el_1,
@@ -146,21 +166,15 @@ static asn_SEQUENCE_specifics_t asn_SPC_TBSCertificate_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_TBSCertificate = {
 	"TBSCertificate",
 	"TBSCertificate",
-	SEQUENCE_free,
-	SEQUENCE_print,
+	&asn_OP_SEQUENCE,
 	SEQUENCE_constraint,
-	SEQUENCE_decode_ber,
-	SEQUENCE_encode_der,
-	SEQUENCE_decode_xer,
-	SEQUENCE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_TBSCertificate_tags_1,
 	sizeof(asn_DEF_TBSCertificate_tags_1)
 		/sizeof(asn_DEF_TBSCertificate_tags_1[0]), /* 1 */
 	asn_DEF_TBSCertificate_tags_1,	/* Same as above */
 	sizeof(asn_DEF_TBSCertificate_tags_1)
 		/sizeof(asn_DEF_TBSCertificate_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_TBSCertificate_1,
 	10,	/* Elements count */

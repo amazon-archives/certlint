@@ -184,15 +184,15 @@ extern struct asn_TYPE_descriptor_s asn_DEF_NameRegistrationAuthorities;
 
 
 struct asn_TYPE_descriptor_s *asn_pdu_collection[] = {
-	/* From module MiscAttributeForDistinguishedNames in MiscAttr.asn1 */
+	/* From module MiscAttributeForDistinguishedNames in asn1/MiscAttr.asn1 */
 	&asn_DEF_PostalAddress,	
-	/* From module MiscImplicitDefinitions in MiscAttrImpl.asn1 */
+	/* From module MiscImplicitDefinitions in asn1/MiscAttrImpl.asn1 */
 	&asn_DEF_PKCS9String,	
 	&asn_DEF_Features,	
-	/* From module SecureMimeMessageV3dot1 in pkix-smimecaps.asn1 */
+	/* From module SecureMimeMessageV3dot1 in asn1/pkix-smimecaps.asn1 */
 	&asn_DEF_SMIMECapability,	
 	&asn_DEF_SMIMECapabilities,	
-	/* From module PKIX1Algorithms88 in rfc3279-PKIX1Algorithms88.asn1 */
+	/* From module PKIX1Algorithms88 in asn1/rfc3279-PKIX1Algorithms88.asn1 */
 	&asn_DEF_DSAPublicKey,	
 	&asn_DEF_Dss_Parms,	
 	&asn_DEF_Dss_Sig_Value,	
@@ -213,7 +213,7 @@ struct asn_TYPE_descriptor_s *asn_pdu_collection[] = {
 	&asn_DEF_ECParameters,	
 	&asn_DEF_ECPVer,	
 	&asn_DEF_Curve,	
-	/* From module PKIX1Explicit88 in rfc3280-PKIX1Explicit88.asn1 */
+	/* From module PKIX1Explicit88 in asn1/rfc3280-PKIX1Explicit88.asn1 */
 	&asn_DEF_Attribute,	
 	&asn_DEF_AttributeType,	
 	&asn_DEF_AttributeValue,	
@@ -293,7 +293,7 @@ struct asn_TYPE_descriptor_s *asn_pdu_collection[] = {
 	&asn_DEF_TerminalType,	
 	&asn_DEF_TeletexDomainDefinedAttributes,	
 	&asn_DEF_TeletexDomainDefinedAttribute,	
-	/* From module PKIX1Implicit88 in rfc3280-PKIX1Implicit88.asn1 */
+	/* From module PKIX1Implicit88 in asn1/rfc3280-PKIX1Implicit88.asn1 */
 	&asn_DEF_AuthorityKeyIdentifier,	
 	&asn_DEF_KeyIdentifier,	
 	&asn_DEF_SubjectKeyIdentifier,	
@@ -341,7 +341,7 @@ struct asn_TYPE_descriptor_s *asn_pdu_collection[] = {
 	&asn_DEF_CertificateIssuer,	
 	&asn_DEF_HoldInstructionCode,	
 	&asn_DEF_InvalidityDate,	
-	/* From module LogotypeCertExtn in rfc3709-LogotypeCertExtn.asn1 */
+	/* From module LogotypeCertExtn in asn1/rfc3709-LogotypeCertExtn.asn1 */
 	&asn_DEF_LogotypeExtn,	
 	&asn_DEF_LogotypeInfo,	
 	&asn_DEF_LogotypeData,	
@@ -355,7 +355,7 @@ struct asn_TYPE_descriptor_s *asn_pdu_collection[] = {
 	&asn_DEF_OtherLogotypeInfo,	
 	&asn_DEF_LogotypeReference,	
 	&asn_DEF_HashAlgAndValue,	
-	/* From module PKIXqualified88 in rfc3739-PKIXqualified88.asn1 */
+	/* From module PKIXqualified88 in asn1/rfc3739-PKIXqualified88.asn1 */
 	&asn_DEF_DateOfBirth,	
 	&asn_DEF_PlaceOfBirth,	
 	&asn_DEF_Gender,	

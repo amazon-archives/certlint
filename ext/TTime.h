@@ -41,6 +41,8 @@ typedef struct Time {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_Time;
+extern asn_CHOICE_specifics_t asn_SPC_Time_specs_1;
+extern asn_TYPE_member_t asn_MBR_Time_1[2];
 
 #ifdef __cplusplus
 }

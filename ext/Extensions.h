@@ -32,6 +32,8 @@ typedef struct Extensions {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_Extensions;
+extern asn_SET_OF_specifics_t asn_SPC_Extensions_specs_1;
+extern asn_TYPE_member_t asn_MBR_Extensions_1[1];
 
 #ifdef __cplusplus
 }

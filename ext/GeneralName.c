@@ -7,12 +7,14 @@
 
 #include "GeneralName.h"
 
-static asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
+asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 	{ ATF_NOFLAGS, 0, offsetof(struct GeneralName, choice.otherName),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_AnotherName,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"otherName"
@@ -21,7 +23,9 @@ static asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_IA5String,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"rfc822Name"
@@ -30,7 +34,9 @@ static asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_IA5String,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"dNSName"
@@ -39,7 +45,9 @@ static asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_ORAddress,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"x400Address"
@@ -48,7 +56,9 @@ static asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_Name,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"directoryName"
@@ -57,7 +67,9 @@ static asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_EDIPartyName,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"ediPartyName"
@@ -66,7 +78,9 @@ static asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_IA5String,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"uniformResourceIdentifier"
@@ -75,7 +89,9 @@ static asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (7 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"iPAddress"
@@ -84,7 +100,9 @@ static asn_TYPE_member_t asn_MBR_GeneralName_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (8 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OBJECT_IDENTIFIER,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"registeredID"
@@ -101,7 +119,7 @@ static const asn_TYPE_tag2member_t asn_MAP_GeneralName_tag2el_1[] = {
     { (ASN_TAG_CLASS_CONTEXT | (7 << 2)), 7, 0, 0 }, /* iPAddress */
     { (ASN_TAG_CLASS_CONTEXT | (8 << 2)), 8, 0, 0 } /* registeredID */
 };
-static asn_CHOICE_specifics_t asn_SPC_GeneralName_specs_1 = {
+asn_CHOICE_specifics_t asn_SPC_GeneralName_specs_1 = {
 	sizeof(struct GeneralName),
 	offsetof(struct GeneralName, _asn_ctx),
 	offsetof(struct GeneralName, present),
@@ -114,19 +132,13 @@ static asn_CHOICE_specifics_t asn_SPC_GeneralName_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_GeneralName = {
 	"GeneralName",
 	"GeneralName",
-	CHOICE_free,
-	CHOICE_print,
+	&asn_OP_CHOICE,
 	CHOICE_constraint,
-	CHOICE_decode_ber,
-	CHOICE_encode_der,
-	CHOICE_decode_xer,
-	CHOICE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	CHOICE_outmost_tag,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_GeneralName_1,
 	9,	/* Elements count */

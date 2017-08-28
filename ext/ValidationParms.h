@@ -31,6 +31,8 @@ typedef struct ValidationParms {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_ValidationParms;
+extern asn_SEQUENCE_specifics_t asn_SPC_ValidationParms_specs_1;
+extern asn_TYPE_member_t asn_MBR_ValidationParms_1[2];
 
 #ifdef __cplusplus
 }

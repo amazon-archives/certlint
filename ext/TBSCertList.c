@@ -12,7 +12,9 @@ static asn_TYPE_member_t asn_MBR_Member_8[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
 		0,
 		&asn_DEF_CertificateSerialNumber,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"userCertificate"
@@ -21,7 +23,9 @@ static asn_TYPE_member_t asn_MBR_Member_8[] = {
 		-1 /* Ambiguous tag (CHOICE?) */,
 		0,
 		&asn_DEF_Time,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"revocationDate"
@@ -30,7 +34,9 @@ static asn_TYPE_member_t asn_MBR_Member_8[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_Extensions,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"crlEntryExtensions"
@@ -58,21 +64,15 @@ static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_Member_8 = {
 	"SEQUENCE",
 	"SEQUENCE",
-	SEQUENCE_free,
-	SEQUENCE_print,
+	&asn_OP_SEQUENCE,
 	SEQUENCE_constraint,
-	SEQUENCE_decode_ber,
-	SEQUENCE_encode_der,
-	SEQUENCE_decode_xer,
-	SEQUENCE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_Member_tags_8,
 	sizeof(asn_DEF_Member_tags_8)
 		/sizeof(asn_DEF_Member_tags_8[0]), /* 1 */
 	asn_DEF_Member_tags_8,	/* Same as above */
 	sizeof(asn_DEF_Member_tags_8)
 		/sizeof(asn_DEF_Member_tags_8[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_Member_8,
 	3,	/* Elements count */
@@ -84,7 +84,9 @@ static asn_TYPE_member_t asn_MBR_revokedCertificates_7[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_Member_8,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		""
@@ -102,33 +104,29 @@ static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_revokedCertificates_7 = {
 	"revokedCertificates",
 	"revokedCertificates",
-	SEQUENCE_OF_free,
-	SEQUENCE_OF_print,
+	&asn_OP_SEQUENCE_OF,
 	SEQUENCE_OF_constraint,
-	SEQUENCE_OF_decode_ber,
-	SEQUENCE_OF_encode_der,
-	SEQUENCE_OF_decode_xer,
-	SEQUENCE_OF_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_revokedCertificates_tags_7,
 	sizeof(asn_DEF_revokedCertificates_tags_7)
 		/sizeof(asn_DEF_revokedCertificates_tags_7[0]), /* 1 */
 	asn_DEF_revokedCertificates_tags_7,	/* Same as above */
 	sizeof(asn_DEF_revokedCertificates_tags_7)
 		/sizeof(asn_DEF_revokedCertificates_tags_7[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_revokedCertificates_7,
 	1,	/* Single element */
 	&asn_SPC_revokedCertificates_specs_7	/* Additional specs */
 };
 
-static asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
+asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 	{ ATF_POINTER, 1, offsetof(struct TBSCertList, version),
 		(ASN_TAG_CLASS_UNIVERSAL | (2 << 2)),
 		0,
 		&asn_DEF_Version,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"version"
@@ -137,7 +135,9 @@ static asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_AlgorithmIdentifier,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"signature"
@@ -146,7 +146,9 @@ static asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		-1 /* Ambiguous tag (CHOICE?) */,
 		0,
 		&asn_DEF_Name,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"issuer"
@@ -155,7 +157,9 @@ static asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		-1 /* Ambiguous tag (CHOICE?) */,
 		0,
 		&asn_DEF_Time,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"thisUpdate"
@@ -164,7 +168,9 @@ static asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		-1 /* Ambiguous tag (CHOICE?) */,
 		0,
 		&asn_DEF_Time,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"nextUpdate"
@@ -173,7 +179,9 @@ static asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_revokedCertificates_7,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"revokedCertificates"
@@ -182,7 +190,9 @@ static asn_TYPE_member_t asn_MBR_TBSCertList_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_Extensions,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"crlExtensions"
@@ -202,7 +212,7 @@ static const asn_TYPE_tag2member_t asn_MAP_TBSCertList_tag2el_1[] = {
     { (ASN_TAG_CLASS_UNIVERSAL | (24 << 2)), 4, -1, 0 }, /* generalTime */
     { (ASN_TAG_CLASS_CONTEXT | (0 << 2)), 6, 0, 0 } /* crlExtensions */
 };
-static asn_SEQUENCE_specifics_t asn_SPC_TBSCertList_specs_1 = {
+asn_SEQUENCE_specifics_t asn_SPC_TBSCertList_specs_1 = {
 	sizeof(struct TBSCertList),
 	offsetof(struct TBSCertList, _asn_ctx),
 	asn_MAP_TBSCertList_tag2el_1,
@@ -214,21 +224,15 @@ static asn_SEQUENCE_specifics_t asn_SPC_TBSCertList_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_TBSCertList = {
 	"TBSCertList",
 	"TBSCertList",
-	SEQUENCE_free,
-	SEQUENCE_print,
+	&asn_OP_SEQUENCE,
 	SEQUENCE_constraint,
-	SEQUENCE_decode_ber,
-	SEQUENCE_encode_der,
-	SEQUENCE_decode_xer,
-	SEQUENCE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_TBSCertList_tags_1,
 	sizeof(asn_DEF_TBSCertList_tags_1)
 		/sizeof(asn_DEF_TBSCertList_tags_1[0]), /* 1 */
 	asn_DEF_TBSCertList_tags_1,	/* Same as above */
 	sizeof(asn_DEF_TBSCertList_tags_1)
 		/sizeof(asn_DEF_TBSCertList_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_TBSCertList_1,
 	7,	/* Elements count */

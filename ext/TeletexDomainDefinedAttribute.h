@@ -30,6 +30,8 @@ typedef struct TeletexDomainDefinedAttribute {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_TeletexDomainDefinedAttribute;
+extern asn_SEQUENCE_specifics_t asn_SPC_TeletexDomainDefinedAttribute_specs_1;
+extern asn_TYPE_member_t asn_MBR_TeletexDomainDefinedAttribute_1[2];
 
 #ifdef __cplusplus
 }

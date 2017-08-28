@@ -47,6 +47,8 @@ typedef struct TBSCertificate {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_TBSCertificate;
+extern asn_SEQUENCE_specifics_t asn_SPC_TBSCertificate_specs_1;
+extern asn_TYPE_member_t asn_MBR_TBSCertificate_1[10];
 
 #ifdef __cplusplus
 }

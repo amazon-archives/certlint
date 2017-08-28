@@ -64,7 +64,9 @@ static asn_TYPE_member_t asn_MBR_refStructHash_2[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_HashAlgAndValue,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		""
@@ -82,21 +84,15 @@ static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_refStructHash_2 = {
 	"refStructHash",
 	"refStructHash",
-	SEQUENCE_OF_free,
-	SEQUENCE_OF_print,
+	&asn_OP_SEQUENCE_OF,
 	SEQUENCE_OF_constraint,
-	SEQUENCE_OF_decode_ber,
-	SEQUENCE_OF_encode_der,
-	SEQUENCE_OF_decode_xer,
-	SEQUENCE_OF_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_refStructHash_tags_2,
 	sizeof(asn_DEF_refStructHash_tags_2)
 		/sizeof(asn_DEF_refStructHash_tags_2[0]), /* 1 */
 	asn_DEF_refStructHash_tags_2,	/* Same as above */
 	sizeof(asn_DEF_refStructHash_tags_2)
 		/sizeof(asn_DEF_refStructHash_tags_2[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_refStructHash_2,
 	1,	/* Single element */
@@ -108,7 +104,9 @@ static asn_TYPE_member_t asn_MBR_refStructURI_4[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (22 << 2)),
 		0,
 		&asn_DEF_IA5String,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		""
@@ -126,33 +124,29 @@ static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_refStructURI_4 = {
 	"refStructURI",
 	"refStructURI",
-	SEQUENCE_OF_free,
-	SEQUENCE_OF_print,
+	&asn_OP_SEQUENCE_OF,
 	SEQUENCE_OF_constraint,
-	SEQUENCE_OF_decode_ber,
-	SEQUENCE_OF_encode_der,
-	SEQUENCE_OF_decode_xer,
-	SEQUENCE_OF_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_refStructURI_tags_4,
 	sizeof(asn_DEF_refStructURI_tags_4)
 		/sizeof(asn_DEF_refStructURI_tags_4[0]), /* 1 */
 	asn_DEF_refStructURI_tags_4,	/* Same as above */
 	sizeof(asn_DEF_refStructURI_tags_4)
 		/sizeof(asn_DEF_refStructURI_tags_4[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_refStructURI_4,
 	1,	/* Single element */
 	&asn_SPC_refStructURI_specs_4	/* Additional specs */
 };
 
-static asn_TYPE_member_t asn_MBR_LogotypeReference_1[] = {
+asn_TYPE_member_t asn_MBR_LogotypeReference_1[] = {
 	{ ATF_NOFLAGS, 0, offsetof(struct LogotypeReference, refStructHash),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_refStructHash_2,
+		0,
 		memb_refStructHash_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"refStructHash"
@@ -161,7 +155,9 @@ static asn_TYPE_member_t asn_MBR_LogotypeReference_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_refStructURI_4,
+		0,
 		memb_refStructURI_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"refStructURI"
@@ -174,7 +170,7 @@ static const asn_TYPE_tag2member_t asn_MAP_LogotypeReference_tag2el_1[] = {
     { (ASN_TAG_CLASS_UNIVERSAL | (16 << 2)), 0, 0, 1 }, /* refStructHash */
     { (ASN_TAG_CLASS_UNIVERSAL | (16 << 2)), 1, -1, 0 } /* refStructURI */
 };
-static asn_SEQUENCE_specifics_t asn_SPC_LogotypeReference_specs_1 = {
+asn_SEQUENCE_specifics_t asn_SPC_LogotypeReference_specs_1 = {
 	sizeof(struct LogotypeReference),
 	offsetof(struct LogotypeReference, _asn_ctx),
 	asn_MAP_LogotypeReference_tag2el_1,
@@ -186,21 +182,15 @@ static asn_SEQUENCE_specifics_t asn_SPC_LogotypeReference_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_LogotypeReference = {
 	"LogotypeReference",
 	"LogotypeReference",
-	SEQUENCE_free,
-	SEQUENCE_print,
+	&asn_OP_SEQUENCE,
 	SEQUENCE_constraint,
-	SEQUENCE_decode_ber,
-	SEQUENCE_encode_der,
-	SEQUENCE_decode_xer,
-	SEQUENCE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_LogotypeReference_tags_1,
 	sizeof(asn_DEF_LogotypeReference_tags_1)
 		/sizeof(asn_DEF_LogotypeReference_tags_1[0]), /* 1 */
 	asn_DEF_LogotypeReference_tags_1,	/* Same as above */
 	sizeof(asn_DEF_LogotypeReference_tags_1)
 		/sizeof(asn_DEF_LogotypeReference_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_LogotypeReference_1,
 	2,	/* Elements count */

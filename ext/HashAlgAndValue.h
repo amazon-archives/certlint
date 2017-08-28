@@ -31,6 +31,8 @@ typedef struct HashAlgAndValue {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_HashAlgAndValue;
+extern asn_SEQUENCE_specifics_t asn_SPC_HashAlgAndValue_specs_1;
+extern asn_TYPE_member_t asn_MBR_HashAlgAndValue_1[2];
 
 #ifdef __cplusplus
 }

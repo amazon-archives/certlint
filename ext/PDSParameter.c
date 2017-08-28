@@ -85,12 +85,14 @@ memb_teletex_string_constraint_1(asn_TYPE_descriptor_t *td, const void *sptr,
 	}
 }
 
-static asn_TYPE_member_t asn_MBR_PDSParameter_1[] = {
+asn_TYPE_member_t asn_MBR_PDSParameter_1[] = {
 	{ ATF_POINTER, 2, offsetof(struct PDSParameter, printable_string),
 		(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),
 		0,
 		&asn_DEF_PrintableString,
+		0,
 		memb_printable_string_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"printable-string"
@@ -99,7 +101,9 @@ static asn_TYPE_member_t asn_MBR_PDSParameter_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (20 << 2)),
 		0,
 		&asn_DEF_TeletexString,
+		0,
 		memb_teletex_string_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"teletex-string"
@@ -115,7 +119,7 @@ static const asn_TYPE_tag2member_t asn_MAP_PDSParameter_tag2el_1[] = {
 static const uint8_t asn_MAP_PDSParameter_mmap_1[(2 + (8 * sizeof(unsigned int)) - 1) / 8] = {
 	(0 << 7) | (0 << 6)
 };
-static asn_SET_specifics_t asn_SPC_PDSParameter_specs_1 = {
+asn_SET_specifics_t asn_SPC_PDSParameter_specs_1 = {
 	sizeof(struct PDSParameter),
 	offsetof(struct PDSParameter, _asn_ctx),
 	offsetof(struct PDSParameter, _presence_map),
@@ -124,26 +128,20 @@ static asn_SET_specifics_t asn_SPC_PDSParameter_specs_1 = {
 	asn_MAP_PDSParameter_tag2el_1,	/* Same as above */
 	2,	/* Count of tags in the CXER map */
 	0,	/* Whether extensible */
-	(unsigned int *)asn_MAP_PDSParameter_mmap_1	/* Mandatory elements map */
+	(const unsigned int *)asn_MAP_PDSParameter_mmap_1	/* Mandatory elements map */
 };
 asn_TYPE_descriptor_t asn_DEF_PDSParameter = {
 	"PDSParameter",
 	"PDSParameter",
-	SET_free,
-	SET_print,
+	&asn_OP_SET,
 	SET_constraint,
-	SET_decode_ber,
-	SET_encode_der,
-	SET_decode_xer,
-	SET_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_PDSParameter_tags_1,
 	sizeof(asn_DEF_PDSParameter_tags_1)
 		/sizeof(asn_DEF_PDSParameter_tags_1[0]), /* 1 */
 	asn_DEF_PDSParameter_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PDSParameter_tags_1)
 		/sizeof(asn_DEF_PDSParameter_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_PDSParameter_1,
 	2,	/* Elements count */

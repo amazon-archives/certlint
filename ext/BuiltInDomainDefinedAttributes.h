@@ -32,6 +32,8 @@ typedef struct BuiltInDomainDefinedAttributes {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_BuiltInDomainDefinedAttributes;
+extern asn_SET_OF_specifics_t asn_SPC_BuiltInDomainDefinedAttributes_specs_1;
+extern asn_TYPE_member_t asn_MBR_BuiltInDomainDefinedAttributes_1[1];
 
 #ifdef __cplusplus
 }

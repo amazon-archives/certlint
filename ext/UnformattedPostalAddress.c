@@ -116,7 +116,9 @@ static asn_TYPE_member_t asn_MBR_printable_address_2[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),
 		0,
 		&asn_DEF_PrintableString,
+		0,
 		memb_PrintableString_constraint_2,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		""
@@ -134,21 +136,15 @@ static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_printable_address_2 = {
 	"printable-address",
 	"printable-address",
-	SEQUENCE_OF_free,
-	SEQUENCE_OF_print,
+	&asn_OP_SEQUENCE_OF,
 	SEQUENCE_OF_constraint,
-	SEQUENCE_OF_decode_ber,
-	SEQUENCE_OF_encode_der,
-	SEQUENCE_OF_decode_xer,
-	SEQUENCE_OF_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_printable_address_tags_2,
 	sizeof(asn_DEF_printable_address_tags_2)
 		/sizeof(asn_DEF_printable_address_tags_2[0]), /* 1 */
 	asn_DEF_printable_address_tags_2,	/* Same as above */
 	sizeof(asn_DEF_printable_address_tags_2)
 		/sizeof(asn_DEF_printable_address_tags_2[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_printable_address_2,
 	1,	/* Single element */
@@ -160,7 +156,9 @@ static asn_TYPE_member_t asn_MBR_UnformattedPostalAddress_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_printable_address_2,
+		0,
 		memb_printable_address_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"printable-address"
@@ -169,7 +167,9 @@ static asn_TYPE_member_t asn_MBR_UnformattedPostalAddress_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (20 << 2)),
 		0,
 		&asn_DEF_TeletexString,
+		0,
 		memb_teletex_string_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"teletex-string"
@@ -185,7 +185,8 @@ static const asn_TYPE_tag2member_t asn_MAP_UnformattedPostalAddress_tag2el_1[] =
 static const uint8_t asn_MAP_UnformattedPostalAddress_mmap_1[(2 + (8 * sizeof(unsigned int)) - 1) / 8] = {
 	(0 << 7) | (0 << 6)
 };
-static asn_SET_specifics_t asn_SPC_UnformattedPostalAddress_specs_1 = {
+static 
+asn_SET_specifics_t asn_SPC_UnformattedPostalAddress_specs_1 = {
 	sizeof(struct UnformattedPostalAddress),
 	offsetof(struct UnformattedPostalAddress, _asn_ctx),
 	offsetof(struct UnformattedPostalAddress, _presence_map),
@@ -194,26 +195,20 @@ static asn_SET_specifics_t asn_SPC_UnformattedPostalAddress_specs_1 = {
 	asn_MAP_UnformattedPostalAddress_tag2el_1,	/* Same as above */
 	2,	/* Count of tags in the CXER map */
 	0,	/* Whether extensible */
-	(unsigned int *)asn_MAP_UnformattedPostalAddress_mmap_1	/* Mandatory elements map */
+	(const unsigned int *)asn_MAP_UnformattedPostalAddress_mmap_1	/* Mandatory elements map */
 };
 asn_TYPE_descriptor_t asn_DEF_UnformattedPostalAddress = {
 	"UnformattedPostalAddress",
 	"UnformattedPostalAddress",
-	SET_free,
-	SET_print,
+	&asn_OP_SET,
 	SET_constraint,
-	SET_decode_ber,
-	SET_encode_der,
-	SET_decode_xer,
-	SET_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_UnformattedPostalAddress_tags_1,
 	sizeof(asn_DEF_UnformattedPostalAddress_tags_1)
 		/sizeof(asn_DEF_UnformattedPostalAddress_tags_1[0]), /* 1 */
 	asn_DEF_UnformattedPostalAddress_tags_1,	/* Same as above */
 	sizeof(asn_DEF_UnformattedPostalAddress_tags_1)
 		/sizeof(asn_DEF_UnformattedPostalAddress_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_UnformattedPostalAddress_1,
 	2,	/* Elements count */

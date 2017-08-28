@@ -27,12 +27,14 @@ static int asn_DFL_3_set_0(int set_value, void **sptr) {
 		return (value == 0);
 	}
 }
-static asn_TYPE_member_t asn_MBR_GeneralSubtree_1[] = {
+asn_TYPE_member_t asn_MBR_GeneralSubtree_1[] = {
 	{ ATF_NOFLAGS, 0, offsetof(struct GeneralSubtree, base),
 		-1 /* Ambiguous tag (CHOICE?) */,
 		0,
 		&asn_DEF_GeneralName,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"base"
@@ -41,7 +43,9 @@ static asn_TYPE_member_t asn_MBR_GeneralSubtree_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BaseDistance,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		asn_DFL_3_set_0,	/* DEFAULT 0 */
 		"minimum"
@@ -50,7 +54,9 @@ static asn_TYPE_member_t asn_MBR_GeneralSubtree_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_BaseDistance,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"maximum"
@@ -72,7 +78,7 @@ static const asn_TYPE_tag2member_t asn_MAP_GeneralSubtree_tag2el_1[] = {
     { (ASN_TAG_CLASS_CONTEXT | (7 << 2)), 0, 0, 0 }, /* iPAddress */
     { (ASN_TAG_CLASS_CONTEXT | (8 << 2)), 0, 0, 0 } /* registeredID */
 };
-static asn_SEQUENCE_specifics_t asn_SPC_GeneralSubtree_specs_1 = {
+asn_SEQUENCE_specifics_t asn_SPC_GeneralSubtree_specs_1 = {
 	sizeof(struct GeneralSubtree),
 	offsetof(struct GeneralSubtree, _asn_ctx),
 	asn_MAP_GeneralSubtree_tag2el_1,
@@ -84,21 +90,15 @@ static asn_SEQUENCE_specifics_t asn_SPC_GeneralSubtree_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_GeneralSubtree = {
 	"GeneralSubtree",
 	"GeneralSubtree",
-	SEQUENCE_free,
-	SEQUENCE_print,
+	&asn_OP_SEQUENCE,
 	SEQUENCE_constraint,
-	SEQUENCE_decode_ber,
-	SEQUENCE_encode_der,
-	SEQUENCE_decode_xer,
-	SEQUENCE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_GeneralSubtree_tags_1,
 	sizeof(asn_DEF_GeneralSubtree_tags_1)
 		/sizeof(asn_DEF_GeneralSubtree_tags_1[0]), /* 1 */
 	asn_DEF_GeneralSubtree_tags_1,	/* Same as above */
 	sizeof(asn_DEF_GeneralSubtree_tags_1)
 		/sizeof(asn_DEF_GeneralSubtree_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_GeneralSubtree_1,
 	3,	/* Elements count */

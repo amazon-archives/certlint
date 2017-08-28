@@ -7,12 +7,14 @@
 
 #include "BuiltInStandardAttributes.h"
 
-static asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
+asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 	{ ATF_POINTER, 9, offsetof(struct BuiltInStandardAttributes, country_name),
 		(ASN_TAG_CLASS_APPLICATION | (1 << 2)),
 		0,
 		&asn_DEF_CountryName,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"country-name"
@@ -21,7 +23,9 @@ static asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		(ASN_TAG_CLASS_APPLICATION | (2 << 2)),
 		0,
 		&asn_DEF_AdministrationDomainName,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"administration-domain-name"
@@ -30,7 +34,9 @@ static asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NetworkAddress,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"network-address"
@@ -39,7 +45,9 @@ static asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_TerminalIdentifier,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"terminal-identifier"
@@ -48,7 +56,9 @@ static asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_PrivateDomainName,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"private-domain-name"
@@ -57,7 +67,9 @@ static asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OrganizationName,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"organization-name"
@@ -66,7 +78,9 @@ static asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (4 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_NumericUserIdentifier,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"numeric-user-identifier"
@@ -75,7 +89,9 @@ static asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (5 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PersonalName,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"personal-name"
@@ -84,7 +100,9 @@ static asn_TYPE_member_t asn_MBR_BuiltInStandardAttributes_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (6 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_OrganizationalUnitNames,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"organizational-unit-names"
@@ -104,7 +122,7 @@ static const asn_TYPE_tag2member_t asn_MAP_BuiltInStandardAttributes_tag2el_1[] 
     { (ASN_TAG_CLASS_CONTEXT | (5 << 2)), 7, 0, 0 }, /* personal-name */
     { (ASN_TAG_CLASS_CONTEXT | (6 << 2)), 8, 0, 0 } /* organizational-unit-names */
 };
-static asn_SEQUENCE_specifics_t asn_SPC_BuiltInStandardAttributes_specs_1 = {
+asn_SEQUENCE_specifics_t asn_SPC_BuiltInStandardAttributes_specs_1 = {
 	sizeof(struct BuiltInStandardAttributes),
 	offsetof(struct BuiltInStandardAttributes, _asn_ctx),
 	asn_MAP_BuiltInStandardAttributes_tag2el_1,
@@ -116,21 +134,15 @@ static asn_SEQUENCE_specifics_t asn_SPC_BuiltInStandardAttributes_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_BuiltInStandardAttributes = {
 	"BuiltInStandardAttributes",
 	"BuiltInStandardAttributes",
-	SEQUENCE_free,
-	SEQUENCE_print,
+	&asn_OP_SEQUENCE,
 	SEQUENCE_constraint,
-	SEQUENCE_decode_ber,
-	SEQUENCE_encode_der,
-	SEQUENCE_decode_xer,
-	SEQUENCE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_BuiltInStandardAttributes_tags_1,
 	sizeof(asn_DEF_BuiltInStandardAttributes_tags_1)
 		/sizeof(asn_DEF_BuiltInStandardAttributes_tags_1[0]), /* 1 */
 	asn_DEF_BuiltInStandardAttributes_tags_1,	/* Same as above */
 	sizeof(asn_DEF_BuiltInStandardAttributes_tags_1)
 		/sizeof(asn_DEF_BuiltInStandardAttributes_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_BuiltInStandardAttributes_1,
 	9,	/* Elements count */

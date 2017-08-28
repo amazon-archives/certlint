@@ -208,7 +208,9 @@ static asn_TYPE_member_t asn_MBR_X520StateOrProvinceName_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (20 << 2)),
 		0,
 		&asn_DEF_TeletexString,
+		0,
 		memb_teletexString_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"teletexString"
@@ -217,7 +219,9 @@ static asn_TYPE_member_t asn_MBR_X520StateOrProvinceName_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),
 		0,
 		&asn_DEF_PrintableString,
+		0,
 		memb_printableString_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"printableString"
@@ -226,7 +230,9 @@ static asn_TYPE_member_t asn_MBR_X520StateOrProvinceName_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (28 << 2)),
 		0,
 		&asn_DEF_UniversalString,
+		0,
 		memb_universalString_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"universalString"
@@ -235,7 +241,9 @@ static asn_TYPE_member_t asn_MBR_X520StateOrProvinceName_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (12 << 2)),
 		0,
 		&asn_DEF_UTF8String,
+		0,
 		memb_utf8String_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"utf8String"
@@ -244,7 +252,9 @@ static asn_TYPE_member_t asn_MBR_X520StateOrProvinceName_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (30 << 2)),
 		0,
 		&asn_DEF_BMPString,
+		0,
 		memb_bmpString_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"bmpString"
@@ -270,19 +280,13 @@ static asn_CHOICE_specifics_t asn_SPC_X520StateOrProvinceName_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_X520StateOrProvinceName = {
 	"X520StateOrProvinceName",
 	"X520StateOrProvinceName",
-	CHOICE_free,
-	CHOICE_print,
+	&asn_OP_CHOICE,
 	CHOICE_constraint,
-	CHOICE_decode_ber,
-	CHOICE_encode_der,
-	CHOICE_decode_xer,
-	CHOICE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	CHOICE_outmost_tag,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_X520StateOrProvinceName_1,
 	5,	/* Elements count */

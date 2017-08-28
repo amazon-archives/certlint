@@ -2,7 +2,7 @@
 #include <asn_internal.h>
 #include <per_encoder.h>
 
-static asn_enc_rval_t uper_encode_internal(asn_TYPE_descriptor_t *td, asn_per_constraints_t *, void *sptr, asn_app_consume_bytes_f *cb, void *app_key);
+static asn_enc_rval_t uper_encode_internal(asn_TYPE_descriptor_t *td, const asn_per_constraints_t *, void *sptr, asn_app_consume_bytes_f *cb, void *app_key);
 
 asn_enc_rval_t
 uper_encode(asn_TYPE_descriptor_t *td, void *sptr, asn_app_consume_bytes_f *cb, void *app_key) {
@@ -65,8 +65,10 @@ encode_dyn_cb(const void *buffer, size_t size, void *key) {
 	return 0;
 }
 ssize_t
-uper_encode_to_new_buffer(asn_TYPE_descriptor_t *td, asn_per_constraints_t *constraints, void *sptr, void **buffer_r) {
-	asn_enc_rval_t er;
+uper_encode_to_new_buffer(asn_TYPE_descriptor_t *td,
+                          const asn_per_constraints_t *constraints, void *sptr,
+                          void **buffer_r) {
+    asn_enc_rval_t er;
 	enc_dyn_arg key;
 
 	memset(&key, 0, sizeof(key));
@@ -112,28 +114,30 @@ _uper_encode_flush_outp(asn_per_outp_t *po) {
 		buf++;
 	}
 
-	return po->outper(po->tmpspace, buf - po->tmpspace, po->op_key);
+	return po->output(po->tmpspace, buf - po->tmpspace, po->op_key);
 }
 
 static asn_enc_rval_t
-uper_encode_internal(asn_TYPE_descriptor_t *td, asn_per_constraints_t *constraints, void *sptr, asn_app_consume_bytes_f *cb, void *app_key) {
+uper_encode_internal(asn_TYPE_descriptor_t *td,
+                     const asn_per_constraints_t *constraints, void *sptr,
+                     asn_app_consume_bytes_f *cb, void *app_key) {
 	asn_per_outp_t po;
 	asn_enc_rval_t er;
 
 	/*
 	 * Invoke type-specific encoder.
 	 */
-	if(!td || !td->uper_encoder)
+	if(!td || !td->op->uper_encoder)
 		ASN__ENCODE_FAILED;	/* PER is not compiled in */
 
 	po.buffer = po.tmpspace;
 	po.nboff = 0;
 	po.nbits = 8 * sizeof(po.tmpspace);
-	po.outper = cb;
+	po.output = cb;
 	po.op_key = app_key;
 	po.flushed_bytes = 0;
 
-	er = td->uper_encoder(td, constraints, sptr, &po);
+	er = td->op->uper_encoder(td, constraints, sptr, &po);
 	if(er.encoded != -1) {
 		size_t bits_to_flush;
 

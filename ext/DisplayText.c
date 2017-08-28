@@ -161,12 +161,14 @@ memb_utf8String_constraint_1(asn_TYPE_descriptor_t *td, const void *sptr,
 	}
 }
 
-static asn_TYPE_member_t asn_MBR_DisplayText_1[] = {
+asn_TYPE_member_t asn_MBR_DisplayText_1[] = {
 	{ ATF_NOFLAGS, 0, offsetof(struct DisplayText, choice.ia5String),
 		(ASN_TAG_CLASS_UNIVERSAL | (22 << 2)),
 		0,
 		&asn_DEF_IA5String,
+		0,
 		memb_ia5String_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"ia5String"
@@ -175,7 +177,9 @@ static asn_TYPE_member_t asn_MBR_DisplayText_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (26 << 2)),
 		0,
 		&asn_DEF_VisibleString,
+		0,
 		memb_visibleString_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"visibleString"
@@ -184,7 +188,9 @@ static asn_TYPE_member_t asn_MBR_DisplayText_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (30 << 2)),
 		0,
 		&asn_DEF_BMPString,
+		0,
 		memb_bmpString_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"bmpString"
@@ -193,7 +199,9 @@ static asn_TYPE_member_t asn_MBR_DisplayText_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (12 << 2)),
 		0,
 		&asn_DEF_UTF8String,
+		0,
 		memb_utf8String_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"utf8String"
@@ -205,7 +213,7 @@ static const asn_TYPE_tag2member_t asn_MAP_DisplayText_tag2el_1[] = {
     { (ASN_TAG_CLASS_UNIVERSAL | (26 << 2)), 1, 0, 0 }, /* visibleString */
     { (ASN_TAG_CLASS_UNIVERSAL | (30 << 2)), 2, 0, 0 } /* bmpString */
 };
-static asn_CHOICE_specifics_t asn_SPC_DisplayText_specs_1 = {
+asn_CHOICE_specifics_t asn_SPC_DisplayText_specs_1 = {
 	sizeof(struct DisplayText),
 	offsetof(struct DisplayText, _asn_ctx),
 	offsetof(struct DisplayText, present),
@@ -218,19 +226,13 @@ static asn_CHOICE_specifics_t asn_SPC_DisplayText_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_DisplayText = {
 	"DisplayText",
 	"DisplayText",
-	CHOICE_free,
-	CHOICE_print,
+	&asn_OP_CHOICE,
 	CHOICE_constraint,
-	CHOICE_decode_ber,
-	CHOICE_encode_der,
-	CHOICE_decode_xer,
-	CHOICE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	CHOICE_outmost_tag,
 	0,	/* No effective tags (pointer) */
 	0,	/* No effective tags (count) */
 	0,	/* No tags (pointer) */
 	0,	/* No tags (count) */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_DisplayText_1,
 	4,	/* Elements count */

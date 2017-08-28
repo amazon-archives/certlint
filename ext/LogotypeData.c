@@ -12,7 +12,9 @@ static asn_TYPE_member_t asn_MBR_image_2[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_LogotypeImage,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		""
@@ -30,21 +32,15 @@ static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_image_2 = {
 	"image",
 	"image",
-	SEQUENCE_OF_free,
-	SEQUENCE_OF_print,
+	&asn_OP_SEQUENCE_OF,
 	SEQUENCE_OF_constraint,
-	SEQUENCE_OF_decode_ber,
-	SEQUENCE_OF_encode_der,
-	SEQUENCE_OF_decode_xer,
-	SEQUENCE_OF_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_image_tags_2,
 	sizeof(asn_DEF_image_tags_2)
 		/sizeof(asn_DEF_image_tags_2[0]), /* 1 */
 	asn_DEF_image_tags_2,	/* Same as above */
 	sizeof(asn_DEF_image_tags_2)
 		/sizeof(asn_DEF_image_tags_2[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_image_2,
 	1,	/* Single element */
@@ -56,7 +52,9 @@ static asn_TYPE_member_t asn_MBR_audio_4[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_LogotypeAudio,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		""
@@ -75,33 +73,29 @@ static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_audio_4 = {
 	"audio",
 	"audio",
-	SEQUENCE_OF_free,
-	SEQUENCE_OF_print,
+	&asn_OP_SEQUENCE_OF,
 	SEQUENCE_OF_constraint,
-	SEQUENCE_OF_decode_ber,
-	SEQUENCE_OF_encode_der,
-	SEQUENCE_OF_decode_xer,
-	SEQUENCE_OF_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_audio_tags_4,
 	sizeof(asn_DEF_audio_tags_4)
 		/sizeof(asn_DEF_audio_tags_4[0]) - 1, /* 1 */
 	asn_DEF_audio_tags_4,	/* Same as above */
 	sizeof(asn_DEF_audio_tags_4)
 		/sizeof(asn_DEF_audio_tags_4[0]), /* 2 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_audio_4,
 	1,	/* Single element */
 	&asn_SPC_audio_specs_4	/* Additional specs */
 };
 
-static asn_TYPE_member_t asn_MBR_LogotypeData_1[] = {
+asn_TYPE_member_t asn_MBR_LogotypeData_1[] = {
 	{ ATF_POINTER, 2, offsetof(struct LogotypeData, image),
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_image_2,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"image"
@@ -110,7 +104,9 @@ static asn_TYPE_member_t asn_MBR_LogotypeData_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
 		0,
 		&asn_DEF_audio_4,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"audio"
@@ -123,7 +119,7 @@ static const asn_TYPE_tag2member_t asn_MAP_LogotypeData_tag2el_1[] = {
     { (ASN_TAG_CLASS_UNIVERSAL | (16 << 2)), 0, 0, 0 }, /* image */
     { (ASN_TAG_CLASS_CONTEXT | (1 << 2)), 1, 0, 0 } /* audio */
 };
-static asn_SEQUENCE_specifics_t asn_SPC_LogotypeData_specs_1 = {
+asn_SEQUENCE_specifics_t asn_SPC_LogotypeData_specs_1 = {
 	sizeof(struct LogotypeData),
 	offsetof(struct LogotypeData, _asn_ctx),
 	asn_MAP_LogotypeData_tag2el_1,
@@ -135,21 +131,15 @@ static asn_SEQUENCE_specifics_t asn_SPC_LogotypeData_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_LogotypeData = {
 	"LogotypeData",
 	"LogotypeData",
-	SEQUENCE_free,
-	SEQUENCE_print,
+	&asn_OP_SEQUENCE,
 	SEQUENCE_constraint,
-	SEQUENCE_decode_ber,
-	SEQUENCE_encode_der,
-	SEQUENCE_decode_xer,
-	SEQUENCE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_LogotypeData_tags_1,
 	sizeof(asn_DEF_LogotypeData_tags_1)
 		/sizeof(asn_DEF_LogotypeData_tags_1[0]), /* 1 */
 	asn_DEF_LogotypeData_tags_1,	/* Same as above */
 	sizeof(asn_DEF_LogotypeData_tags_1)
 		/sizeof(asn_DEF_LogotypeData_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_LogotypeData_1,
 	2,	/* Elements count */

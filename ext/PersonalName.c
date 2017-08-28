@@ -215,12 +215,14 @@ memb_generation_qualifier_constraint_1(asn_TYPE_descriptor_t *td, const void *sp
 	}
 }
 
-static asn_TYPE_member_t asn_MBR_PersonalName_1[] = {
+asn_TYPE_member_t asn_MBR_PersonalName_1[] = {
 	{ ATF_NOFLAGS, 0, offsetof(struct PersonalName, surname),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PrintableString,
+		0,
 		memb_surname_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"surname"
@@ -229,7 +231,9 @@ static asn_TYPE_member_t asn_MBR_PersonalName_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PrintableString,
+		0,
 		memb_given_name_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"given-name"
@@ -238,7 +242,9 @@ static asn_TYPE_member_t asn_MBR_PersonalName_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PrintableString,
+		0,
 		memb_initials_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"initials"
@@ -247,7 +253,9 @@ static asn_TYPE_member_t asn_MBR_PersonalName_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
 		-1,	/* IMPLICIT tag at current level */
 		&asn_DEF_PrintableString,
+		0,
 		memb_generation_qualifier_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"generation-qualifier"
@@ -265,7 +273,7 @@ static const asn_TYPE_tag2member_t asn_MAP_PersonalName_tag2el_1[] = {
 static const uint8_t asn_MAP_PersonalName_mmap_1[(4 + (8 * sizeof(unsigned int)) - 1) / 8] = {
 	(1 << 7) | (0 << 6) | (0 << 5) | (0 << 4)
 };
-static asn_SET_specifics_t asn_SPC_PersonalName_specs_1 = {
+asn_SET_specifics_t asn_SPC_PersonalName_specs_1 = {
 	sizeof(struct PersonalName),
 	offsetof(struct PersonalName, _asn_ctx),
 	offsetof(struct PersonalName, _presence_map),
@@ -274,26 +282,20 @@ static asn_SET_specifics_t asn_SPC_PersonalName_specs_1 = {
 	asn_MAP_PersonalName_tag2el_1,	/* Same as above */
 	4,	/* Count of tags in the CXER map */
 	0,	/* Whether extensible */
-	(unsigned int *)asn_MAP_PersonalName_mmap_1	/* Mandatory elements map */
+	(const unsigned int *)asn_MAP_PersonalName_mmap_1	/* Mandatory elements map */
 };
 asn_TYPE_descriptor_t asn_DEF_PersonalName = {
 	"PersonalName",
 	"PersonalName",
-	SET_free,
-	SET_print,
+	&asn_OP_SET,
 	SET_constraint,
-	SET_decode_ber,
-	SET_encode_der,
-	SET_decode_xer,
-	SET_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_PersonalName_tags_1,
 	sizeof(asn_DEF_PersonalName_tags_1)
 		/sizeof(asn_DEF_PersonalName_tags_1[0]), /* 1 */
 	asn_DEF_PersonalName_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PersonalName_tags_1)
 		/sizeof(asn_DEF_PersonalName_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_PersonalName_1,
 	4,	/* Elements count */

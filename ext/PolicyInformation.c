@@ -38,7 +38,9 @@ static asn_TYPE_member_t asn_MBR_policyQualifiers_3[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_PolicyQualifierInfo,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		""
@@ -56,33 +58,29 @@ static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_policyQualifiers_3 = {
 	"policyQualifiers",
 	"policyQualifiers",
-	SEQUENCE_OF_free,
-	SEQUENCE_OF_print,
+	&asn_OP_SEQUENCE_OF,
 	SEQUENCE_OF_constraint,
-	SEQUENCE_OF_decode_ber,
-	SEQUENCE_OF_encode_der,
-	SEQUENCE_OF_decode_xer,
-	SEQUENCE_OF_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_policyQualifiers_tags_3,
 	sizeof(asn_DEF_policyQualifiers_tags_3)
 		/sizeof(asn_DEF_policyQualifiers_tags_3[0]), /* 1 */
 	asn_DEF_policyQualifiers_tags_3,	/* Same as above */
 	sizeof(asn_DEF_policyQualifiers_tags_3)
 		/sizeof(asn_DEF_policyQualifiers_tags_3[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_policyQualifiers_3,
 	1,	/* Single element */
 	&asn_SPC_policyQualifiers_specs_3	/* Additional specs */
 };
 
-static asn_TYPE_member_t asn_MBR_PolicyInformation_1[] = {
+asn_TYPE_member_t asn_MBR_PolicyInformation_1[] = {
 	{ ATF_NOFLAGS, 0, offsetof(struct PolicyInformation, policyIdentifier),
 		(ASN_TAG_CLASS_UNIVERSAL | (6 << 2)),
 		0,
 		&asn_DEF_CertPolicyId,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"policyIdentifier"
@@ -91,7 +89,9 @@ static asn_TYPE_member_t asn_MBR_PolicyInformation_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_policyQualifiers_3,
+		0,
 		memb_policyQualifiers_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"policyQualifiers"
@@ -104,7 +104,7 @@ static const asn_TYPE_tag2member_t asn_MAP_PolicyInformation_tag2el_1[] = {
     { (ASN_TAG_CLASS_UNIVERSAL | (6 << 2)), 0, 0, 0 }, /* policyIdentifier */
     { (ASN_TAG_CLASS_UNIVERSAL | (16 << 2)), 1, 0, 0 } /* policyQualifiers */
 };
-static asn_SEQUENCE_specifics_t asn_SPC_PolicyInformation_specs_1 = {
+asn_SEQUENCE_specifics_t asn_SPC_PolicyInformation_specs_1 = {
 	sizeof(struct PolicyInformation),
 	offsetof(struct PolicyInformation, _asn_ctx),
 	asn_MAP_PolicyInformation_tag2el_1,
@@ -116,21 +116,15 @@ static asn_SEQUENCE_specifics_t asn_SPC_PolicyInformation_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_PolicyInformation = {
 	"PolicyInformation",
 	"PolicyInformation",
-	SEQUENCE_free,
-	SEQUENCE_print,
+	&asn_OP_SEQUENCE,
 	SEQUENCE_constraint,
-	SEQUENCE_decode_ber,
-	SEQUENCE_encode_der,
-	SEQUENCE_decode_xer,
-	SEQUENCE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_PolicyInformation_tags_1,
 	sizeof(asn_DEF_PolicyInformation_tags_1)
 		/sizeof(asn_DEF_PolicyInformation_tags_1[0]), /* 1 */
 	asn_DEF_PolicyInformation_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PolicyInformation_tags_1)
 		/sizeof(asn_DEF_PolicyInformation_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_PolicyInformation_1,
 	2,	/* Elements count */

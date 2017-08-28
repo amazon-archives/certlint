@@ -38,7 +38,9 @@ static asn_TYPE_member_t asn_MBR_nAddresses_5[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (4 << 2)),
 		0,
 		&asn_DEF_OCTET_STRING,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		""
@@ -57,33 +59,29 @@ static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_nAddresses_5 = {
 	"nAddresses",
 	"nAddresses",
-	SET_OF_free,
-	SET_OF_print,
+	&asn_OP_SET_OF,
 	SET_OF_constraint,
-	SET_OF_decode_ber,
-	SET_OF_encode_der,
-	SET_OF_decode_xer,
-	SET_OF_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_nAddresses_tags_5,
 	sizeof(asn_DEF_nAddresses_tags_5)
 		/sizeof(asn_DEF_nAddresses_tags_5[0]), /* 2 */
 	asn_DEF_nAddresses_tags_5,	/* Same as above */
 	sizeof(asn_DEF_nAddresses_tags_5)
 		/sizeof(asn_DEF_nAddresses_tags_5[0]), /* 2 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_nAddresses_5,
 	1,	/* Single element */
 	&asn_SPC_nAddresses_specs_5	/* Additional specs */
 };
 
-static asn_TYPE_member_t asn_MBR_PresentationAddress_1[] = {
+asn_TYPE_member_t asn_MBR_PresentationAddress_1[] = {
 	{ ATF_POINTER, 3, offsetof(struct PresentationAddress, pSelector),
 		(ASN_TAG_CLASS_CONTEXT | (0 << 2)),
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"pSelector"
@@ -92,7 +90,9 @@ static asn_TYPE_member_t asn_MBR_PresentationAddress_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (1 << 2)),
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"sSelector"
@@ -101,7 +101,9 @@ static asn_TYPE_member_t asn_MBR_PresentationAddress_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (2 << 2)),
 		+1,	/* EXPLICIT tag at current level */
 		&asn_DEF_OCTET_STRING,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"tSelector"
@@ -110,7 +112,9 @@ static asn_TYPE_member_t asn_MBR_PresentationAddress_1[] = {
 		(ASN_TAG_CLASS_CONTEXT | (3 << 2)),
 		0,
 		&asn_DEF_nAddresses_5,
+		0,
 		memb_nAddresses_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"nAddresses"
@@ -125,7 +129,7 @@ static const asn_TYPE_tag2member_t asn_MAP_PresentationAddress_tag2el_1[] = {
     { (ASN_TAG_CLASS_CONTEXT | (2 << 2)), 2, 0, 0 }, /* tSelector */
     { (ASN_TAG_CLASS_CONTEXT | (3 << 2)), 3, 0, 0 } /* nAddresses */
 };
-static asn_SEQUENCE_specifics_t asn_SPC_PresentationAddress_specs_1 = {
+asn_SEQUENCE_specifics_t asn_SPC_PresentationAddress_specs_1 = {
 	sizeof(struct PresentationAddress),
 	offsetof(struct PresentationAddress, _asn_ctx),
 	asn_MAP_PresentationAddress_tag2el_1,
@@ -137,21 +141,15 @@ static asn_SEQUENCE_specifics_t asn_SPC_PresentationAddress_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_PresentationAddress = {
 	"PresentationAddress",
 	"PresentationAddress",
-	SEQUENCE_free,
-	SEQUENCE_print,
+	&asn_OP_SEQUENCE,
 	SEQUENCE_constraint,
-	SEQUENCE_decode_ber,
-	SEQUENCE_encode_der,
-	SEQUENCE_decode_xer,
-	SEQUENCE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_PresentationAddress_tags_1,
 	sizeof(asn_DEF_PresentationAddress_tags_1)
 		/sizeof(asn_DEF_PresentationAddress_tags_1[0]), /* 1 */
 	asn_DEF_PresentationAddress_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PresentationAddress_tags_1)
 		/sizeof(asn_DEF_PresentationAddress_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_PresentationAddress_1,
 	4,	/* Elements count */

@@ -35,6 +35,8 @@ typedef struct DistributionPoint {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_DistributionPoint;
+extern asn_SEQUENCE_specifics_t asn_SPC_DistributionPoint_specs_1;
+extern asn_TYPE_member_t asn_MBR_DistributionPoint_1[3];
 
 #ifdef __cplusplus
 }

@@ -38,6 +38,8 @@ typedef struct Attribute {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_Attribute;
+extern asn_SEQUENCE_specifics_t asn_SPC_Attribute_specs_1;
+extern asn_TYPE_member_t asn_MBR_Attribute_1[2];
 
 #ifdef __cplusplus
 }

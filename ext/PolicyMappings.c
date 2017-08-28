@@ -12,7 +12,9 @@ static asn_TYPE_member_t asn_MBR_Member_2[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (6 << 2)),
 		0,
 		&asn_DEF_CertPolicyId,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"issuerDomainPolicy"
@@ -21,7 +23,9 @@ static asn_TYPE_member_t asn_MBR_Member_2[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (6 << 2)),
 		0,
 		&asn_DEF_CertPolicyId,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"subjectDomainPolicy"
@@ -47,21 +51,15 @@ static /* Use -fall-defs-global to expose */
 asn_TYPE_descriptor_t asn_DEF_Member_2 = {
 	"SEQUENCE",
 	"SEQUENCE",
-	SEQUENCE_free,
-	SEQUENCE_print,
+	&asn_OP_SEQUENCE,
 	SEQUENCE_constraint,
-	SEQUENCE_decode_ber,
-	SEQUENCE_encode_der,
-	SEQUENCE_decode_xer,
-	SEQUENCE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_Member_tags_2,
 	sizeof(asn_DEF_Member_tags_2)
 		/sizeof(asn_DEF_Member_tags_2[0]), /* 1 */
 	asn_DEF_Member_tags_2,	/* Same as above */
 	sizeof(asn_DEF_Member_tags_2)
 		/sizeof(asn_DEF_Member_tags_2[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_Member_2,
 	2,	/* Elements count */
@@ -73,7 +71,9 @@ static asn_TYPE_member_t asn_MBR_PolicyMappings_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_Member_2,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		""
@@ -90,21 +90,15 @@ static asn_SET_OF_specifics_t asn_SPC_PolicyMappings_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_PolicyMappings = {
 	"PolicyMappings",
 	"PolicyMappings",
-	SEQUENCE_OF_free,
-	SEQUENCE_OF_print,
+	&asn_OP_SEQUENCE_OF,
 	SEQUENCE_OF_constraint,
-	SEQUENCE_OF_decode_ber,
-	SEQUENCE_OF_encode_der,
-	SEQUENCE_OF_decode_xer,
-	SEQUENCE_OF_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_PolicyMappings_tags_1,
 	sizeof(asn_DEF_PolicyMappings_tags_1)
 		/sizeof(asn_DEF_PolicyMappings_tags_1[0]), /* 1 */
 	asn_DEF_PolicyMappings_tags_1,	/* Same as above */
 	sizeof(asn_DEF_PolicyMappings_tags_1)
 		/sizeof(asn_DEF_PolicyMappings_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_PolicyMappings_1,
 	1,	/* Single element */

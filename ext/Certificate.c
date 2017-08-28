@@ -12,7 +12,9 @@ static asn_TYPE_member_t asn_MBR_Certificate_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_TBSCertificate,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"tbsCertificate"
@@ -21,7 +23,9 @@ static asn_TYPE_member_t asn_MBR_Certificate_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (16 << 2)),
 		0,
 		&asn_DEF_AlgorithmIdentifier,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"signatureAlgorithm"
@@ -30,7 +34,9 @@ static asn_TYPE_member_t asn_MBR_Certificate_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (3 << 2)),
 		0,
 		&asn_DEF_BIT_STRING,
+		0,
 		0,	/* Defer constraints checking to the member type */
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"signature"
@@ -56,21 +62,15 @@ static asn_SEQUENCE_specifics_t asn_SPC_Certificate_specs_1 = {
 asn_TYPE_descriptor_t asn_DEF_Certificate = {
 	"Certificate",
 	"Certificate",
-	SEQUENCE_free,
-	SEQUENCE_print,
+	&asn_OP_SEQUENCE,
 	SEQUENCE_constraint,
-	SEQUENCE_decode_ber,
-	SEQUENCE_encode_der,
-	SEQUENCE_decode_xer,
-	SEQUENCE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_Certificate_tags_1,
 	sizeof(asn_DEF_Certificate_tags_1)
 		/sizeof(asn_DEF_Certificate_tags_1[0]), /* 1 */
 	asn_DEF_Certificate_tags_1,	/* Same as above */
 	sizeof(asn_DEF_Certificate_tags_1)
 		/sizeof(asn_DEF_Certificate_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_Certificate_1,
 	3,	/* Elements count */

@@ -111,12 +111,14 @@ memb_value_constraint_1(asn_TYPE_descriptor_t *td, const void *sptr,
 	}
 }
 
-static asn_TYPE_member_t asn_MBR_BuiltInDomainDefinedAttribute_1[] = {
+asn_TYPE_member_t asn_MBR_BuiltInDomainDefinedAttribute_1[] = {
 	{ ATF_NOFLAGS, 0, offsetof(struct BuiltInDomainDefinedAttribute, type),
 		(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),
 		0,
 		&asn_DEF_PrintableString,
+		0,
 		memb_type_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"type"
@@ -125,7 +127,9 @@ static asn_TYPE_member_t asn_MBR_BuiltInDomainDefinedAttribute_1[] = {
 		(ASN_TAG_CLASS_UNIVERSAL | (19 << 2)),
 		0,
 		&asn_DEF_PrintableString,
+		0,
 		memb_value_constraint_1,
+		0,	/* OER is not compiled, use -gen-OER */
 		0,	/* PER is not compiled, use -gen-PER */
 		0,
 		"value"
@@ -138,7 +142,7 @@ static const asn_TYPE_tag2member_t asn_MAP_BuiltInDomainDefinedAttribute_tag2el_
     { (ASN_TAG_CLASS_UNIVERSAL | (19 << 2)), 0, 0, 1 }, /* type */
     { (ASN_TAG_CLASS_UNIVERSAL | (19 << 2)), 1, -1, 0 } /* value */
 };
-static asn_SEQUENCE_specifics_t asn_SPC_BuiltInDomainDefinedAttribute_specs_1 = {
+asn_SEQUENCE_specifics_t asn_SPC_BuiltInDomainDefinedAttribute_specs_1 = {
 	sizeof(struct BuiltInDomainDefinedAttribute),
 	offsetof(struct BuiltInDomainDefinedAttribute, _asn_ctx),
 	asn_MAP_BuiltInDomainDefinedAttribute_tag2el_1,
@@ -150,21 +154,15 @@ static asn_SEQUENCE_specifics_t asn_SPC_BuiltInDomainDefinedAttribute_specs_1 = 
 asn_TYPE_descriptor_t asn_DEF_BuiltInDomainDefinedAttribute = {
 	"BuiltInDomainDefinedAttribute",
 	"BuiltInDomainDefinedAttribute",
-	SEQUENCE_free,
-	SEQUENCE_print,
+	&asn_OP_SEQUENCE,
 	SEQUENCE_constraint,
-	SEQUENCE_decode_ber,
-	SEQUENCE_encode_der,
-	SEQUENCE_decode_xer,
-	SEQUENCE_encode_xer,
-	0, 0,	/* No PER support, use "-gen-PER" to enable */
-	0,	/* Use generic outmost tag fetcher */
 	asn_DEF_BuiltInDomainDefinedAttribute_tags_1,
 	sizeof(asn_DEF_BuiltInDomainDefinedAttribute_tags_1)
 		/sizeof(asn_DEF_BuiltInDomainDefinedAttribute_tags_1[0]), /* 1 */
 	asn_DEF_BuiltInDomainDefinedAttribute_tags_1,	/* Same as above */
 	sizeof(asn_DEF_BuiltInDomainDefinedAttribute_tags_1)
 		/sizeof(asn_DEF_BuiltInDomainDefinedAttribute_tags_1[0]), /* 1 */
+	0,	/* No OER visible constraints */
 	0,	/* No PER visible constraints */
 	asn_MBR_BuiltInDomainDefinedAttribute_1,
 	2,	/* Elements count */

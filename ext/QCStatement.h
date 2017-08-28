@@ -31,6 +31,8 @@ typedef struct QCStatement {
 
 /* Implementation */
 extern asn_TYPE_descriptor_t asn_DEF_QCStatement;
+extern asn_SEQUENCE_specifics_t asn_SPC_QCStatement_specs_1;
+extern asn_TYPE_member_t asn_MBR_QCStatement_1[2];
 
 #ifdef __cplusplus
 }
