@@ -82,7 +82,7 @@ module CertLint
     begin
       der = validator.to_der
       unless der == content
-        messages << "W: NotDER in #{pdu}"
+        messages << "W: #{pdu} is not encoded using DER"
       end
     rescue NoMemoryError
       messages << "E: BadDER in #{pdu}"
@@ -416,16 +416,9 @@ module CertLint
       # so use .last to make it universal
       extder = e.last
 
-      # Critical has a default value of false, so it should not be encoded in DER
-      # Double check just to make sure
-      if e.length == 3
-        critical = e[1].value
-        unless critical
-          messages << "E: #{oid} has critical:FALSE explicitly encoded"
-        end
-      else
-        critical = false
-      end
+      # Default for critical is false
+      critical = false
+      critical = e[1].value if e.length == 3
       messages += CertExtLint.lint(oid, extder.value, cert, critical)
 
       if oid == '2.5.29.19' # basicConstraints
