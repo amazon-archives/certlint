@@ -24,7 +24,7 @@ memb_policyQualifiers_constraint_1(asn_TYPE_descriptor_t *td, const void *sptr,
 	
 	if((size >= 1)) {
 		/* Perform validation of the inner elements */
-		return td->check_constraints(td, sptr, ctfailcb, app_key);
+		return td->op->check_constraints(td, sptr, ctfailcb, app_key);
 	} else {
 		ASN__CTFAIL(app_key, td, sptr,
 			"%s: constraint failed (%s:%d)",

@@ -595,8 +595,7 @@ SEQUENCE_encode_der(asn_TYPE_descriptor_t *td,
 			continue;
 
 		tmperval = elm->type->op->der_encoder(elm->type, *memb_ptr2,
-			elm->tag_mode, elm->tag,
-			cb, app_key);
+			elm->tag_mode, elm->tag, cb, app_key);
 		if(tmperval.encoded == -1)
 			return tmperval;
 		computed_size -= tmperval.encoded;
@@ -681,7 +680,7 @@ SEQUENCE_decode_xer(asn_codec_ctx_t *opt_codec_ctx, asn_TYPE_descriptor_t *td,
 		 */
 		if(ctx->phase == 2) {
 			asn_dec_rval_t tmprval;
-			void *memb_ptr;		/* Pointer to the member */
+			void *memb_ptr_dontuse;		/* Pointer to the member */
 			void **memb_ptr2;	/* Pointer to that pointer */
 
 			elm = &td->elements[edx];
@@ -690,8 +689,8 @@ SEQUENCE_decode_xer(asn_codec_ctx_t *opt_codec_ctx, asn_TYPE_descriptor_t *td,
 				/* Member is a pointer to another structure */
 				memb_ptr2 = (void **)((char *)st + elm->memb_offset);
 			} else {
-				memb_ptr = (char *)st + elm->memb_offset;
-				memb_ptr2 = &memb_ptr;
+				memb_ptr_dontuse = (char *)st + elm->memb_offset;
+				memb_ptr2 = &memb_ptr_dontuse;  /* Only use of memb_ptr_dontuse */
 			}
 
 			if(elm->flags & ATF_OPEN_TYPE) {
@@ -905,6 +904,11 @@ SEQUENCE_encode_xer(asn_TYPE_descriptor_t *td, void *sptr,
 		} else {
 			memb_ptr = (void *)((char *)sptr + elm->memb_offset);
 		}
+
+		/*
+		 * X.693 (0112) #9.5.
+		 * TODO: Default values' encodings shall always be present.
+		 */
 
 		if(!xcan) ASN__TEXT_INDENT(1, ilevel);
 		ASN__CALLBACK3("<", 1, mname, mlen, ">", 1);
