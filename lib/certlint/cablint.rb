@@ -265,7 +265,7 @@ module CertLint
       # If so, add a temporary value to check below
       # RFC 5280 #4.2.1.12 says serverAuth is "consistent" with
       #   digitalSignature, keyEncipherment or keyAgreement
-      # RFC 5245 #7.4.2 sets further reqs for RSA
+      # RFC 5246 #7.4.2 sets further reqs for RSA
       # EC keys could be for ECDSA or ECDH so check for both
       if eku.empty? && !ku.nil?
         if key.is_a? OpenSSL::PKey::RSA
