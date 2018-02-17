@@ -384,39 +384,86 @@ org.bm
 // bn : https://en.wikipedia.org/wiki/.bn
 *.bn
 
-// bo : http://www.nic.bo/
+// bo : https://nic.bo/delegacion2015.php#h-1.10
 bo
 com.bo
 edu.bo
-gov.bo
 gob.bo
 int.bo
 org.bo
 net.bo
 mil.bo
 tv.bo
+web.bo
+// Social Domains 
+academia.bo
+agro.bo
+arte.bo
+blog.bo
+bolivia.bo
+ciencia.bo
+cooperativa.bo
+democracia.bo
+deporte.bo
+ecologia.bo
+economia.bo
+empresa.bo
+indigena.bo
+industria.bo
+info.bo
+medicina.bo
+movimiento.bo
+musica.bo
+natural.bo
+nombre.bo
+noticias.bo
+patria.bo
+politica.bo
+profesional.bo
+plurinacional.bo
+pueblo.bo
+revista.bo
+salud.bo
+tecnologia.bo
+tksat.bo
+transporte.bo
+wiki.bo
 
 // br : http://registro.br/dominio/categoria.html
 // Submitted by registry <fneves@registro.br>
 br
+9guacu.br
+abc.br
 adm.br
 adv.br
 agr.br
+aju.br
 am.br
+anani.br
+aparecida.br
 arq.br
 art.br
 ato.br
 b.br
 belem.br
+bhz.br
 bio.br
 blog.br
 bmd.br
+boavista.br
+bsb.br
+campinagrande.br
+campinas.br
+caxias.br
 cim.br
 cng.br
 cnt.br
 com.br
+contagem.br
 coop.br
 cri.br
+cuiaba.br
+curitiba.br
 def.br
 ecn.br
 eco.br
@@ -427,14 +474,18 @@ esp.br
 etc.br
 eti.br
 far.br
+feira.br
 flog.br
 floripa.br
 fm.br
 fnd.br
+fortal.br
 fot.br
+foz.br
 fst.br
 g12.br
 ggf.br
+goiania.br
 gov.br
 // gov.br 26 states + df https://en.wikipedia.org/wiki/States_of_Brazil
 ac.gov.br
@@ -464,42 +515,72 @@ sc.gov.br
 se.gov.br
 sp.gov.br
 to.gov.br
+gru.br
 imb.br
 ind.br
 inf.br
+jab.br
 jampa.br
+jdf.br
+joinville.br
 jor.br
 jus.br
 leg.br
 lel.br
+londrina.br
+macapa.br
+maceio.br
+manaus.br
+maringa.br
 mat.br
 med.br
 mil.br
+morena.br
 mp.br
 mus.br
+natal.br
 net.br
+niteroi.br
 *.nom.br
 not.br
 ntr.br
 odo.br
 org.br
+osasco.br
+palmas.br
 poa.br
 ppg.br
 pro.br
 psc.br
 psi.br
+pvh.br
 qsl.br
 radio.br
 rec.br
 recife.br
+ribeirao.br
+rio.br
+riobranco.br
+riopreto.br
+salvador.br
+sampa.br
+santamaria.br
+santoandre.br
+saobernardo.br
+saogonca.br
+sjc.br
 slg.br
+slz.br
+sorocaba.br
 srv.br
 taxi.br
 teo.br
+the.br
 tmp.br
 trd.br
 tur.br
 tv.br
+udi.br
 vet.br
 vix.br
 vlog.br
@@ -3456,8 +3537,17 @@ uenohara.yamanashi.jp
 yamanakako.yamanashi.jp
 yamanashi.yamanashi.jp
 
-// ke : http://www.kenic.or.ke/index.php?option=com_content&task=view&id=117&Itemid=145
-*.ke
+// ke : http://www.kenic.or.ke/index.php/en/ke-domains/ke-domains
+ke
+ac.ke
+co.ke
+go.ke
+info.ke
+me.ke
+mobi.ke
+ne.ke
+or.ke
+sc.ke
 
 // kg : http://www.domain.kg/dmn_n.html
 kg
@@ -6472,6 +6562,17 @@ lib.wy.us
 pvt.k12.ma.us
 chtr.k12.ma.us
 paroch.k12.ma.us
+// Merit Network, Inc. maintains the registry for =~ /(k12|cc|lib).mi.us/ and the following
+//    see also: http://domreg.merit.edu
+//    see also: whois -h whois.domreg.merit.edu help
+ann-arbor.mi.us
+cog.mi.us
+dst.mi.us
+eaton.mi.us
+gen.mi.us
+mus.mi.us
+tec.mi.us
+washtenaw.mi.us
 
 // uy : http://www.nic.org.uy/
 uy
@@ -7473,9 +7574,6 @@ cheap
 // chintai : 2015-06-11 CHINTAI Corporation
 chintai
 
-// chloe : 2014-10-16 Richemont DNS Inc.
-chloe
-
 // christmas : 2013-11-21 Uniregistry, Corp.
 christmas
 
@@ -8346,9 +8444,6 @@ how
 // hsbc : 2014-10-24 HSBC Holdings PLC
 hsbc
 
-// htc : 2015-04-02 HTC corporation
-htc
-
 // hughes : 2015-07-30 Hughes Satellite Systems Corporation
 hughes
 
@@ -8802,12 +8897,6 @@ mattel
 // mba : 2015-04-02 Lone Hollow, LLC
 mba
 
-// mcd : 2015-07-30 McDonald’s Corporation
-mcd
-
-// mcdonalds : 2015-07-30 McDonald’s Corporation
-mcdonalds
-
 // mckinsey : 2015-07-31 McKinsey Holdings, Inc.
 mckinsey
 
@@ -8897,9 +8986,6 @@ money
 
 // monster : 2015-09-11 Monster Worldwide, Inc.
 monster
-
-// montblanc : 2014-06-23 Richemont DNS Inc.
-montblanc
 
 // mopar : 2015-07-30 FCA US LLC.
 mopar
@@ -9131,9 +9217,6 @@ ovh
 
 // page : 2014-12-04 Charleston Road Registry Inc.
 page
-
-// pamperedchef : 2015-02-05 The Pampered Chef, Ltd.
-pamperedchef
 
 // panasonic : 2015-07-30 Panasonic Corporation
 panasonic
@@ -10556,6 +10639,12 @@ cc.ua
 inf.ua
 ltd.ua
 
+// AgileBits Inc : https://agilebits.com
+// Submitted by Roustem Karimov <roustem@agilebits.com>
+1password.ca
+1password.com
+1password.eu
+
 // Agnat sp. z o.o. : https://domena.pl
 // Submitted by Przemyslaw Plewa <it-admin@domena.pl>
 beep.pl
@@ -10567,7 +10656,7 @@ beep.pl
 
 // alwaysdata : https://www.alwaysdata.com
 // Submitted by Cyril <admin@alwaysdata.com>
-*.alwaysdata.net
+alwaysdata.net
 
 // Amazon CloudFront : https://aws.amazon.com/cloudfront/
 // Submitted by Donavan Miller <donavanm@amazon.com>
@@ -10582,8 +10671,24 @@ us-east-1.amazonaws.com
 
 // Amazon Elastic Beanstalk : https://aws.amazon.com/elasticbeanstalk/
 // Submitted by Luke Wells <psl-maintainers@amazon.com>
-elasticbeanstalk.cn-north-1.amazonaws.com.cn
-*.elasticbeanstalk.com
+cn-north-1.eb.amazonaws.com.cn
+elasticbeanstalk.com
+ap-northeast-1.elasticbeanstalk.com
+ap-northeast-2.elasticbeanstalk.com
+ap-south-1.elasticbeanstalk.com
+ap-southeast-1.elasticbeanstalk.com
+ap-southeast-2.elasticbeanstalk.com
+ca-central-1.elasticbeanstalk.com
+eu-central-1.elasticbeanstalk.com
+eu-west-1.elasticbeanstalk.com
+eu-west-2.elasticbeanstalk.com
+eu-west-3.elasticbeanstalk.com
+sa-east-1.elasticbeanstalk.com
+us-east-1.elasticbeanstalk.com
+us-east-2.elasticbeanstalk.com
+us-gov-west-1.elasticbeanstalk.com
+us-west-1.elasticbeanstalk.com
+us-west-2.elasticbeanstalk.com
 
 // Amazon Elastic Load Balancing : https://aws.amazon.com/elasticloadbalancing/
 // Submitted by Luke Wells <psl-maintainers@amazon.com>
@@ -10602,6 +10707,7 @@ s3-ca-central-1.amazonaws.com
 s3-eu-central-1.amazonaws.com
 s3-eu-west-1.amazonaws.com
 s3-eu-west-2.amazonaws.com
+s3-eu-west-3.amazonaws.com
 s3-external-1.amazonaws.com
 s3-fips-us-gov-west-1.amazonaws.com
 s3-sa-east-1.amazonaws.com
@@ -10615,6 +10721,7 @@ s3.cn-north-1.amazonaws.com.cn
 s3.ca-central-1.amazonaws.com
 s3.eu-central-1.amazonaws.com
 s3.eu-west-2.amazonaws.com
+s3.eu-west-3.amazonaws.com
 s3.us-east-2.amazonaws.com
 s3.dualstack.ap-northeast-1.amazonaws.com
 s3.dualstack.ap-northeast-2.amazonaws.com
@@ -10625,6 +10732,7 @@ s3.dualstack.ca-central-1.amazonaws.com
 s3.dualstack.eu-central-1.amazonaws.com
 s3.dualstack.eu-west-1.amazonaws.com
 s3.dualstack.eu-west-2.amazonaws.com
+s3.dualstack.eu-west-3.amazonaws.com
 s3.dualstack.sa-east-1.amazonaws.com
 s3.dualstack.us-east-1.amazonaws.com
 s3.dualstack.us-east-2.amazonaws.com
@@ -10641,6 +10749,7 @@ s3-website.ap-south-1.amazonaws.com
 s3-website.ca-central-1.amazonaws.com
 s3-website.eu-central-1.amazonaws.com
 s3-website.eu-west-2.amazonaws.com
+s3-website.eu-west-3.amazonaws.com
 s3-website.us-east-2.amazonaws.com
 
 // Amune : https://amune.org/
@@ -10829,6 +10938,11 @@ cloudns.us
 co.nl
 co.no
 
+// Combell.com : https://www.combell.com
+// Submitted by Thomas Wouters <thomas.wouters@combellgroup.com>
+webhosting.be
+hosting-cluster.nl
+
 // COSIMO GmbH : http://www.cosimo.de
 // Submitted by Rene Marticke <rmarticke@cosimo.de>
 dyn.cosidns.de
@@ -10870,6 +10984,10 @@ co.dk
 firm.dk
 reg.dk
 store.dk
+
+// Debian : https://www.debian.org/
+// Submitted by Peter Palfrader / Debian Sysadmin Team <dsa-publicsuffixlist@debian.org>
+debian.net
 
 // deSEC : https://desec.io/
 // Submitted by Peter Thomassen <peter@desec.io>
@@ -11398,6 +11516,10 @@ vladikavkaz.su
 vladimir.su
 vologda.su
 
+// Fancy Bits, LLC : http://getchannels.com
+// Submitted by Aman Gupta <aman@getchannels.com>
+channelsdvr.net
+
 // Fastly Inc. : http://www.fastly.com/
 // Submitted by Fastly Security <security@fastly.com>
 fastlylb.net
@@ -11419,6 +11541,8 @@ fhapp.xyz
 fedorainfracloud.org
 fedorapeople.org
 cloud.fedoraproject.org
+app.os.fedoraproject.org
+app.os.stg.fedoraproject.org
 
 // Filegear Inc. : https://www.filegear.com
 // Submitted by Jason Zhu <jason@owtware.com>
@@ -11442,12 +11566,9 @@ fbxos.fr
 freebox-os.fr
 freeboxos.fr
 
-// Fusion Intranet : https://www.fusion-intranet.com
-// Submitted by Matthias Burtscher <matthias.burtscher@fusonic.net>
-myfusion.cloud
-
 // Futureweb OG : http://www.futureweb.at
 // Submitted by Andreas Schnederle-Wagner <schnederle@futureweb.at>
+*.futurecms.at
 futurehosting.at
 futuremailing.at
 *.ex.ortsinfo.at
@@ -11630,6 +11751,10 @@ se.leg.br
 sp.leg.br
 to.leg.br
 
+// intermetrics GmbH : https://pixolino.com/
+// Submitted by Wolfgang Schwarz <admin@intermetrics.de>
+pixolino.com
+
 // IPiFony Systems, Inc. : https://www.ipifony.com/
 // Submitted by Matthew Hardeman <mhardeman@ipifony.com>
 ipifony.net
@@ -11725,6 +11850,10 @@ netlify.com
 // ngrok : https://ngrok.com/
 // Submitted by Alan Shreve <alan@ngrok.com>
 ngrok.io
+
+// Nimbus Hosting Ltd. : https://www.nimbushosting.co.uk/
+// Submitted by Nicholas Ford <nick@nimbushosting.co.uk>
+nh-serv.co.uk
 
 // NFSN, Inc. : https://www.NearlyFreeSpeech.NET/
 // Submitted by Jeff Wheelhouse <support@nearlyfreespeech.net>
@@ -11953,6 +12082,7 @@ protonet.io
 // Publication Presse Communication SARL : https://ppcom.fr
 // Submitted by Yaacov Akiba Slama <admin@chirurgiens-dentistes-en-france.fr>
 chirurgiens-dentistes-en-france.fr
+byen.site
 
 // QA2
 // Submitted by Daniel Dent (https://www.danieldent.com/)
@@ -11982,6 +12112,11 @@ rackmaze.net
 // Submitted by Tim Kramer <tkramer@rhcloud.com>
 rhcloud.com
 
+// Resin.io : https://resin.io
+// Submitted by Tim Perry <tim@resin.io>
+resindevice.io
+devices.resinstaging.io
+
 // RethinkDB : https://www.rethinkdb.com/
 // Submitted by Chris Kastorff <info@rethinkdb.com>
 hzc.io
@@ -12001,6 +12136,10 @@ sandcats.io
 logoip.de
 logoip.com
 
+// Scry Security : http://www.scrysec.com
+// Submitted by Shante Adam <shante@skyhat.io>
+scrysec.com
+
 // Securepoint GmbH : https://www.securepoint.de
 // Submitted by Erik Anders <erik.anders@securepoint.de>
 firewall-gateway.com
@@ -12016,6 +12155,7 @@ spdns.org
 
 // SensioLabs, SAS : https://sensiolabs.com/
 // Submitted by Fabien Potencier <fabien.potencier@sensiolabs.com>
+*.s5y.io
 *.sensiosite.cloud
 
 // Service Online LLC : http://drs.ua/
@@ -12180,10 +12320,15 @@ lib.de.us
 // Submitted by Simon Kissel <hostmaster@viprinet.com>
 router.management
 
+// Virtual-Info : https://www.virtual-info.info/
+// Submitted by Adnan RIHAN <hostmaster@v-info.info>
+v-info.info
+
 // WeDeploy by Liferay, Inc. : https://www.wedeploy.com
 // Submitted by Henrique Vicente <security@wedeploy.com>
 wedeploy.io
 wedeploy.me
+wedeploy.sh
 
 // Western Digital Technologies, Inc : https://www.wdc.com
 // Submitted by Jung Jin <jungseok.jin@wdc.com>
