@@ -24,6 +24,7 @@ module CertLint
   class CABLint
     BR_EFFECTIVE = Time.new(2012, 7, 1)
     MONTHS_39 = Time.new(2015, 4, 1)
+    DAYS_825 = Time.new(2018, 3, 1)
     NO_SHA1 = Time.new(2016, 1, 1)
 
     # Allowed algorithms
@@ -331,13 +332,17 @@ module CertLint
           if days > (366 + 365 + 365 + 365 + 366 + 365 + 365 + 365 + 366 + 365 + 1)
             messages << 'W: Pre-BR certificates should not be more than 120 months in validity'
           end
-        elsif (c.not_before < MONTHS_39) && (c.not_before >= BR_EFFECTIVE)
-          if days > (366 + 365 + 365 + 365 + 366 + 1)
-            messages << 'E: BR certificates must be 60 months in validity or less'
+        elsif c.not_before >= DAYS_825
+          if days > 825
+            messages << 'E: BR certificates must be 825 days in validity or less'
           end
         elsif c.not_before >= MONTHS_39
           if days > (366 + 365 + 365 + 31 + 31 + 30 + 1)
             messages << 'E: BR certificates must be 39 months in validity or less'
+          end
+        else
+          if days > (366 + 365 + 365 + 365 + 366 + 1)
+            messages << 'E: BR certificates must be 60 months in validity or less'
           end
         end
         if (subjattrs & ['O', 'GN', 'SN']).empty?
