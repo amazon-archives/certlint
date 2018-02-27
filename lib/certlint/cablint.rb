@@ -23,8 +23,8 @@ require_relative 'pemlint'
 module CertLint
   class CABLint
     BR_EFFECTIVE = Time.new(2012, 7, 1)
-    MONTHS_39 = Time.new(2015, 4, 1)
-    DAYS_825 = Time.new(2018, 3, 1)
+    MONTHS_39 = Time.new(2015, 4, 2)
+    DAYS_825 = Time.new(2018, 3, 2)
     NO_SHA1 = Time.new(2016, 1, 1)
 
     # Allowed algorithms
