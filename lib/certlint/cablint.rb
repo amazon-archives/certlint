@@ -26,6 +26,7 @@ module CertLint
     MONTHS_39 = Time.new(2015, 4, 2)
     DAYS_825 = Time.new(2018, 3, 2)
     NO_SHA1 = Time.new(2016, 1, 1)
+    EV_DAYS_825 = Time.new(2017, 3, 17)
 
     # Allowed algorithms
     SIGNATURE_ALGORITHMS = {
@@ -324,9 +325,14 @@ module CertLint
         # For all of these, use the longest possible options (e.g. leap years, July/Aug/Sept 3 month seq)
 
         if subjattrs.include?('1.3.6.1.4.1.311.60.2.1.3') || subjattrs.include?('jurisdictionC')
-          # EV: 27 months
-          if days > (366 + 365 + 31 + 31 + 30 + 1)
-            messages << 'E: EV certificates must be 27 months in validity or less'
+          if c.not_before >= EV_DAYS_825
+            if days > 825
+              messages << 'E: EV certificates must be 825 days in validity or less'
+            end
+          else
+            if days > (366 + 365 + 31 + 31 + 30 + 1)
+              messages << 'E: EV certificates must be 27 months in validity or less'
+            end
           end
         elsif c.not_before < BR_EFFECTIVE
           if days > (366 + 365 + 365 + 365 + 366 + 365 + 365 + 365 + 366 + 365 + 1)
