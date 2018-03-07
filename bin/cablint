@@ -14,7 +14,9 @@
 # permissions and limitations under the License.
 require 'certlint'
 
+caa_flag = true if ARGV.last == "-CAA"
 ARGV.each do |file|
+  next if file == "-CAA"
   fn = File.basename(file)
   raw = File.read(file)
 
@@ -26,6 +28,7 @@ ARGV.each do |file|
   end
 
   m += CertLint::CABLint.lint(der)
+  m += CAAuth.CheckCAA(der) if caa_flag
   m.each do |msg|
     begin
       puts "#{msg}\t#{fn}"

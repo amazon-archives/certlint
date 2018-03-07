@@ -41,9 +41,10 @@ ct.get_entries(entry, entry).each do |e|
   if e['leaf_input'].entry_type == 0
     der = e['leaf_input'].raw_certificate
   else
-    der = e['extra_data'].pre_certificate.raw_certificate 
+    der = e['extra_data'].pre_certificate.raw_certificate
   end
   m = CertLint::CABLint.lint(der.to_s)
+  m += CAAuth.CheckCAA(der) if ARGV[2] == "-CAA"
   m.each do |msg|
     puts "#{msg}\tCT:#{entry}"
   end
