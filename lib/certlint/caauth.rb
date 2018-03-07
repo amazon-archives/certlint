@@ -17,13 +17,21 @@ require 'openssl'
 
 module CAAuth
 
+  #Performs a CAA request for the given domain. The second parameter "loc" is a placeholder to store whether this is the
+  #primary domain in question or whether this domain is a result of either CNAME or Tree climbing look up of the primary
+  #domain.
+
+  # returns an array of hashs with CAA information for the particular domain (:flag, :tag, :value).
+
   def self.DnsRR(domain, loc)
     caa_rr = []
     Resolv::DNS.open do |dns|
       begin
         all_records = dns.getresources(domain, Resolv::DNS::Resource::IN::ANY)
       rescue Resolv::ResolvError
-        nil
+        caa_rr << {:error => true, :error_value => "Error retrieving"}
+      rescue Resolv::ResolvTimeout
+        caa_rr << {:error => true, :error_value => "Request timed-out trying"}
       else
         all_records.each do |rr|
           if (rr.is_a? Resolv::DNS::Resource::Generic) && (rr.class.name.split('::').last == 'Type257_Class1')
@@ -49,6 +57,11 @@ module CAAuth
     end
   end
 
+
+  #Performs CAA check as per RFC 6844 Section 4 (Errata 5065, 5097). The
+  #array from the DnsRR method is not manipulated/changed here. It is simply
+  #passed on to the calling function. I kept getting an Ruby interpretor error
+  #when I tried to return directly. Hence the need for an array to hold and return
   def self.CAA(domain)
     caa = []
     if DnsRR(domain, '').length > 0
@@ -60,7 +73,7 @@ module CAAuth
         domain.to_s.split('.').length
         domain = domain.to_s.split('.')[1..-1].join('.')
         if DnsRR(domain, '').length > 0
-          caa = DnsRR(domain, '(Hierarchy)')
+          caa = DnsRR(domain, '')
         elsif CNAME(domain) && DnsRR(CNAME(domain), '').length > 0
           caa = DnsRR(CNAME(domain), '(Hierarchy->CNAME)')
         end
@@ -82,12 +95,14 @@ module CAAuth
     end
   end
 
+  #Takes a der/pem cert as input and runs each domain in SAN through the CAA check.
+  #It doesn't check the CN since the CN should be a part of SAN
   def self.CheckCAA(raw)
     caa_result = []
     begin
       cert = OpenSSL::X509::Certificate.new raw
     rescue OpenSSL::X509::CertificateError
-      puts "CAA ERROR: Error parsing Certificate"
+      caa_result << "CAA: Error parsing Certificate"
     else
       san = cert.extensions.find {|e| e.oid == "subjectAltName"}
       san_list = san.to_a[1].split(',')
@@ -96,7 +111,11 @@ module CAAuth
         result = CAA(s.strip)
         if result.length > 0
           result.each do |r|
-            caa_result << "CAA: #{s.strip} has CAA record at #{r[:location]}. CAA #{r[:flag]} #{r[:tag]} #{r[:value]}"
+            if r[:error]
+              caa_result << "CAA: #{r[:error_value]} CAA information for #{s.strip}"
+            else
+              caa_result << "CAA: #{s.strip} has CAA record at #{r[:location]}. CAA #{r[:flag]} #{r[:tag]} #{r[:value]}"
+            end
           end
         else
           caa_result << "CAA: CAA not found for #{s.strip}"
