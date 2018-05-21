@@ -476,6 +476,9 @@ module CertLint
           end
         end
 
+        # This assumes the strings in names[]  are either IPv4/IPv6 or DNS Names
+        # If the BRs are ever updated to allow other things, this needs to be updated
+        # to handle IDNs that are not the fulll strings
         idn_san = names.select{ |s| s.include?('xn--') }.map do |a|
           begin
             SimpleIDN.to_unicode(a.encode("UTF-8"))
@@ -483,6 +486,13 @@ module CertLint
             nil
           end
         end.compact
+
+        # To check that the CN matches a SAN entry, first check for case insensitive direct match
+        # Then check for case sensitive match in UTF-8 encoded IDNs
+        # RFC 5891 section 3.1.2 makes this clear:
+        #  A pair of A-labels MUST be compared as case-insensitive ASCII (as with
+        #  all comparisons of ASCII DNS labels).  U-labels MUST be compared
+        #  as-is, without case folding or other intermediate steps.
         subjectarr.select { |rdn| rdn[0] == 'CN' }.each do |rdn|
           val = rdn[1]
           unless names.include? val.downcase
