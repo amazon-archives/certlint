@@ -37,6 +37,7 @@ require_relative 'extensions/policyconstraints'
 require_relative 'extensions/policymappings'
 require_relative 'extensions/privatekeyusageperiod'
 require_relative 'extensions/qcstatements'
+require_relative 'extensions/rocatest'
 require_relative 'extensions/signedcertificatetimestamplist'
 require_relative 'extensions/smimecapabilities'
 require_relative 'extensions/subjectaltname'
@@ -349,6 +350,10 @@ module CertLint
     rescue OpenSSL::X509::CertificateError
       messages << 'F: Unable to parse Certificate'
       return messages
+    end
+
+    if ROCATest.new(cert).unsafe_key?
+      messages << 'E: Public key is vulnerable to ROCA factorisation'
     end
 
     if cert.version > 2
