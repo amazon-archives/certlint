@@ -23,6 +23,7 @@ end
 der = raw
 
 m = CertLint.lint(der)
+m += CAAuth.CheckCAA(der) if ARGV[1] == "-CAA"
 m.each do |msg|
   begin
     puts "#{msg}\t#{fn}"
