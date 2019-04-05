@@ -32,6 +32,53 @@ capital letter, a colon, and a space. The letters indicate the type of message:
 * E: Error.  These are issues where the certificate is not compliant with the standard.
 * F: Fatal Error.  These errors are fatal to the checks and prevent most further checks from being executed.  These are extremely bad errors.
 
+## Installation and usage example
+
+This chapter demonstrates installation on freshly installed Ubuntu 16.04 LTS.
+
+Update your system:
+
+	user@ubuntu:~$ sudo apt-get update
+	user@ubuntu:~$ sudo apt-get dist-upgrade
+
+Install ruby:
+
+	user@ubuntu:~$ sudo apt-get install ruby
+	user@ubuntu:~$ sudo apt-get install ruby-dev
+
+Install required gems:	
+	
+	user@ubuntu:~$ sudo gem install public_suffix
+	user@ubuntu:~$ sudo gem install simpleidn
+
+Install git and clone certlint repository into local directory:
+ 
+	user@ubuntu:~$ sudo apt-get install git
+	user@ubuntu:~$ git clone https://github.com/awslabs/certlint.git
+
+Build asn1validator extension:
+	
+	user@ubuntu:~$ cd certlint/ext/
+	user@ubuntu:~/certlint/ext$ ruby extconf.rb
+	user@ubuntu:~/certlint/ext$ make
+	user@ubuntu:~/certlint/ext$ cd ..
+
+Download PEM certificate:
+	
+	user@ubuntu:~/certlint$ wget https://letsencrypt.org/certs/isrgrootx1.pem.txt
+	
+Convert PEM encoded certificate to DER encoded certificate:
+
+	user@ubuntu:~/certlint$ openssl x509 -inform PEM -in isrgrootx1.pem.txt -outform DER -out isrgrootx1.der
+
+Run `certlint` on DER encoded certificate:
+
+	user@ubuntu:~/certlint$ ruby -I lib:ext bin/certlint ./isrgrootx1.der
+
+Run `cablint` on DER encoded certificate:
+	
+	user@ubuntu:~/certlint$ ruby -I lib:ext bin/cablint ./isrgrootx1.der
+
 ## Thanks
 
 Certlint was written by Peter Bowen (pzbowen@gmail.com).
