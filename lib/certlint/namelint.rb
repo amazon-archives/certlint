@@ -265,6 +265,9 @@ module CertLint
       dup.delete('2.5.4.9')
       dup.delete('2.5.4.11')
       dup.delete('0.9.2342.19200300.100.1.25')
+      # There are people with multiple given names and surnames
+      dup.delete('2.5.4.42')
+      dup.delete('2.5.4.4')
       dup.each do |type|
         attrname = attr_name(type)
         messages << "W: Name has multiple #{attrname} attributes"
