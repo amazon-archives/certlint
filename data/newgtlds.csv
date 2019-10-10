@@ -1,4 +1,4 @@
->>> Updated on: 2019-02-21T12:02:02Z <<<
+>>> Updated on: 2019-10-10T12:02:01Z <<<
 tld,u-label,registry-operator,date-of-contract-signature,application-id,delegation-date
 aaa,,"American Automobile Association, Inc.",2015-02-26,1-1386-27446,2015-08-28
 aarp,,"AARP",2015-05-21,1-1169-4534,2015-11-03
@@ -57,7 +57,7 @@ apple,,"Apple Inc.",2015-05-14,1-1772-3875,2015-11-03
 aquarelle,,"Aquarelle.com",2014-07-24,1-1685-37800,2014-12-02
 arab,,"League of Arab States",2015-11-12,1-1346-3935,2017-05-23
 aramco,,"Aramco Services Company",2014-11-20,1-2034-17082,2015-10-15
-archi,,"Afilias plc",2014-02-06,1-1000-49620,2014-03-31
+archi,,"Afilias Limited",2014-02-06,1-1000-49620,2014-03-31
 army,,"Dog Beach, LLC",2014-03-06,1-1255-29986,2014-06-04
 art,,"UK Creative Ideas Limited",2016-03-24,1-1211-27884,2016-06-23
 arte,,"Association Relative à la Télévision Européenne G.E.I.E.",2014-12-11,1-1882-68650,2015-10-20
@@ -105,29 +105,29 @@ bentley,,"Bentley Motors Limited",2014-12-18,1-1096-37266,2015-07-09
 berlin,,"dotBERLIN GmbH & Co. KG",2013-10-31,1-902-9993,2014-01-08
 best,,"BestTLD Pty Ltd",2013-12-19,1-1705-80521,2014-02-27
 bestbuy,,"BBY Solutions, Inc.",2015-07-31,1-1908-53104,2016-07-19
-bet,,"Afilias plc",2015-05-07,1-868-21199,2015-07-24
+bet,,"Afilias Limited",2015-05-07,1-868-21199,2015-07-24
 bharti,,"Bharti Enterprises (Holding) Private Limited",2014-01-09,1-1287-43279,2015-06-14
 bible,,"American Bible Society",2014-06-19,1-994-57975,2015-06-02
 bid,,"dot Bid Limited",2013-12-19,1-1227-16477,2014-03-02
 bike,,"Binky Moon, LLC",2013-08-27,1-1357-41903,2013-11-14
 bing,,"Microsoft Corporation",2014-12-18,1-1129-41416,2015-06-10
 bingo,,"Binky Moon, LLC",2014-12-04,1-1360-70873,2015-02-04
-bio,,"Afilias plc",2014-03-06,1-1000-94806,2014-06-02
-black,,"Afilias plc",2014-01-16,1-868-74058,2014-03-27
+bio,,"Afilias Limited",2014-03-06,1-1000-94806,2014-06-02
+biz,,"Registry Services, LLC",,,2001-09-25
+black,,"Afilias Limited",2014-01-16,1-868-74058,2014-03-27
 blackfriday,,"Uniregistry, Corp.",2014-01-16,1-855-24025,2014-04-22
 blockbuster,,"Dish DBS Corporation",2015-07-30,1-1921-69359,2016-08-04
 blog,,"Knock Knock WHOIS There, LLC",2015-05-14,1-917-1259,2016-05-18
 bloomberg,,"Bloomberg IP Holdings LLC",2014-07-17,1-1981-76785,2014-11-05
-blue,,"Afilias plc",2013-11-07,1-868-24255,2014-02-05
+blue,,"Afilias Limited",2013-11-07,1-868-24255,2014-02-05
 bms,,"Bristol-Myers Squibb Company",2014-10-30,1-1799-64357,2015-09-22
 bmw,,"Bayerische Motoren Werke Aktiengesellschaft",2014-01-09,1-938-21301,2014-06-21
-bnl,,"Banca Nazionale del Lavoro",2014-07-24,1-1257-44806,2015-06-26
 bnpparibas,,"BNP Paribas",2014-05-29,1-1283-71884,2014-08-14
 boats,,"DERBoats, LLC",2014-12-04,1-909-78528,2015-02-25
 boehringer,,"Boehringer Ingelheim International GmbH",2015-07-09,1-1967-32024,2015-11-25
 bofa,,"Bank of America Corporation",2015-07-31,1-1953-47864,2016-08-02
 bom,,"Núcleo de Informação e Coordenação do Ponto BR - NIC.br",2014-10-16,1-1119-71934,2015-09-26
-bond,,"Bond University Limited",2014-06-05,1-2092-96476,2015-03-27
+bond,,"ShortDot SA",2014-06-05,1-2092-96476,2015-03-27
 boo,,"Charleston Road Registry Inc.",2014-01-30,1-1681-73672,2014-08-30
 book,,"Amazon Registry Services, Inc.",2015-08-27,1-1315-44051,2015-12-05
 booking,,"Booking.com B.V.",2015-07-16,1-1016-80657,2016-07-23
@@ -226,22 +226,23 @@ comcast,,"Comcast IP Holdings I, LLC",2015-07-23,1-1170-7009,2016-07-07
 commbank,,"COMMONWEALTH BANK OF AUSTRALIA",2014-06-26,1-1672-79914,2015-06-22
 community,,"Binky Moon, LLC",2013-12-05,1-1402-32002,2014-01-25
 company,,"Binky Moon, LLC",2013-11-07,1-1399-64977,2013-12-17
-compare,,"iSelect Ltd",2015-10-08,1-1088-79872,2016-01-15
+compare,,"Registry Services, LLC",2015-10-08,1-1088-79872,2016-01-15
 computer,,"Binky Moon, LLC",2013-10-24,1-1405-67595,2013-12-17
 comsec,,"VeriSign, Inc.",2015-01-08,1-1145-38018,2015-11-16
 condos,,"Binky Moon, LLC",2013-12-05,1-1404-98894,2014-02-11
 construction,,"Binky Moon, LLC",2013-09-16,1-1403-98045,2013-11-14
 consulting,,"Dog Beach, LLC",2013-12-05,1-1406-80949,2014-04-01
-contact,,"Top Level Spectrum, Inc.",2015-01-08,1-1279-75341,2015-12-22
+contact,,"Dog Beach, LLC",2015-01-08,1-1279-75341,2015-12-22
 contractors,,"Binky Moon, LLC",2013-09-10,1-1408-96304,2013-11-14
 cooking,,"Minds + Machines Group Limited",2013-11-21,1-1110-51672,2014-03-31
 cookingchannel,,"Lifestyle Domain Holdings, Inc.",2015-07-02,1-1326-51959,2016-06-23
 cool,,"Binky Moon, LLC",2013-11-14,1-1409-69124,2014-01-23
-corsica,,"Collectivité Territoriale de Corse",2014-09-25,1-937-68428,2015-05-16
+corsica,,"Collectivité de Corse",2014-09-25,1-937-68428,2015-05-16
 country,,"DotCountry LLC",2013-12-19,1-1038-69660,2014-03-31
 coupon,,"Amazon Registry Services, Inc.",2015-02-26,1-1315-85731,2016-02-19
 coupons,,"Binky Moon, LLC",2015-03-26,1-1413-96740,2015-05-13
 courses,,"OPEN UNIVERSITIES AUSTRALIA PTY LTD",2014-12-04,1-1327-45933,2015-02-25
+cpa,,"American Institute of Certified Public Accountants",2019-06-10,1-1910-48133,2019-09-20
 credit,,"Binky Moon, LLC",2014-03-20,1-1410-93823,2014-05-07
 creditcard,,"Binky Moon, LLC",2014-03-20,1-1412-63109,2014-04-29
 creditunion,,"CUNA Performance Resources, LLC",2015-01-22,1-1130-18309,2015-11-10
@@ -265,7 +266,7 @@ day,,"Charleston Road Registry Inc.",2014-01-30,1-1139-19523,2014-08-30
 dclk,,"Charleston Road Registry Inc.",2014-11-20,1-1141-22713,2015-01-24
 dds,,"Minds + Machines Group Limited",2015-05-07,1-1038-5963,2016-05-11
 deal,,"Amazon Registry Services, Inc.",2015-06-25,1-1315-35975,2016-06-07
-dealer,,"Intercap Holdings Inc.",2014-12-22,1-993-62521,2015-12-24
+dealer,,"Intercap Registry Inc.",2014-12-22,1-993-62521,2015-12-24
 deals,,"Binky Moon, LLC",2014-05-22,1-1419-43874,2014-07-10
 degree,,"Dog Beach, LLC",2014-03-06,1-1418-57248,2014-05-30
 delivery,,"Binky Moon, LLC",2014-09-11,1-1420-57575,2014-11-01
@@ -293,7 +294,6 @@ docs,,"Charleston Road Registry Inc.",2014-10-16,1-1682-12856,2014-12-18
 doctor,,"Binky Moon, LLC",2016-06-02,1-1430-52453,2016-07-21
 dodge,,"FCA US LLC.",2015-07-30,1-2054-9171,2016-08-04
 dog,,"Binky Moon, LLC",2014-12-04,1-1429-22494,2015-04-29
-doha,,"Communications Regulatory Authority (CRA)",2014-09-18,1-1150-50794,2015-03-25
 domains,,"Binky Moon, LLC",2013-10-17,1-1433-39728,2013-12-17
 dot,,"Dish DBS Corporation",2015-05-21,1-2005-70840,2016-05-18
 download,,"dot Support Limited",2014-11-20,1-1210-70457,2015-03-25
@@ -302,7 +302,6 @@ dtv,,"Dish DBS Corporation",2015-06-04,1-2084-81667,2016-05-27
 dubai,,"Dubai Smart Government Department",2015-01-01,1-1838-15469,2016-01-07
 duck,,"Johnson Shareholdings, Inc.",2015-07-23,1-1248-11973,2016-07-21
 dunlop,,"The Goodyear Tire & Rubber Company",2015-07-02,1-1885-14876,2016-06-10
-duns,,"The Dun & Bradstreet Corporation",2015-08-06,1-1832-42386,2016-07-23
 dupont,,"E. I. du Pont de Nemours and Company",2015-06-25,1-1300-88322,2016-06-10
 durban,,"ZA Central Registry NPC trading as ZA Central Registry",2014-03-24,1-1864-63608,2014-06-19
 dvag,,"Deutsche Vermögensberatung Aktiengesellschaft DVAG",2014-06-23,1-904-62612,2014-09-27
@@ -341,7 +340,7 @@ fairwinds,,"FairWinds Partners, LLC",2014-11-13,1-1173-27755,2015-11-13
 faith,,"dot Faith Limited",2014-11-20,1-1228-92789,2015-03-25
 family,,"Dog Beach, LLC",2015-04-02,1-1450-96002,2015-08-11
 fan,,"Dog Beach, LLC",2014-03-06,1-1449-26710,2015-03-16
-fans,,"Fans TLD Limited",2014-11-07,1-1711-46810,2015-02-19
+fans,,"ZDNS International Limited",2014-11-07,1-1711-46810,2015-02-19
 farm,,"Binky Moon, LLC",2013-11-07,1-1451-8324,2013-12-28
 farmers,,"Farmers Insurance Exchange",2015-07-09,1-1801-23208,2016-06-25
 fashion,,"Minds + Machines Group Limited",2014-07-03,1-1039-98979,2014-12-06
@@ -402,6 +401,7 @@ game,,"Uniregistry, Corp.",2015-05-28,1-855-17500,2015-07-08
 games,,"Dog Beach, LLC",2015-05-28,1-1470-40168,2016-06-02
 gap,,"The Gap, Inc.",2015-07-31,1-925-90449,2016-08-04
 garden,,"Minds + Machines Group Limited",2014-06-26,1-1039-6355,2014-12-13
+gay,,"Top Level Design, LLC",2019-05-23,1-1086-79087,2019-08-09
 gbiz,,"Charleston Road Registry Inc.",2014-07-17,1-1683-16092,2014-08-27
 gdn,,"Joint Stock Company \"Navigation-information systems\"",2014-07-31,1-1866-26783,2015-02-13
 gea,,"GEA Group Aktiengesellschaft",2014-12-04,1-1337-68453,2015-08-28
@@ -435,7 +435,7 @@ got,,"Amazon Registry Services, Inc.",2014-12-18,1-1316-81180,2015-12-05
 grainger,,"Grainger Registry Services, LLC",2015-05-07,1-1006-23981,2015-11-13
 graphics,,"Binky Moon, LLC",2013-09-13,1-1479-5306,2013-11-14
 gratis,,"Binky Moon, LLC",2014-03-20,1-1481-2922,2014-04-23
-green,,"Afilias plc",2014-05-08,1-868-24661,2014-06-19
+green,,"Afilias Limited",2014-05-08,1-868-24661,2014-06-19
 gripe,,"Binky Moon, LLC",2014-03-06,1-1486-63504,2014-04-11
 grocery,,"Wal-Mart Stores, Inc.",2016-06-16,1-2064-74519,2017-06-28
 group,,"Binky Moon, LLC",2014-08-15,1-1482-30833,2015-08-08
@@ -472,7 +472,6 @@ homegoods,,"The TJX Companies, Inc.",2015-07-16,1-1764-99491,2016-07-15
 homes,,"DERHomes, LLC",2014-01-09,1-909-196,2014-05-22
 homesense,,"The TJX Companies, Inc.",2015-07-16,1-1764-22954,2016-07-15
 honda,,"Honda Motor Co., Ltd.",2014-12-18,1-1923-79996,2015-04-30
-honeywell,,"Honeywell GTLD LLC",2015-07-23,1-1517-81574,2016-07-26
 horse,,"Minds + Machines Group Limited",2013-11-21,1-927-86049,2014-03-31
 hospital,,"Binky Moon, LLC",2016-10-20,1-1505-15195,2016-12-09
 host,,"DotHost Inc.",2014-04-17,1-1061-73671,2014-05-31
@@ -498,7 +497,7 @@ imamat,,"Fondation Aga Khan (Aga Khan Foundation)",2015-08-06,1-1013-17019,2016-
 imdb,,"Amazon Registry Services, Inc.",2015-06-25,1-1315-27811,2016-06-07
 immo,,"Binky Moon, LLC",2014-07-10,1-1511-99612,2014-08-27
 immobilien,,"Dog Beach, LLC",2013-11-07,1-1255-76933,2014-01-02
-inc,,"Intercap Holdings Inc.",2018-03-10,1-1309-22501,2018-07-17
+inc,,"Intercap Registry Inc.",2018-03-10,1-1309-22501,2018-07-17
 industries,,"Binky Moon, LLC",2013-12-05,1-1510-3058,2014-02-21
 infiniti,,"NISSAN MOTOR CO., LTD.",2014-03-27,1-1022-99709,2015-03-04
 ing,,"Charleston Road Registry Inc.",2014-01-23,1-1683-75852,2014-08-30
@@ -512,7 +511,6 @@ intuit,,"Intuit Administrative Services, Inc.",2015-07-30,1-1281-62880,2016-07-1
 investments,,"Binky Moon, LLC",2014-03-20,1-1521-75718,2014-04-23
 ipiranga,,"Ipiranga Produtos de Petroleo S.A.",2014-08-28,1-1047-90306,2015-07-26
 irish,,"Binky Moon, LLC",2014-08-07,1-899-83326,2014-12-02
-iselect,,"iSelect Ltd",2015-02-11,1-1088-54663,2016-01-15
 ismaili,,"Fondation Aga Khan (Aga Khan Foundation)",2015-08-06,1-1013-63095,2016-04-16
 ist,,"Istanbul Metropolitan Municipality",2014-08-28,1-896-64208,2015-07-11
 istanbul,,"Istanbul Metropolitan Municipality",2014-08-28,1-896-81048,2015-07-11
@@ -544,7 +542,7 @@ kerrylogistics,,"Kerry Trading Co. Limited",2015-04-09,1-928-31367,2016-03-05
 kerryproperties,,"Kerry Trading Co. Limited",2015-04-09,1-928-12798,2016-03-05
 kfh,,"Kuwait Finance House",2014-12-04,1-2099-6189,2015-12-15
 kia,,"KIA MOTORS CORPORATION",2015-07-09,1-1737-31984,2015-09-26
-kim,,"Afilias plc",2013-09-23,1-868-81619,2014-01-23
+kim,,"Afilias Limited",2013-09-23,1-868-81619,2014-01-23
 kinder,,"Ferrero Trading Lux S.A.",2014-11-07,1-1126-16883,2015-10-09
 kindle,,"Amazon Registry Services, Inc.",2015-06-25,1-1315-18526,2016-06-07
 kitchen,,"Binky Moon, LLC",2013-09-20,1-1526-71442,2013-11-19
@@ -581,7 +579,7 @@ lefrak,,"LeFrak Organization, Inc.",2015-07-16,1-1907-30970,2016-07-14
 legal,,"Binky Moon, LLC",2014-10-16,1-1536-79233,2014-11-26
 lego,,"LEGO Juris A/S",2015-07-16,1-1795-41858,2016-06-16
 lexus,,"TOYOTA MOTOR CORPORATION",2015-04-23,1-1717-84290,2015-07-26
-lgbt,,"Afilias plc",2014-05-08,1-868-8822,2014-07-18
+lgbt,,"Afilias Limited",2014-05-08,1-868-8822,2014-07-18
 liaison,,"Liaison Technologies, Incorporated",2014-10-02,1-1904-8749,2015-05-02
 lidl,,"Schwarz Domains und Services GmbH & Co. KG",2014-09-18,1-1123-60314,2014-12-13
 life,,"Binky Moon, LLC",2014-02-06,1-1535-64595,2014-05-15
@@ -599,7 +597,8 @@ lipsy,,"Lipsy Ltd",2015-06-25,1-1319-371,2016-05-03
 live,,"Dog Beach, LLC",2014-12-04,1-1545-55209,2015-07-08
 living,,"Lifestyle Domain Holdings, Inc.",2015-07-30,1-1326-92909,2015-12-28
 lixil,,"LIXIL Group Corporation",2015-03-19,1-969-63512,2015-07-30
-llc,,"Afilias plc",2017-12-14,1-868-65445,2018-02-22
+llc,,"Afilias Limited",2017-12-14,1-868-65445,2018-02-22
+llp,,"Dot Registry LLC",2019-08-26,1-880-35508,
 loan,,"dot Loan Limited",2014-11-20,1-1222-21097,2015-03-25
 loans,,"Binky Moon, LLC",2014-03-20,1-1544-18264,2014-05-15
 locker,,"Dish DBS Corporation",2015-06-04,1-2013-75702,2016-05-27
@@ -608,7 +607,7 @@ loft,,"Annco, Inc.",2015-07-30,1-1161-52785,2016-08-04
 lol,,"Uniregistry, Corp.",2015-01-30,1-855-10958,2015-05-02
 london,,"Dot London Domains Limited",2013-11-14,1-1252-62369,2014-03-22
 lotte,,"Lotte Holdings Co., Ltd.",2014-11-07,1-1863-52010,2015-01-14
-lotto,,"Afilias plc",2014-04-10,1-868-7904,2014-06-19
+lotto,,"Afilias Limited",2014-04-10,1-868-7904,2014-06-19
 love,,"Merchant Law Group LLP",2014-12-22,1-875-6276,2015-04-02
 lpl,,"LPL Holdings, Inc.",2015-07-30,1-1144-53270,2016-07-19
 lplfinancial,,"LPL Holdings, Inc.",2015-07-30,1-1144-82616,2016-07-19
@@ -643,7 +642,7 @@ melbourne,,"The Crown in right of the State of Victoria, represented by its Depa
 meme,,"Charleston Road Registry Inc.",2014-01-30,1-1680-9209,2014-08-30
 memorial,,"Dog Beach, LLC",2014-10-16,1-1563-40885,2014-11-26
 men,,"Exclusive Registry Limited",2015-02-26,1-1215-86537,2015-05-20
-menu,,"Wedding TLD2, LLC",2013-09-11,1-856-30202,2013-11-30
+menu,,"Dot Menu Registry, LLC",2013-09-11,1-856-30202,2013-11-30
 merckmsd,,"MSD Registry Holdings, Inc.",2016-07-14,1-1704-28482,2017-07-10
 metlife,,"MetLife Services and Solutions, LLC",2015-05-07,1-1774-89667,2016-05-11
 miami,,"Minds + Machines Group Limited",2013-12-19,1-1039-76209,2014-03-31
@@ -656,7 +655,6 @@ mlb,,"MLB Advanced Media DH, LLC",2015-05-21,1-1246-40551,2016-05-25
 mls,,"The Canadian Real Estate Association",2015-04-23,1-1828-26452,2016-04-20
 mma,,"MMA IARD",2014-11-07,1-1727-80321,2015-03-31
 mobile,,"Dish DBS Corporation",2016-06-02,1-2012-89566,2016-12-20
-mobily,,"GreenTech Consultancy Company W.L.L.",2014-12-18,1-2114-81237,2015-12-23
 moda,,"Dog Beach, LLC",2013-11-07,1-1255-64246,2014-01-14
 moe,,"Interlink Co., Ltd.",2013-11-13,1-901-45839,2014-03-31
 moi,,"Amazon Registry Services, Inc.",2014-12-18,1-1316-70032,2015-10-07
@@ -733,7 +731,7 @@ ooo,,"INFIBEAM AVENUES LIMITED",2014-01-09,1-1950-81778,2014-08-16
 open,,"American Express Travel Related Services Company, Inc.",2015-07-31,1-1305-8942,2016-08-08
 oracle,,"Oracle Corporation",2014-06-19,1-1785-25388,2015-03-03
 orange,,"Orange Brand Services Limited",2015-03-12,1-958-59844,2015-07-09
-organic,,"Afilias plc",2014-03-27,1-868-66930,2014-06-13
+organic,,"Afilias Limited",2014-03-27,1-868-66930,2014-06-13
 origins,,"The Estée Lauder Companies Inc.",2015-10-01,1-1898-34084,2015-12-24
 osaka,,"Osaka Registry Co., Ltd.",2014-09-04,1-901-9391,2014-12-13
 otsuka,,"Otsuka Holdings Co., Ltd.",2013-10-11,1-906-65402,2014-08-27
@@ -749,7 +747,7 @@ party,,"Blue Sky Registry Limited",2014-09-11,1-1214-59403,2014-11-17
 passagens,,"Travel Reservations SRL",2015-03-05,1-1249-57355,2016-03-02
 pay,,"Amazon Registry Services, Inc.",2015-08-27,1-1317-64413,2016-08-10
 pccw,,"PCCW Enterprises Limited",2015-05-14,1-1309-16706,2016-05-11
-pet,,"Afilias plc",2015-05-07,1-868-95281,2015-07-26
+pet,,"Afilias Limited",2015-05-07,1-868-95281,2015-07-26
 pfizer,,"Pfizer Inc.",2015-09-11,1-1827-93225,2016-07-15
 pharmacy,,"National Association of Boards of Pharmacy",2014-06-19,1-1040-55064,2014-09-05
 phd,,"Charleston Road Registry Inc.",2016-07-28,1-1142-85390,2017-06-29
@@ -766,7 +764,7 @@ pictures,,"Binky Moon, LLC",2014-03-06,1-1585-29698,2014-04-11
 pid,,"Top Level Spectrum, Inc.",2015-01-08,1-1279-3321,2015-12-22
 pin,,"Amazon Registry Services, Inc.",2014-12-18,1-1317-59644,2015-12-05
 ping,,"Ping Registry Provider, Inc.",2015-06-11,1-1833-90242,2015-10-29
-pink,,"Afilias plc",2013-10-01,1-868-27848,2014-01-18
+pink,,"Afilias Limited",2013-10-01,1-868-27848,2014-01-18
 pioneer,,"Pioneer Corporation",2015-07-16,1-934-72221,2016-06-02
 pizza,,"Binky Moon, LLC",2014-06-26,1-1583-6697,2014-08-27
 place,,"Binky Moon, LLC",2014-04-24,1-1584-14507,2014-07-02
@@ -776,7 +774,7 @@ plumbing,,"Binky Moon, LLC",2013-09-10,1-1586-62771,2013-11-14
 plus,,"Binky Moon, LLC",2015-02-05,1-1589-56456,2015-03-24
 pnc,,"PNC Domain Co., LLC",2015-07-02,1-1909-74251,2016-07-01
 pohl,,"Deutsche Vermögensberatung Aktiengesellschaft DVAG",2014-06-23,1-904-3406,2014-09-27
-poker,,"Afilias plc",2014-07-03,1-1013-94737,2014-10-15
+poker,,"Afilias Limited",2014-07-03,1-1013-94737,2014-10-15
 politie,,"Politie Nederland",2015-08-20,1-1736-17699,2016-06-23
 porn,,"ICM Registry PN LLC",2014-10-16,1-1108-8653,2014-12-06
 pramerica,,"Prudential Financial, Inc.",2015-07-30,1-1329-24914,2016-07-28
@@ -787,7 +785,7 @@ prod,,"Charleston Road Registry Inc.",2014-01-23,1-1680-83223,2014-08-29
 productions,,"Binky Moon, LLC",2013-12-05,1-1590-83448,2014-02-11
 prof,,"Charleston Road Registry Inc.",2014-07-24,1-1417-94253,2014-09-15
 progressive,,"Progressive Casualty Insurance Company",2015-07-23,1-1269-35396,2016-04-20
-promo,,"Afilias plc",2014-12-18,1-973-2576,2015-12-31
+promo,,"Afilias Limited",2014-12-18,1-973-2576,2015-12-31
 properties,,"Binky Moon, LLC",2013-12-05,1-1588-73251,2014-02-04
 property,,"Uniregistry, Corp.",2014-05-22,1-845-65560,2014-08-16
 protection,,"XYZ.COM LLC",2015-04-23,1-1027-42662,2015-09-13
@@ -807,7 +805,7 @@ realestate,,"dotRealEstate LLC",2015-09-11,1-907-1363,2016-05-23
 realtor,,"Real Estate Domains LLC",2014-05-29,1-907-41079,2014-07-30
 realty,,"Fegistry, LLC",2015-03-19,1-1913-14988,2015-07-01
 recipes,,"Binky Moon, LLC",2013-10-17,1-1603-97736,2013-12-17
-red,,"Afilias plc",2013-11-07,1-868-93793,2014-01-18
+red,,"Afilias Limited",2013-11-07,1-868-93793,2014-01-18
 redstone,,"Redstone Haute Couture Co., Ltd.",2014-10-31,1-1321-41821,2015-03-28
 redumbrella,,"Travelers TLD, LLC",2015-03-26,1-1894-74544,2015-12-11
 rehab,,"Dog Beach, LLC",2014-03-06,1-1255-34333,2014-06-04
@@ -815,7 +813,7 @@ reise,,"Binky Moon, LLC",2014-03-13,1-892-71956,2014-05-22
 reisen,,"Binky Moon, LLC",2014-03-06,1-1606-68851,2014-04-11
 reit,,"National Association of Real Estate Investment Trusts, Inc.",2014-09-04,1-1760-71167,2014-11-12
 reliance,,"Reliance Industries Limited",2015-04-02,1-1308-77805,2016-11-15
-ren,,"Beijing Qianxiang Wangjing Technology Development Co., Ltd.",2013-12-12,1-924-11693,2014-03-27
+ren,,"ZDNS International Limited",2013-12-12,1-924-11693,2014-03-27
 rent,,"XYZ.COM LLC",2014-12-04,1-909-9048,2015-04-30
 rentals,,"Binky Moon, LLC",2013-12-05,1-1600-90191,2014-02-04
 repair,,"Binky Moon, LLC",2013-11-07,1-1611-39225,2013-12-28
@@ -880,7 +878,7 @@ seat,,"SEAT, S.A. (Sociedad Unipersonal)",2014-05-22,1-1879-27918,2015-04-18
 secure,,"Amazon Registry Services, Inc.",2015-08-27,1-1317-98508,2016-08-10
 security,,"XYZ.COM LLC",2015-05-14,1-1027-69486,2015-09-17
 seek,,"Seek Limited",2014-12-04,1-2098-16297,2015-08-11
-select,,"iSelect Ltd",2015-10-08,1-1088-97737,2016-01-15
+select,,"Registry Services, LLC",2015-10-08,1-1088-97737,2016-01-15
 sener,,"Sener Ingeniería y Sistemas, S.A.",2014-10-24,1-1044-53079,2015-05-01
 services,,"Binky Moon, LLC",2014-02-27,1-1628-41321,2014-04-11
 ses,,"SES",2015-07-23,1-1122-77859,2016-07-09
@@ -894,7 +892,7 @@ sharp,,"Sharp Corporation",2014-05-01,1-1733-97084,2015-12-05
 shaw,,"Shaw Cablesystems G.P.",2015-04-23,1-1013-60745,2016-03-22
 shell,,"Shell Information Technology International Inc",2015-07-30,1-1090-40748,2015-12-15
 shia,,"Asia Green IT System Bilgisayar San. ve Tic. Ltd. Sti.",2014-09-04,1-2129-23641,2015-12-05
-shiksha,,"Afilias plc",2013-11-14,1-868-35885,2014-01-18
+shiksha,,"Afilias Limited",2013-11-14,1-868-35885,2014-01-18
 shoes,,"Binky Moon, LLC",2013-10-02,1-1630-4186,2013-12-17
 shop,,"GMO Registry, Inc.",2016-04-08,1-890-65213,2016-05-23
 shopping,,"Binky Moon, LLC",2016-03-31,1-845-21316,2016-06-21
@@ -906,7 +904,7 @@ silk,,"Amazon Registry Services, Inc.",2015-06-25,1-1315-37701,2016-06-07
 sina,,"Sina Corporation",2015-03-12,1-950-30912,2016-03-30
 singles,,"Binky Moon, LLC",2013-08-27,1-1634-15520,2013-11-06
 site,,"DotSite Inc.",2015-01-15,1-1048-46315,2015-03-16
-ski,,"Afilias plc",2015-04-09,1-1000-18032,2015-05-30
+ski,,"Afilias Limited",2015-04-09,1-1000-18032,2015-05-30
 skin,,"L'Oréal",2015-01-15,1-1302-80853,2016-01-15
 sky,,"Sky International AG",2014-06-19,1-991-90219,2014-12-12
 skype,,"Microsoft Corporation",2014-12-18,1-1129-38236,2015-06-23
@@ -924,6 +922,7 @@ solutions,,"Binky Moon, LLC",2013-11-07,1-1620-15722,2013-12-28
 song,,"Amazon Registry Services, Inc.",2015-02-26,1-1317-53837,2016-02-24
 sony,,"Sony Corporation",2015-01-08,1-999-76968,2015-04-16
 soy,,"Charleston Road Registry Inc.",2014-01-23,1-1139-58678,2014-04-19
+spa,,"Asia Spa and Wellness Promotion Council Limited",2019-09-19,1-1309-81322,
 space,,"DotSpace Inc.",2014-04-03,1-1072-65736,2014-05-30
 sport,,"Global Association of International Sports Federations (GAISF)",2017-11-16,1-1012-71460,2018-01-10
 spot,,"Amazon Registry Services, Inc.",2015-02-26,1-1317-50025,2016-02-19
@@ -933,7 +932,6 @@ srt,,"FCA US LLC.",2015-07-30,1-2059-70151,2016-07-28
 stada,,"STADA Arzneimittel AG",2014-11-13,1-1089-42298,2015-09-13
 staples,,"Staples, Inc.",2015-07-30,1-1954-61706,2016-07-15
 star,,"Star India Private Limited",2015-01-08,1-2109-49205,2015-12-22
-starhub,,"StarHub Ltd",2015-02-05,1-1127-53723,2015-06-22
 statebank,,"STATE BANK OF INDIA",2015-03-12,1-1029-24289,2016-04-16
 statefarm,,"State Farm Mutual Automobile Insurance Company",2015-07-30,1-1034-97709,2015-12-24
 stc,,"Saudi Telecom Company",2014-10-09,1-1927-64607,2015-08-29
@@ -1020,7 +1018,7 @@ ubs,,"UBS AG",2014-12-11,1-1942-41146,2015-07-11
 uconnect,,"FCA US LLC.",2015-07-30,1-2061-81662,2016-07-28
 unicom,,"China United Network Communications Corporation Limited",2015-10-15,1-996-99850,2016-02-04
 university,,"Binky Moon, LLC",2014-03-06,1-1651-77163,2014-04-11
-uno,,"Dot Latin LLC",2013-09-11,1-881-92958,2013-11-30
+uno,,"DotSite Inc.",2013-09-11,1-881-92958,2013-11-30
 uol,,"UBN INTERNET LTDA.",2014-05-01,1-1151-36619,2014-08-16
 ups,,"UPS Market Driver, Inc.",2015-06-25,1-1874-94992,2016-05-31
 vacations,,"Binky Moon, LLC",2013-12-05,1-1647-84596,2014-02-21
@@ -1029,7 +1027,7 @@ vanguard,,"The Vanguard Group, Inc.",2015-09-03,1-1698-41502,2016-08-28
 vegas,,"Dot Vegas, Inc.",2014-01-16,1-846-66759,2014-03-31
 ventures,,"Binky Moon, LLC",2013-08-27,1-1649-44756,2013-11-06
 verisign,,"VeriSign, Inc.",2015-08-13,1-1145-77950,2015-11-25
-versicherung,,"TLD-BOX Registrydienstleistungen GmbH",2014-03-20,1-891-92750,2014-05-22
+versicherung,,"tldbox GmbH",2014-03-20,1-891-92750,2014-05-22
 vet,,"Dog Beach, LLC",2014-03-06,1-1642-14231,2014-05-31
 viajes,,"Binky Moon, LLC",2013-10-17,1-1629-12298,2013-12-17
 video,,"Dog Beach, LLC",2014-10-16,1-1480-90854,2014-12-25
@@ -1107,7 +1105,7 @@ xn--55qw42g,公益,"China Organizational Name Administration Center",2013-11-08,
 xn--55qx5d,公司,"China Internet Network Information Center (CNNIC)",2013-11-14,1-932-93337,2014-01-18
 xn--5su34j936bgsg,香格里拉,"Shangri‐La International Hotel Management Limited",2015-09-03,1-940-19689,2016-07-02
 xn--5tzm5g,网站,"Global Website TLD Asia Limited",2014-12-22,1-2101-67873,2016-04-17
-xn--6frz82g,移动,"Afilias plc",2013-09-23,1-868-82489,2014-02-05
+xn--6frz82g,移动,"Afilias Limited",2013-09-23,1-868-82489,2014-02-05
 xn--6qq986b3xl,我爱你,"Tycoon Treasure Limited",2013-09-13,1-960-63893,2014-01-03
 xn--80adxhks,москва,"Foundation for Assistance for Internet Technologies and Infrastructure Development (FAITID)",2013-12-19,1-975-90576,2014-04-24
 xn--80aqecdr1a,католик,"Pontificium Consilium de Comunicationibus Socialibus (PCCS) (Pontifical Council for Social Communication)",2015-10-21,1-1311-52357,2016-12-01
@@ -1154,7 +1152,6 @@ xn--mgba3a3ejt,ارامكو,"Aramco Services Company",2014-11-20,1-1961-53268,20
 xn--mgba7c0bbn0a,العليان,"Crescent Holding GmbH",2015-05-14,1-1017-64718,2016-05-03
 xn--mgbaakc7dvf,اتصالات,"Emirates Telecommunications Corporation (trading as Etisalat)",2015-09-03,1-1745-25333,2017-06-10
 xn--mgbab2bd,بازار,"CORE Association",2013-10-31,1-862-50853,2014-02-18
-xn--mgbb9fbpob,موبايلي,"GreenTech Consultancy Company W.L.L.",2014-12-18,1-2115-92778,2015-12-23
 xn--mgbca7dzdo,ابوظبي,"Abu Dhabi Systems and Information Centre",2015-07-30,1-1925-2822,2016-04-06
 xn--mgbi4ecexp,كاثوليك,"Pontificium Consilium de Comunicationibus Socialibus (PCCS) (Pontifical Council for Social Communication)",2015-10-21,1-1311-1455,2016-12-01
 xn--mgbt3dhd,همراه,"Asia Green IT System Bilgisayar San. ve Tic. Ltd. Sti.",2014-09-04,1-2134-95773,2015-12-07
