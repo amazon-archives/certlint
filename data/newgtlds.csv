@@ -1,4 +1,4 @@
->>> Updated on: 2019-10-10T12:02:01Z <<<
+>>> Updated on: 2019-12-23T06:02:02Z <<<
 tld,u-label,registry-operator,date-of-contract-signature,application-id,delegation-date
 aaa,,"American Automobile Association, Inc.",2015-02-26,1-1386-27446,2015-08-28
 aarp,,"AARP",2015-05-21,1-1169-4534,2015-11-03
@@ -40,6 +40,7 @@ allstate,,"Allstate Fire and Casualty Insurance Company",2015-07-31,1-1191-71962
 ally,,"Ally Financial Inc.",2015-06-18,1-1963-65104,2016-03-24
 alsace,,"Region Grand Est",2014-07-02,1-1825-82923,2014-10-04
 alstom,,"ALSTOM",2015-07-30,1-1135-17943,2016-06-10
+amazon,,"Amazon EU S.à r.l.",2019-12-19,1-1315-58086,
 americanexpress,,"American Express Travel Related Services Company, Inc.",2015-07-31,1-1305-84307,2016-08-08
 americanfamily,,"AmFam, Inc.",2015-07-23,1-1268-37828,2016-07-26
 amex,,"American Express Travel Related Services Company, Inc.",2015-07-31,1-1305-26511,2016-08-08
@@ -73,7 +74,7 @@ auspost,,"Australian Postal Corporation",2015-08-13,1-2096-81155,2016-08-17
 author,,"Amazon Registry Services, Inc.",2014-12-18,1-1315-99563,2015-12-05
 auto,,"Cars Registry Limited ",2014-11-13,1-855-72019,2015-05-02
 autos,,"DERAutos, LLC",2014-01-09,1-909-92065,2014-05-22
-avianca,,"Aerovias del Continente Americano S.A. Avianca",2015-01-08,1-1013-56131,2016-03-09
+avianca,,"Avianca Holdings S.A.",2015-01-08,1-1013-56131,2016-03-09
 aws,,"Amazon Registry Services, Inc.",2015-06-25,1-1315-68636,2016-03-25
 axa,,"AXA SA",2013-12-19,1-1746-50891,2014-03-19
 azure,,"Microsoft Corporation",2014-12-18,1-1129-27259,2015-06-06
@@ -113,7 +114,6 @@ bike,,"Binky Moon, LLC",2013-08-27,1-1357-41903,2013-11-14
 bing,,"Microsoft Corporation",2014-12-18,1-1129-41416,2015-06-10
 bingo,,"Binky Moon, LLC",2014-12-04,1-1360-70873,2015-02-04
 bio,,"Afilias Limited",2014-03-06,1-1000-94806,2014-06-02
-biz,,"Registry Services, LLC",,,2001-09-25
 black,,"Afilias Limited",2014-01-16,1-868-74058,2014-03-27
 blackfriday,,"Uniregistry, Corp.",2014-01-16,1-855-24025,2014-04-22
 blockbuster,,"Dish DBS Corporation",2015-07-30,1-1921-69359,2016-08-04
@@ -171,7 +171,6 @@ care,,"Binky Moon, LLC",2014-03-06,1-1374-92093,2014-04-23
 career,,"dotCareer LLC",2013-10-09,1-907-61259,2014-04-11
 careers,,"Binky Moon, LLC",2013-10-02,1-1378-74207,2013-12-17
 cars,,"Cars Registry Limited ",2014-11-13,1-845-37810,2015-05-02
-cartier,,"Richemont DNS Inc.",2014-06-23,1-1253-32739,2014-12-11
 casa,,"Minds + Machines Group Limited",2013-11-21,1-1038-47257,2014-09-23
 case,,"CNH Industrial N.V.",2015-09-03,1-2050-40761,2016-10-30
 caseih,,"CNH Industrial N.V.",2015-09-03,1-2051-20058,2016-10-30
@@ -198,7 +197,6 @@ cheap,,"Binky Moon, LLC",2013-11-14,1-1388-22552,2014-01-14
 chintai,,"CHINTAI Corporation",2015-06-11,1-901-295,2016-06-07
 christmas,,"Uniregistry, Corp.",2013-11-21,1-855-47142,2014-02-26
 chrome,,"Charleston Road Registry Inc.",2014-07-24,1-1683-38963,2014-09-15
-chrysler,,"FCA US LLC.",2015-07-30,1-2057-24195,2016-07-28
 church,,"Binky Moon, LLC",2014-02-06,1-1387-59691,2014-05-15
 cipriani,,"Hotel Cipriani Srl",2015-02-19,1-1837-53838,2015-10-09
 circle,,"Amazon Registry Services, Inc.",2014-12-18,1-1315-92803,2015-12-05
@@ -292,7 +290,6 @@ diy,,"Lifestyle Domain Holdings, Inc.",2015-11-05,1-1326-57740,2016-08-25
 dnp,,"Dai Nippon Printing Co., Ltd.",2013-12-13,1-948-69611,2014-03-11
 docs,,"Charleston Road Registry Inc.",2014-10-16,1-1682-12856,2014-12-18
 doctor,,"Binky Moon, LLC",2016-06-02,1-1430-52453,2016-07-21
-dodge,,"FCA US LLC.",2015-07-30,1-2054-9171,2016-08-04
 dog,,"Binky Moon, LLC",2014-12-04,1-1429-22494,2015-04-29
 domains,,"Binky Moon, LLC",2013-10-17,1-1433-39728,2013-12-17
 dot,,"Dish DBS Corporation",2015-05-21,1-2005-70840,2016-05-18
@@ -328,7 +325,6 @@ etisalat,,"Emirates Telecommunications Corporation (trading as Etisalat)",2015-0
 eurovision,,"European Broadcasting Union (EBU)",2014-04-24,1-1083-6576,2014-12-06
 eus,,"Puntueus Fundazioa",2013-12-12,1-1293-15788,2014-04-11
 events,,"Binky Moon, LLC",2013-12-05,1-1443-27992,2014-02-04
-everbank,,"EverBank",2014-05-15,1-2136-22895,2014-11-26
 exchange,,"Binky Moon, LLC",2014-03-06,1-1445-68403,2014-04-23
 expert,,"Binky Moon, LLC",2013-11-21,1-1444-46322,2014-01-23
 exposed,,"Binky Moon, LLC",2013-12-05,1-1446-82057,2014-02-04
@@ -420,7 +416,7 @@ global,,"Dot Global Domain Registry Limited",2014-04-17,1-1747-40234,2014-06-11
 globo,,"Globo Comunicação e Participações S.A",2013-12-19,1-1151-96871,2014-05-03
 gmail,,"Charleston Road Registry Inc.",2014-05-01,1-1099-70123,2014-08-27
 gmbh,,"Binky Moon, LLC",2016-01-29,1-1477-91047,2016-03-09
-gmo,,"GMO Internet Pte. Ltd.",2014-01-09,1-1657-61205,2014-05-03
+gmo,,"GMO Internet, Inc.",2014-01-09,1-1657-61205,2014-05-03
 gmx,,"1&1 Mail & Media GmbH",2014-04-24,1-1256-36701,2014-09-05
 godaddy,,"Go Daddy East, LLC",2015-07-23,1-1109-42895,2016-07-07
 gold,,"Binky Moon, LLC",2015-01-22,1-1478-71326,2015-03-24
@@ -557,12 +553,10 @@ kred,,"KredTLD Pty Ltd",2013-12-19,1-1707-1944,2014-02-27
 kuokgroup,,"Kerry Trading Co. Limited",2015-04-09,1-928-30883,2016-03-05
 kyoto,,"Academic Institution: Kyoto Jyoho Gakuen",2014-11-07,1-1716-31099,2015-01-28
 lacaixa,,"Fundación Bancaria Caixa d’Estalvis i Pensions de Barcelona, “la Caixa”",2014-01-09,1-1835-20716,2014-07-18
-ladbrokes,,"LADBROKES INTERNATIONAL PLC",2015-08-06,1-1823-86614,2016-07-29
 lamborghini,,"Automobili Lamborghini S.p.A.",2015-06-04,1-1261-2722,2015-11-25
 lamer,,"The Estée Lauder Companies Inc.",2015-10-01,1-1964-45137,2015-12-24
 lancaster,,"LANCASTER",2015-02-12,1-854-19943,2015-07-15
 lancia,,"Fiat Chrysler Automobiles N.V.",2015-07-31,1-2070-21096,2016-08-04
-lancome,,"L'Oréal",2015-07-23,1-1301-74397,2016-07-15
 land,,"Binky Moon, LLC",2013-09-10,1-1525-41533,2013-11-14
 landrover,,"Jaguar Land Rover Ltd",2014-11-13,1-2032-73816,2015-10-27
 lanxess,,"LANXESS Corporation",2015-07-30,1-1754-39601,2016-01-26
@@ -598,7 +592,7 @@ live,,"Dog Beach, LLC",2014-12-04,1-1545-55209,2015-07-08
 living,,"Lifestyle Domain Holdings, Inc.",2015-07-30,1-1326-92909,2015-12-28
 lixil,,"LIXIL Group Corporation",2015-03-19,1-969-63512,2015-07-30
 llc,,"Afilias Limited",2017-12-14,1-868-65445,2018-02-22
-llp,,"Dot Registry LLC",2019-08-26,1-880-35508,
+llp,,"Dot Registry LLC",2019-08-26,1-880-35508,2019-12-05
 loan,,"dot Loan Limited",2014-11-20,1-1222-21097,2015-03-25
 loans,,"Binky Moon, LLC",2014-03-20,1-1544-18264,2014-05-15
 locker,,"Dish DBS Corporation",2015-06-04,1-2013-75702,2016-05-27
@@ -662,7 +656,6 @@ mom,,"Uniregistry, Corp.",2015-04-16,1-855-75369,2015-08-19
 monash,,"Monash University",2013-09-30,1-1153-75618,2014-01-18
 money,,"Binky Moon, LLC",2014-10-16,1-1567-79679,2014-11-26
 monster,,"XYZ.COM LLC",2015-09-11,1-1697-33789,2016-09-14
-mopar,,"FCA US LLC.",2015-07-30,1-2060-34064,2016-08-02
 mormon,,"IRI Domain Management, LLC (\"Applicant\")",2013-12-05,1-1098-52000,2014-11-19
 mortgage,,"Dog Beach, LLC",2014-03-20,1-1564-75367,2014-05-31
 moscow,,"Foundation for Assistance for Internet Technologies and Infrastructure Development (FAITID)",2013-12-19,1-975-59500,2014-04-24
@@ -757,7 +750,6 @@ photo,,"Uniregistry, Corp.",2013-11-14,1-845-871,2014-01-18
 photography,,"Binky Moon, LLC",2013-09-20,1-1581-70192,2013-11-19
 photos,,"Binky Moon, LLC",2013-10-17,1-1580-67148,2013-12-17
 physio,,"PhysBiz Pty Ltd",2014-05-01,1-967-85854,2014-06-19
-piaget,,"Richemont DNS Inc.",2014-10-16,1-1253-59416,2015-03-16
 pics,,"Uniregistry, Corp.",2013-11-14,1-845-88170,2014-01-18
 pictet,,"Pictet Europe S.A.",2014-06-26,1-1314-50545,2015-03-07
 pictures,,"Binky Moon, LLC",2014-03-06,1-1585-29698,2014-04-11
@@ -795,7 +787,7 @@ pub,,"Dog Beach, LLC",2013-12-12,1-1255-25091,2014-02-26
 pwc,,"PricewaterhouseCoopers LLP",2015-10-29,1-1891-70526,2016-02-11
 qpon,,"dotCOOL, Inc.",2013-11-14,1-2107-33929,2014-02-12
 quebec,,"PointQuébec Inc",2013-12-19,1-1663-45909,2014-04-16
-quest,,"Quest ION Limited",2015-03-26,1-1817-89377,2016-02-06
+quest,,"XYZ.COM LLC",2015-03-26,1-1817-89377,2016-02-06
 qvc,,"QVC, Inc.",2015-07-30,1-877-83686,2016-08-04
 racing,,"Premier Registry Limited",2014-12-04,1-1200-70811,2015-04-03
 radio,,"European Broadcasting Union (EBU)",2016-07-21,1-1083-39123,2016-10-12
@@ -928,7 +920,6 @@ sport,,"Global Association of International Sports Federations (GAISF)",2017-11-
 spot,,"Amazon Registry Services, Inc.",2015-02-26,1-1317-50025,2016-02-19
 spreadbetting,,"Dotspreadbetting Registry Limited",2014-12-11,1-2045-23929,2015-03-13
 srl,,"InterNetX, Corp",2015-05-07,1-1013-93642,2015-07-24
-srt,,"FCA US LLC.",2015-07-30,1-2059-70151,2016-07-28
 stada,,"STADA Arzneimittel AG",2014-11-13,1-1089-42298,2015-09-13
 staples,,"Staples, Inc.",2015-07-30,1-1954-61706,2016-07-15
 star,,"Star India Private Limited",2015-01-08,1-2109-49205,2015-12-22
@@ -1015,7 +1006,6 @@ tushu,,"Amazon Registry Services, Inc.",2014-12-18,1-1318-59070,2015-12-14
 tvs,,"T V SUNDRAM IYENGAR  & SONS LIMITED",2015-02-19,1-1862-71358,2016-02-13
 ubank,,"National Australia Bank Limited",2015-08-20,1-1724-54856,2016-08-18
 ubs,,"UBS AG",2014-12-11,1-1942-41146,2015-07-11
-uconnect,,"FCA US LLC.",2015-07-30,1-2061-81662,2016-07-28
 unicom,,"China United Network Communications Corporation Limited",2015-10-15,1-996-99850,2016-02-04
 university,,"Binky Moon, LLC",2014-03-06,1-1651-77163,2014-04-11
 uno,,"DotSite Inc.",2013-09-11,1-881-92958,2013-11-30
@@ -1056,7 +1046,6 @@ walmart,,"Wal-Mart Stores, Inc.",2015-07-31,1-1244-56727,2016-08-18
 walter,,"Sandvik AB",2014-11-13,1-2076-35685,2015-05-27
 wang,,"Zodiac Wang Limited",2013-10-24,1-857-40930,2014-01-03
 wanggou,,"Amazon Registry Services, Inc.",2014-12-18,1-1318-32718,2015-12-15
-warman,,"Weir Group IP Limited",2015-06-18,1-1822-29200,2016-05-03
 watch,,"Binky Moon, LLC",2013-11-14,1-1528-66412,2014-01-23
 watches,,"Richemont DNS Inc.",2014-12-22,1-1253-13044,2015-12-14
 weather,,"International Business Machines Corporation",2015-01-08,1-1977-49078,2016-01-12
@@ -1095,7 +1084,7 @@ xn--1ck2e1b,セール,"Amazon Registry Services, Inc.",2015-02-26,1-1318-75179,2
 xn--1qqw23a,佛山,"Guangzhou YU Wei Information Technology Co., Ltd.",2014-01-09,1-1121-69393,2014-08-14
 xn--30rr7y,慈善,"Excellent First Limited",2014-06-12,1-961-6109,2015-03-31
 xn--3bst00m,集团,"Eagle Horizon Limited",2013-09-13,1-962-55795,2014-01-03
-xn--3ds443g,在线,"TLD REGISTRY LIMITED",2013-09-08,1-1940-42600,2014-01-02
+xn--3ds443g,在线,"TLD REGISTRY LIMITED OY",2013-09-08,1-1940-42600,2014-01-02
 xn--3oq18vl8pn36a,大众汽车,"Volkswagen (China) Investment Co., Ltd.",2015-07-02,1-1824-64001,2016-08-16
 xn--3pxu8k,点看,"VeriSign Sarl",2015-01-15,1-1254-85868,2015-07-28
 xn--42c2d9a,คอม,"VeriSign Sarl",2015-01-15,1-1254-3015,2015-07-28
@@ -1120,8 +1109,9 @@ xn--bck1b9a5dre4c,ファッション,"Amazon Registry Services, Inc.",2015-02-26
 xn--c1avg,орг,"Public Interest Registry",2013-11-14,1-910-36696,2014-03-05
 xn--c2br7g,नेट,"VeriSign Sarl",2015-01-15,1-1254-86085,2015-07-28
 xn--cck2b3b,ストア,"Amazon Registry Services, Inc.",2015-02-26,1-1318-83013,2016-02-19
+xn--cckwcxetd,アマゾン,"Amazon EU S.à r.l.",2019-12-19,1-1318-83995,
 xn--cg4bki,삼성,"SAMSUNG SDS CO., LTD",2013-09-27,1-955-42062,2014-02-21
-xn--czr694b,商标,"Dot Trademark TLD Holding Company Limited",2014-01-16,1-1157-41509,2014-05-22
+xn--czr694b,商标,"Internet DotTrademark Organisation Limited",2014-01-16,1-1157-41509,2014-05-22
 xn--czrs0t,商店,"Binky Moon, LLC",2013-12-19,1-1490-59840,2014-12-06
 xn--czru2d,商城,"Zodiac Aquarius Limited",2013-11-21,1-867-66064,2014-03-31
 xn--d1acj3b,дети,"The Foundation for Network Initiatives “The Smart Internet”",2013-11-20,1-1193-2906,2014-02-26
@@ -1130,7 +1120,7 @@ xn--efvy88h,新闻,"Guangzhou YU Wei Information Technology Co., Ltd.",2014-08-2
 xn--estv75g,工行,"Industrial and Commercial Bank of China Limited",2015-02-19,1-1011-2710,2015-05-07
 xn--fct429k,家電,"Amazon Registry Services, Inc.",2015-04-09,1-1318-54339,2016-03-25
 xn--fhbei,كوم,"VeriSign Sarl",2015-01-15,1-1254-25640,2015-07-28
-xn--fiq228c5hs,中文网,"TLD REGISTRY LIMITED",2013-09-08,1-1939-78147,2014-01-03
+xn--fiq228c5hs,中文网,"TLD REGISTRY LIMITED OY",2013-09-08,1-1939-78147,2014-01-03
 xn--fiq64b,中信,"CITIC Group Corporation",2013-10-14,1-914-3594,2014-01-18
 xn--fjq720a,娱乐,"Binky Moon, LLC",2014-05-22,1-1491-83816,2015-05-09
 xn--flw351e,谷歌,"Charleston Road Registry Inc.",2014-07-31,1-1141-36998,2014-11-20
@@ -1140,9 +1130,10 @@ xn--gckr3f0f,クラウド,"Amazon Registry Services, Inc.",2015-02-26,1-1318-696
 xn--gk3at1e,通販,"Amazon Registry Services, Inc.",2015-10-08,1-1318-15593,2016-09-30
 xn--hxt814e,网店,"Zodiac Taurus Limited",2014-05-15,1-858-36255,2014-12-02
 xn--i1b6b1a6a2e,संगठन,"Public Interest Registry",2013-11-14,1-910-41904,2014-03-09
-xn--imr513n,餐厅,"Dot Trademark TLD Holding Company Limited",2014-12-11,1-1103-5695,2015-05-30
+xn--imr513n,餐厅,"Internet DotTrademark Organisation Limited",2014-12-11,1-1103-5695,2015-05-30
 xn--io0a7i,网络,"China Internet Network Information Center (CNNIC)",2013-11-14,1-932-13797,2014-01-18
 xn--j1aef,ком,"VeriSign Sarl",2015-01-15,1-1254-23113,2015-07-28
+xn--jlq480n2rg,亚马逊,"Amazon EU S.à r.l.",2019-12-19,1-1318-5591,
 xn--jlq61u9w7b,诺基亚,"Nokia Corporation",2015-01-08,1-957-40223,2015-12-18
 xn--jvr189m,食品,"Amazon Registry Services, Inc.",2015-02-26,1-1318-83264,2016-02-22
 xn--kcrx77d1x4a,飞利浦,"Koninklijke Philips N.V.",2014-11-07,1-1748-14964,2015-04-07
@@ -1163,7 +1154,7 @@ xn--ngbrx,عرب,"League of Arab States",2015-11-12,1-1346-36518,2017-05-23
 xn--nqv7f,机构,"Public Interest Registry",2013-11-14,1-910-16443,2014-03-09
 xn--nqv7fs00ema,组织机构,"Public Interest Registry",2013-11-14,1-910-25137,2014-03-09
 xn--nyqy26a,健康,"Stable Tone Limited",2014-11-07,1-1708-88054,2015-04-02
-xn--otu796d,招聘,"Dot Trademark TLD Holding Company Limited",2017-08-06,1-1158-95080,2018-01-24
+xn--otu796d,招聘,"Internet DotTrademark Organisation Limited",2017-08-06,1-1158-95080,2018-01-24
 xn--p1acf,рус,"Rusnames Limited",2013-12-12,1-1957-68557,2014-09-27
 xn--pbt977c,珠宝,"Richemont DNS Inc.",2014-12-22,1-1253-4621,2015-12-15
 xn--pssy2u,大拿,"VeriSign Sarl",2015-01-15,1-1254-52569,2015-07-28
@@ -1188,7 +1179,7 @@ xyz,,"XYZ.COM LLC",2013-12-05,1-1982-70171,2014-02-19
 yachts,,"DERYachts, LLC",2014-01-09,1-909-89547,2014-05-22
 yahoo,,"Yahoo! Domain Services Inc.",2015-04-02,1-1168-48888,2016-02-13
 yamaxun,,"Amazon Registry Services, Inc.",2014-12-18,1-1318-28317,2015-10-07
-yandex,,"YANDEX, LLC",2014-04-10,1-977-13382,2014-07-18
+yandex,,"Yandex Europe B.V.",2014-04-10,1-977-13382,2014-07-18
 yodobashi,,"YODOBASHI CAMERA CO.,LTD.",2014-11-20,1-1809-93761,2015-02-19
 yoga,,"Minds + Machines Group Limited",2014-05-29,1-1037-89079,2014-10-15
 yokohama,,"GMO Registry, Inc.",2013-12-12,1-1194-80642,2014-04-03
