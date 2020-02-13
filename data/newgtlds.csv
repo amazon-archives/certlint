@@ -1,4 +1,4 @@
->>> Updated on: 2019-12-23T06:02:02Z <<<
+>>> Updated on: 2020-02-13T12:02:02Z <<<
 tld,u-label,registry-operator,date-of-contract-signature,application-id,delegation-date
 aaa,,"American Automobile Association, Inc.",2015-02-26,1-1386-27446,2015-08-28
 aarp,,"AARP",2015-05-21,1-1169-4534,2015-11-03
@@ -100,7 +100,7 @@ bbva,,"BANCO BILBAO VIZCAYA ARGENTARIA, S.A.",2014-10-02,1-1111-84953,2015-05-27
 bcg,,"The Boston Consulting Group, Inc.",2015-04-02,1-1969-69205,2016-03-09
 bcn,,"Municipi de Barcelona",2014-07-24,1-1820-23404,2015-07-08
 beats,,"Beats Electronics, LLC",2015-05-14,1-2048-47049,2015-11-03
-beauty,,"L'Oréal",2015-12-03,1-1302-76087,2016-07-15
+beauty,,"XYZ.COM LLC",2015-12-03,1-1302-76087,2016-07-15
 beer,,"Minds + Machines Group Limited",2014-01-09,1-927-52478,2014-05-15
 bentley,,"Bentley Motors Limited",2014-12-18,1-1096-37266,2015-07-09
 berlin,,"dotBERLIN GmbH & Co. KG",2013-10-31,1-902-9993,2014-01-08
@@ -252,7 +252,7 @@ cruises,,"Binky Moon, LLC",2013-12-05,1-1415-46513,2014-02-04
 csc,,"Alliance-One Services, Inc.",2014-09-25,1-1674-60067,2015-09-01
 cuisinella,,"SCHMIDT GROUPE S.A.S.",2014-04-03,1-1114-58195,2014-07-03
 cymru,,"Nominet UK",2014-05-08,1-1105-16488,2014-08-08
-cyou,,"Beijing Gamease Age Digital Technology Co., Ltd.",2015-01-22,1-1659-50039,2015-04-03
+cyou,,"ShortDot SA",2015-01-22,1-1659-50039,2015-04-03
 dabur,,"Dabur India Limited",2014-02-06,1-1804-73491,2015-01-24
 dad,,"Charleston Road Registry Inc.",2014-01-23,1-1682-14122,2014-08-30
 dance,,"Dog Beach, LLC",2013-10-24,1-1255-69937,2014-01-14
@@ -441,7 +441,7 @@ guge,,"Charleston Road Registry Inc.",2014-08-28,1-1099-76403,2015-03-24
 guide,,"Binky Moon, LLC",2013-09-13,1-1484-33046,2014-05-15
 guitars,,"Uniregistry, Corp.",2013-11-14,1-855-34620,2014-01-18
 guru,,"Binky Moon, LLC",2013-08-27,1-1487-73268,2013-11-06
-hair,,"L'Oréal",2015-12-03,1-1302-98299,2016-12-02
+hair,,"XYZ.COM LLC",2015-12-03,1-1302-98299,2016-12-02
 hamburg,,"Hamburg Top-Level-Domain GmbH",2014-02-20,1-1134-57974,2014-06-04
 hangout,,"Charleston Road Registry Inc.",2014-11-13,1-1678-13168,2015-01-24
 haus,,"Dog Beach, LLC",2013-12-05,1-1488-15641,2014-03-31
@@ -574,7 +574,6 @@ legal,,"Binky Moon, LLC",2014-10-16,1-1536-79233,2014-11-26
 lego,,"LEGO Juris A/S",2015-07-16,1-1795-41858,2016-06-16
 lexus,,"TOYOTA MOTOR CORPORATION",2015-04-23,1-1717-84290,2015-07-26
 lgbt,,"Afilias Limited",2014-05-08,1-868-8822,2014-07-18
-liaison,,"Liaison Technologies, Incorporated",2014-10-02,1-1904-8749,2015-05-02
 lidl,,"Schwarz Domains und Services GmbH & Co. KG",2014-09-18,1-1123-60314,2014-12-13
 life,,"Binky Moon, LLC",2014-02-06,1-1535-64595,2014-05-15
 lifeinsurance,,"American Council of Life Insurers",2015-01-15,1-1160-79590,2016-01-19
@@ -615,7 +614,7 @@ macys,,"Macys, Inc.",2015-07-31,1-1790-19744,2016-07-12
 madrid,,"Comunidad de Madrid",2014-05-01,1-1742-48964,2014-11-20
 maif,,"Mutuelle Assurance Instituteur France (MAIF)",2014-10-02,1-1819-55314,2015-03-03
 maison,,"Binky Moon, LLC",2013-12-05,1-1552-8006,2014-02-11
-makeup,,"L'Oréal",2015-01-15,1-1302-1511,2016-01-15
+makeup,,"XYZ.COM LLC",2015-01-15,1-1302-1511,2016-01-15
 man,,"MAN SE",2014-12-04,1-1869-92391,2015-07-26
 management,,"Binky Moon, LLC",2013-11-07,1-1555-40996,2013-12-17
 mango,,"PUNTO FA S.L.",2013-10-24,1-1784-26967,2014-02-16
@@ -663,7 +662,6 @@ moto,,"Motorola Trademark Holdings, LLC",2015-06-04,1-1138-87257,2016-11-12
 motorcycles,,"DERMotorcycles, LLC",2014-01-09,1-909-56431,2014-05-22
 mov,,"Charleston Road Registry Inc.",2014-01-30,1-1142-23068,2014-08-30
 movie,,"Binky Moon, LLC",2015-02-05,1-1570-42842,2015-03-25
-movistar,,"Telefónica S.A.",2014-10-16,1-1791-84637,2015-06-26
 msd,,"MSD Registry Holdings, Inc.",2015-07-23,1-1704-5879,2016-07-23
 mtn,,"MTN Dubai Limited",2014-12-04,1-2140-13825,2015-03-25
 mtr,,"MTR Corporation Limited",2015-03-12,1-2028-44295,2015-10-07
@@ -897,7 +895,7 @@ sina,,"Sina Corporation",2015-03-12,1-950-30912,2016-03-30
 singles,,"Binky Moon, LLC",2013-08-27,1-1634-15520,2013-11-06
 site,,"DotSite Inc.",2015-01-15,1-1048-46315,2015-03-16
 ski,,"Afilias Limited",2015-04-09,1-1000-18032,2015-05-30
-skin,,"L'Oréal",2015-01-15,1-1302-80853,2016-01-15
+skin,,"XYZ.COM LLC",2015-01-15,1-1302-80853,2016-01-15
 sky,,"Sky International AG",2014-06-19,1-991-90219,2014-12-12
 skype,,"Microsoft Corporation",2014-12-18,1-1129-38236,2015-06-23
 sling,,"DISH Technologies L.L.C.",2015-07-30,1-1999-59552,2016-08-10
@@ -962,7 +960,6 @@ tdk,,"TDK Corporation",2015-06-11,1-901-92814,2016-06-07
 team,,"Binky Moon, LLC",2015-03-05,1-1559-19356,2015-04-16
 tech,,"Personals TLD Inc.",2015-01-30,1-1670-76346,2015-03-21
 technology,,"Binky Moon, LLC",2013-09-13,1-1639-5968,2013-11-14
-telefonica,,"Telefónica S.A.",2014-10-16,1-1791-89073,2015-06-26
 temasek,,"Temasek Holdings (Private) Limited",2014-08-07,1-848-96376,2015-01-24
 tennis,,"Binky Moon, LLC",2014-12-04,1-1640-29241,2015-02-04
 teva,,"Teva Pharmaceutical Industries Limited",2015-07-02,1-1081-27807,2016-04-13
@@ -1154,7 +1151,7 @@ xn--ngbrx,عرب,"League of Arab States",2015-11-12,1-1346-36518,2017-05-23
 xn--nqv7f,机构,"Public Interest Registry",2013-11-14,1-910-16443,2014-03-09
 xn--nqv7fs00ema,组织机构,"Public Interest Registry",2013-11-14,1-910-25137,2014-03-09
 xn--nyqy26a,健康,"Stable Tone Limited",2014-11-07,1-1708-88054,2015-04-02
-xn--otu796d,招聘,"Internet DotTrademark Organisation Limited",2017-08-06,1-1158-95080,2018-01-24
+xn--otu796d,招聘,"Jiang Yu Liang Cai Technology Company Limited",2017-08-06,1-1158-95080,2018-01-24
 xn--p1acf,рус,"Rusnames Limited",2013-12-12,1-1957-68557,2014-09-27
 xn--pbt977c,珠宝,"Richemont DNS Inc.",2014-12-22,1-1253-4621,2015-12-15
 xn--pssy2u,大拿,"VeriSign Sarl",2015-01-15,1-1254-52569,2015-07-28
